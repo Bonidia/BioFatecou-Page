@@ -1594,3 +1594,17 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+/* Estilo padrão para dispositivos móveis */
+.responsive-img {
+  width: 100%; /* Ocupa 100% da largura em dispositivos móveis */
+  height: auto;
+}
+
+/* Estilo para telas maiores que 768px */
+@media (min-width: 769px) {
+  .responsive-img {
+    width: 50%; /* Ocupa 50% da largura em telas maiores, como desktops */
+    height: auto;
+  }
+}
