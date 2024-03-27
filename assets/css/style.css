@@ -1597,7 +1597,7 @@ section {
 
 /* Estilo padrão para dispositivos móveis */
 .responsive-img {
-  width: 70%; /* Ocupa 100% da largura em dispositivos móveis */
+  width: auto; /* Ocupa 100% da largura em dispositivos móveis */
   height: auto;
 }
 
