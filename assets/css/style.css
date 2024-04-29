@@ -1608,3 +1608,91 @@ section {
     height: auto;
   }
 }
+
+/* Estilos gerais para a seção de Milestones */
+.milestones .section-title {
+  text-align: left; /* Alinha o título à esquerda */
+  margin-bottom: 20px;
+  padding-left: 15px; /* Adiciona um pouco de padding à esquerda para melhor visualização */
+}
+
+.milestones .icon-box {
+  flex: 1 0 21%; /* Largura de cada caixa */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribui o espaço internamente */
+  background: #fff;
+  padding: 20px;
+  margin: 5px; /* Espaço entre as caixas */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  min-height: 180px; /* Altura mínima para todos os quadros */
+}
+
+.milestones .icon-box:hover {
+  transform: translateY(-5px);
+}
+
+.milestones .icon {
+  font-size: 30px; /* Tamanho do ícone */
+  color: inherit;
+  margin-bottom: 10px;
+}
+
+.milestones .title {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.milestones .description {
+  font-size: 12px;
+  color: #666;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+
+.milestones .info-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #17a2b8; /* Cor de informação do Bootstrap */
+  cursor: pointer;
+}
+
+.milestones .info-btn:hover {
+  color: #1391b7; /* Cor mais escura ao passar o mouse */
+}
+
+.milestones .icon-box .title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.milestones .icon-box .title {
+  font-size: 16px; /* ou ajuste conforme necessário */
+  margin-bottom: 0; /* Remove a margem inferior padrão se necessário */
+}
+
+.milestones .icon-box .counter {
+  font-size: 16px;
+  color: #666; /* Cor do texto do contador */
+  font-weight: bold;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 991px) {
+  .milestones .icon-box {
+    flex: 1 0 45%; /* Ajusta para duas colunas em telas menores */
+  }
+}
+
+@media (max-width: 767px) {
+  .milestones .icon-box {
+    flex: 1 0 100%; /* Ajusta para uma coluna em telas muito pequenas */
+    margin-bottom: 10px;
+  }
+}
