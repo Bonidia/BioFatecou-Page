@@ -74,6 +74,7 @@
           <li><a class="nav-link scrollto" href="#services">Goals</a></li> 
           <li><a class="nav-link scrollto " href="#portfolio">Gallery and News</a></li>
           <li><a class="nav-link scrollto" href="#projects">Projects</a></li> 
+          <li><a class="nav-link scrollto" href="#testimonials">Testimonials</a></li>
           <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
           <!--<li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -262,7 +263,7 @@
                 <h4 class="title"><a href="">People Impacted</a></h4>
                 <span class="counter">570,640</span>
               </div>
-              <button type="button" class="btn btn-sm btn-info info-btn" data-bs-toggle="popover" title="People Impacted" data-bs-content="By combining 1320 direct interactions with an estimated indirect reach of 284,000 people through awards, media coverage, and international events, we estimate that the project impacted approximately 570,640 individuals. This total includes a multiplier effect, where each person impacted directly or indirectly is likely to share their experience with at least one other person, effectively doubling our reach. This comprehensive approach reflects both the immediate engagement with our project through events, educational initiatives, and online platforms, and the extended influence achieved through media exposure and international recognition. It illustrates the broad and profound impact of our initiatives, reaching a wide range of people and fostering a deeper understanding of the ethical and inclusive use of technology for social good. We calculated the indirect impact by estimating that each of our 12 awards reached an average of 2,000 people, our 50 media features reached an average of 5,000 people each, and our participation in international events reached 1,000 people per event. Applying a multiplier effect, where each person shares their experience with at least one other, we estimate a total impact of 570,640 people.
+              <button type="button" class="btn btn-sm btn-info info-btn" data-bs-toggle="popover" title="People Impacted" data-bs-content="By combining 1320 direct interactions with an estimated indirect reach of 284,000 people through awards, media coverage, and international events, we estimate that the project impacted approximately 570,640 individuals. This total includes a multiplier effect, where each person impacted directly or indirectly is likely to share their experience with at least one other person, effectively doubling our reach. This comprehensive approach reflects both the immediate engagement with our project through events, educational initiatives, and online platforms, and the extended influence achieved through media exposure and international recognition. It illustrates the broad and profound impact of our initiatives, reaching a wide range of people and fostering a deeper understanding of the ethical and inclusive use of technology for social good. We calculated the indirect impact by estimating that each of our 12 awards reached an average of 2,000 people, our 50 media features reached an average of 5,000 people each (see https://www.similarweb.com/), and our participation in international events reached 1,000 people per event. Applying a multiplier effect, where each person shares their experience with at least one other, we estimate a total impact of 570,640 people.
               ">?</button>
               <p class="description">Total number of people directly and indirectly impacted by our projects.</p>
             </div>
@@ -1526,88 +1527,56 @@
     </section><!-- End Projects Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <!--<section id="testimonials" class="testimonials">
+    <!--<section id="testimonials" class="testimonials py-5">
       <div class="container">
 
         <div class="section-title" data-aos="zoom-out">
           <h2>Testimonials</h2>
-          <p>What they are saying about us</p>
+          <p>What our students are saying about us</p>
         </div>
 
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
+        <div class="row gy-4">
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+          <div class="col-lg-4 col-md-6">
+            <div class="testimonial-item text-center p-4">
+              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img rounded-circle mb-3" alt="">
+              <h3>Saul Goodman</h3>
+              <h4>CEO &amp; Founder</h4>
+              <a href="https://www.linkedin.com/in/saul-goodman" target="_blank" class="d-block mb-3">LinkedIn</a>
+              <button class="btn btn-primary btn-show-testimonial mb-3" onclick="toggleTestimonial(this)">View Testimonial</button>
+              <div class="testimonial-content" style="display: none;">
+                <div class="testimonial-video">
+                  <video width="100%" height="150px" controls>
+                    <source src="assets/figures/Depoimentos/Denis.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
             </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div>
-
           </div>
-          <div class="swiper-pagination"></div>
-        </div>
 
+          <div class="col-lg-4 col-md-6">
+            <div class="testimonial-item text-center p-4">
+              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img rounded-circle mb-3" alt="">
+              <h3>Sara Wilsson</h3>
+              <h4>Designer</h4>
+              <a href="https://www.linkedin.com/in/sara-wilsson" target="_blank" class="d-block mb-3">LinkedIn</a>
+              <button class="btn btn-primary btn-show-testimonial mb-3" onclick="toggleTestimonial(this)">View Testimonial</button>
+              <div class="testimonial-content" style="display: none;">
+                <div class="testimonial-video">
+                  <video width="100%" height="150px" controls>
+                    <source src="assets/figures/Depoimentos/Sara.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </section>--><!-- End Testimonials Section -->
+    </section>-->
+    <!-- End Testimonials Section -->
 
     <!-- ======= Pricing Section ======= -->
     <!--<section id="pricing" class="pricing">
@@ -2135,6 +2104,29 @@
     };
   </script>
 
+  <script>
+    function toggleTestimonial(button) {
+      const content = button.nextElementSibling;
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        button.textContent = "Hide Testimonial";
+      } else {
+        content.style.display = "none";
+        button.textContent = "View Testimonial";
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.testimonials-slider', {
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
 
 </body>
 
