@@ -1735,3 +1735,21 @@ section {
   .testimonials .pagination button {
     margin: 0 5px;
   }
+
+  .milestone-item {
+  display: none;
+  }
+
+  .milestone-item.active {
+    display: block;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .pagination button {
+    margin: 0 5px;
+  }
