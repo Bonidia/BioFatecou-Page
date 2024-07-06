@@ -432,9 +432,6 @@
   <footer id="footer">
       <div class="container">
           <h3>InteliGenteCards</h3>
-          <div class="access-counter">
-              <span id="unique-visits" class="counter"></span> Unique Visits
-          </div>
           <div class="copyright">
               &copy; Copyright <strong><span>InteliGenteCards</span></strong>. All Rights Reserved
           </div>
@@ -502,87 +499,12 @@
   </script>
 
   <div class="gtranslate_wrapper"></div>
-  <script>window.gtranslateSettings = {"default_language":"en","languages":["en","fr","de", "pt", "it","es"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
+  <script>window.gtranslateSettings = {"default_language":"pt","languages":["pt", "en", "fr","de","it","es"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
   <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
   <!-- Include Bootstrap JS for popover functionality -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.min.js"></script>
-
-  <script>
-  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl);
-  });
-  </script>
-
-  <script>
-    // Função para incrementar o contador de acessos
-    function incrementarContador() {
-      let visitas;
-      if (localStorage.getItem('visitas')) {
-        visitas = parseInt(localStorage.getItem('visitas'));
-        visitas++;
-      } else {
-        // Defina o valor inicial do contador aqui
-        visitas = 3400;
-      }
-      localStorage.setItem('visitas', visitas);
-      // Atualiza o valor exibido na página
-      document.getElementById('contador').innerText = visitas;
-    }
-
-    // Chama a função ao carregar a página
-    window.onload = function() {
-      incrementarContador();
-    };
-  </script>
-
-  <script>
-    // Função para incrementar o contador de acessos únicos
-    function incrementUniqueVisits() {
-        let uniqueVisits;
-        // Verifica se o cookie 'uniqueVisits' já existe
-        if (document.cookie.includes('uniqueVisits')) {
-            // Obtém o valor do cookie 'uniqueVisits'
-            uniqueVisits = parseInt(getCookie('uniqueVisits'));
-        } else {
-            // Define o valor inicial do contador de acessos únicos
-            uniqueVisits = 3400;
-        }
-        // Incrementa o valor do contador
-        uniqueVisits++;
-        // Define o cookie 'uniqueVisits' com o novo valor e a data de expiração
-        document.cookie = `uniqueVisits=${uniqueVisits}; expires=${getExpirationDate()}; path=/`;
-        // Atualiza o valor exibido na página
-        document.getElementById('unique-visits').innerText = uniqueVisits;
-    }
-
-    // Função para obter o valor de um cookie por nome
-    function getCookie(name) {
-        const cookies = document.cookie.split(';');
-        for (let cookie of cookies) {
-            const [cookieName, cookieValue] = cookie.split('=');
-            if (cookieName.trim() === name) {
-                return cookieValue;
-            }
-        }
-        return '';
-    }
-
-    // Função para obter a data de expiração do cookie
-    function getExpirationDate() {
-        const expirationDate = new Date();
-        // Define a expiração do cookie para 365 dias a partir de hoje
-        expirationDate.setDate(expirationDate.getDate() + 365);
-        return expirationDate.toUTCString();
-    }
-
-    // Chama a função ao carregar a página
-    window.onload = function() {
-        incrementUniqueVisits();
-    };
-  </script>
 
 </body>
 
