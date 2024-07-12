@@ -2608,6 +2608,15 @@
   <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 
   <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.setAttribute('loading', 'lazy');
+            });
+        });
+  </script>
+
+  <script>
       // JavaScript for project search
       const projectSearchInput = document.getElementById('project-search-input');
       const projectTable = document.querySelector('.table tbody');
