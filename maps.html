@@ -1,0 +1,236 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NCLJFZFPL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NCLJFZFPL');
+    </script>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>InteliGente</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 600px; width: 100%; }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+      <div class="container d-flex align-items-center justify-content-between">
+
+        <div class="logo">
+          <h1><a href="index.html">InteliGente</a></h1>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="index.html">Home</a></li>    
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+      <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+        <!-- Slide 1 -->
+
+        <div class="carousel-item active">
+          <div class="carousel-container">
+            <h2 class="animate__animated animate__fadeInDown"><span>Global Access Map</span></h2>
+            <p class="animate__animated animate__fadeInUp"></p>
+            <a href="index.html" class="btn-get-started animate__animated animate__fadeInUp scrollto">Home</a>
+          </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+
+      <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+        <defs>
+          <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+        </defs>
+        <g class="wave1">
+          <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+        </g>
+        <g class="wave2">
+          <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+        </g>
+        <g class="wave3">
+          <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+        </g>
+      </svg>
+
+    </section><!-- End Hero -->
+
+    <main id="main">
+    <h2></h2>
+    </br>
+    </br>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([20, 0], 2);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+        }).addTo(map);
+
+        // Dados dos países
+        var countryData = [
+            { country: 'Brazil', lat: -14.2350, lng: -51.9253 },
+            { country: 'India', lat: 20.5937, lng: 78.9629 },
+            { country: 'United States', lat: 37.0902, lng: -95.7129 },
+            { country: 'Canada', lat: 56.1304, lng: -106.3468 },
+            { country: 'Cambodia', lat: 12.5657, lng: 104.9910 },
+            { country: 'China', lat: 35.8617, lng: 104.1954 },
+            { country: 'Bangladesh', lat: 23.6850, lng: 90.3563 },
+            { country: 'Pakistan', lat: 30.3753, lng: 69.3451 },
+            { country: 'Egypt', lat: 26.8206, lng: 30.8025 },
+            { country: 'Colombia', lat: 4.5709, lng: -74.2973 },
+            { country: 'Indonesia', lat: -0.7893, lng: 113.9213 },
+            { country: 'Nepal', lat: 28.3949, lng: 84.1240 },
+            { country: 'Germany', lat: 51.1657, lng: 10.4515 },
+            { country: 'Singapore', lat: 1.3521, lng: 103.8198 },
+            { country: 'Philippines', lat: 12.8797, lng: 121.7740 },
+            { country: 'Seychelles', lat: -4.6796, lng: 55.4920 },
+            { country: 'France', lat: 46.6034, lng: 1.8883 },
+            { country: 'Iraq', lat: 33.2232, lng: 43.6793 },
+            { country: 'Sri Lanka', lat: 7.8731, lng: 80.7718 },
+            { country: 'Netherlands', lat: 52.1326, lng: 5.2913 },
+            { country: 'Algeria', lat: 28.0339, lng: 1.6596 },
+            { country: 'Hungary', lat: 47.1625, lng: 19.5033 },
+            { country: 'Argentina', lat: -38.4161, lng: -63.6167 },
+            { country: 'Dominican Republic', lat: 18.7357, lng: -70.1627 },
+            { country: 'Ghana', lat: 7.9465, lng: -1.0232 },
+            { country: 'Kenya', lat: -1.2921, lng: 36.8219 },
+            { country: 'Morocco', lat: 31.7917, lng: -7.0926 },
+            { country: 'Nigeria', lat: 9.0820, lng: 8.6753 },
+            { country: 'Portugal', lat: 39.3999, lng: -8.2245 },
+            { country: 'Uganda', lat: 1.3733, lng: 32.2903 },
+            { country: 'Bolivia', lat: -16.2902, lng: -63.5887 },
+            { country: 'Ecuador', lat: -1.8312, lng: -78.1834 },
+            { country: 'Finland', lat: 61.9241, lng: 25.7482 },
+            { country: 'Laos', lat: 19.8563, lng: 102.4955 },
+            { country: 'Lebanon', lat: 33.8547, lng: 35.8623 },
+            { country: 'Libya', lat: 26.3351, lng: 17.2283 },
+            { country: 'Mexico', lat: 23.6345, lng: -102.5528 },
+            { country: 'Senegal', lat: 14.4974, lng: -14.4524 },
+            { country: 'United Kingdom', lat: 55.3781, lng: -3.4360 },
+            { country: 'Iran', lat: 32.4279, lng: 53.6880 },
+            { country: 'Jordan', lat: 30.5852, lng: 36.2384 },
+            { country: 'South Korea', lat: 35.9078, lng: 127.7669 },
+            { country: 'Switzerland', lat: 46.8182, lng: 8.2275 },
+            { country: 'Uruguay', lat: -32.5228, lng: -55.7658 },
+            { country: 'Uzbekistan', lat: 41.3775, lng: 64.5853 },
+            { country: 'Venezuela', lat: 6.4238, lng: -66.5897 },
+            { country: 'Vietnam', lat: 14.0583, lng: 108.2772 },
+            { country: 'Austria', lat: 47.5162, lng: 14.5501 },
+            { country: 'Belgium', lat: 50.8503, lng: 4.3517 },
+            { country: 'Cameroon', lat: 7.3697, lng: 12.3547 },
+            { country: 'Côte d’Ivoire', lat: 7.5399, lng: -5.5471 },
+            { country: 'Honduras', lat: 15.2000, lng: -86.2419 },
+            { country: 'Hong Kong', lat: 22.3193, lng: 114.1694 },
+            { country: 'Ireland', lat: 53.1424, lng: -7.6921 },
+            { country: 'Israel', lat: 31.0461, lng: 34.8516 },
+            { country: 'Italy', lat: 41.8719, lng: 12.5674 },
+            { country: 'Jamaica', lat: 18.1096, lng: -77.2975 },
+            { country: 'Japan', lat: 36.2048, lng: 138.2529 },
+            { country: 'Madagascar', lat: -18.7669, lng: 46.8691 },
+            { country: 'Malaysia', lat: 4.2105, lng: 101.9758 },
+            { country: 'Papua New Guinea', lat: -6.314993, lng: 143.9555 },
+            { country: 'Peru', lat: -9.189967, lng: -75.0152 },
+            { country: 'Poland', lat: 51.9194, lng: 19.1451 },
+            { country: 'Russia', lat: 61.5240, lng: 105.3188 },
+            { country: 'Saudi Arabia', lat: 23.8859, lng: 45.0792 },
+            { country: 'Serbia', lat: 44.0165, lng: 21.0059 },
+            { country: 'Spain', lat: 40.4637, lng: -3.7492 },
+            { country: 'Timor-Leste', lat: -8.8742, lng: 125.7275 },
+            { country: 'Togo', lat: 8.6195, lng: 0.8248 },
+            { country: 'Tunisia', lat: 33.8869, lng: 9.5375 },
+            { country: 'South Africa', lat: -30.5595, lng: 22.9375 }
+        ];
+
+        // Adicionar marcadores para cada país
+        countryData.forEach(function (data) {
+            L.marker([data.lat, data.lng]).addTo(map).bindPopup(data.country);
+        });
+    </script>
+    <h2></h2>
+    </br>
+    </br>
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <h3>InteliGente</h3>
+            <div class="copyright">
+                &copy; Copyright <strong><span>InteliGente</span></strong>. All Rights Reserved
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"en","languages":["en","fr","de", "pt", "it","es"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+
+  </html>
