@@ -106,21 +106,37 @@
 
     </section><!-- End Hero -->
 
-    <main id="main">
-    <h2></h2>
-    </br>
-    </br>
-    <div id="map"></div>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        var map = L.map('map').setView([20, 0], 2);
+    <section id="impact-map" class="impact-map">
+      <div class="container">
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Global Impact</h2>
+          <p>Explore the Reach of Our Projects Worldwide</p>
+        </div>
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        <!-- Div para o mapa -->
+        <div id="map" style="height: 600px; width: 100%;"></div>
+      </div>
+
+      <!-- Incluindo o CSS do Leaflet -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+      <!-- Incluindo o script do Leaflet -->
+      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+      <!-- Script para o mapa -->
+      <script>
+        // Inicializar o mapa após o carregamento do DOM
+        document.addEventListener("DOMContentLoaded", function () {
+          var map = L.map('map').setView([20, 0], 2);
+
+          // Usando uma camada de mapa estilizada
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
             maxZoom: 18,
-        }).addTo(map);
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          }).addTo(map);
 
-        // Dados dos países
-        var countryData = [
+          // Dados dos países com marcadores personalizados
+          var countryData = [
             { country: 'Brazil', lat: -14.2350, lng: -51.9253 },
             { country: 'India', lat: 20.5937, lng: 78.9629 },
             { country: 'United States', lat: 37.0902, lng: -95.7129 },
@@ -192,17 +208,21 @@
             { country: 'Togo', lat: 8.6195, lng: 0.8248 },
             { country: 'Tunisia', lat: 33.8869, lng: 9.5375 },
             { country: 'South Africa', lat: -30.5595, lng: 22.9375 }
-        ];
+          ];
 
-        // Adicionar marcadores para cada país
-        countryData.forEach(function (data) {
-            L.marker([data.lat, data.lng]).addTo(map).bindPopup(data.country);
+          countryData.forEach(function (data) {
+            // Adicionar marcadores coloridos para cada país
+            L.circleMarker([data.lat, data.lng], {
+              color: '#3388ff',
+              radius: 8,
+              fillColor: '#3388ff',
+              fillOpacity: 0.8
+            }).addTo(map)
+              .bindPopup('<b>' + data.country + '</b>');
+          });
         });
-    </script>
-    <h2></h2>
-    </br>
-    </br>
-    </main><!-- End #main -->
+      </script>
+    </section>
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
