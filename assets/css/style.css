@@ -1757,6 +1757,24 @@ section {
 /*--------------------------------------------------------------
 # Game Photos
 --------------------------------------------------------------*/
+
+.supporters-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.supporter-item img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.supporter-item img:hover {
+  transform: scale(1.1);
+}
+
 .game-photos .section-title {
   text-align: left;
   margin-bottom: 40px;
@@ -1796,25 +1814,4 @@ section {
   .game-photos .game-photo-item {
     width: calc(33.333% - 10px);
   }
-}
-
-#supporters {
-  padding: 60px 0;
-}
-
-.supporters-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
-}
-
-.supporter-item img {
-  max-width: 100%;
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-}
-
-.supporter-item img:hover {
-  transform: scale(1.1);
 }
