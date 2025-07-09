@@ -2216,7 +2216,8 @@
       const dataTable = $('#award-table').DataTable({
         paging: true,
         pageLength: 5, // Defina o número de registros por página aqui
-        order: [[1, 'desc']] // Ordenar pela segunda coluna (índice 1) em ordem decrescente
+        order: [[1, 'desc']], // Ordenar pela segunda coluna (índice 1) em ordem decrescente
+        pagingType: 'full'
       });
 
       // JavaScript para pesquisa
