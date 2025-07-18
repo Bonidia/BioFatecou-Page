@@ -1,0 +1,603 @@
+  <!DOCTYPE html>
+  <html lang="pt">
+
+  <head>
+
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="1b31700e-d808-4eb0-9915-368ab3aea2ca" type="text/javascript" async></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NCLJFZFPL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NCLJFZFPL');
+    </script>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Cartas do Fado - Ética e Moral em Jogo</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    <style>
+      #header {
+        background: #323548; /* cor do header */
+        padding: 5px 0;
+        height: 80px;
+        transition: all 0.5s;
+      }
+      #header .logo h1 {
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #fff;
+      }
+      #header .navbar ul ul {
+        background: #ffffff; /* fundo branco */
+        border-radius: 6px;
+        padding: 10px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #header .navbar ul ul li a {
+        color: #333; /* cor do texto visível (preto suave) */
+        padding: 10px 20px;
+        font-size: 15px;
+        display: block;
+        transition: 0.3s;
+      }
+
+      /* Hover effect */
+      #header .navbar ul ul li a:hover {
+        background-color: #f3f3f3;
+        color: #e65100; /* laranja escuro ao passar o mouse */
+      }
+      #hero {
+        margin-top: 60px; /* Adiciona uma margem superior pequena */
+      }
+      .news-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        height: 100%; /* garante que o card tenha altura total da coluna */
+        display: flex;
+        flex-direction: column;
+      }
+      .news-card img {
+        width: 100%;
+        height: auto;
+        max-height: 250px; /* ajusta a altura máxima */
+        object-fit: contain; /* garante que a imagem fique inteira */
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: block;
+        margin: 0 auto;
+      }
+      .news-card-body {
+        padding: 20px;
+        flex: 1;                 /* ocupa o espaço restante do card */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .news-card-body h5 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .news-card-body p {
+        font-size: 14px;
+        color: #555;
+        flex: 1;
+      }
+
+      .news-card-body a.btn {
+        align-self: start; /* alinha botão no início */
+        margin-top: 10px;
+      }
+      .pagination {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+      }
+      .pagination li {
+        margin: 0 5px;
+      }
+      .pagination a {
+        color: #e65100;
+        padding: 8px 14px;
+        border: 1px solid #e65100;
+        border-radius: 4px;
+        transition: background 0.3s;
+        text-decoration: none;
+      }
+      .pagination a:hover, .pagination .active a {
+        background: #e65100;
+        color: white;
+      }
+      .logo-responsive {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        max-width: 100%;
+        height: auto;
+      }
+      @media (min-width: 768px) {
+        .logo-responsive {
+          max-width: 400px;
+        }
+      }
+    </style>
+
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto" href="#about">Sobre</a></li>
+            <li><a class="nav-link scrollto" href="#news">Novidades</a></li>
+            
+            <li class="dropdown">
+            <a class="nav-link scrollto" href="#">Materiais</a>
+            <ul>
+                <!-- Data Science -->
+                <li class="dropdown">
+                    <a href="#"><span>InteliGente</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                        <li><a class="nav-link scrollto" href="https://inteligentehub.com.br/">Página Oficial</a></li>
+                        <li><a class="nav-link scrollto" href="https://www.instagram.com/inteligente_utfpr/">Instagram</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="nav-link scrollto" href="assets/figures/fado/Cartas do Fado.pdf">Slides - Cartas do Fado - Inglês</a>
+                </li>
+
+                </ul>
+            </li>
+
+            <li><a class="nav-link scrollto" href="#">Download</a></li>
+
+            <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+        <div class="logo">
+          <h1><a href="index.html">Cartas do Fado</a></h1>
+        </div>
+
+      </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <img src="assets/figures/fado/PNGlogo alta_res_black.png" alt="AI4LAC Logo" class="logo-responsive" />
+            <h2>Sobre</h2>
+            <p>O que é o Cartas do Fado</p>
+          </div>
+
+          <div class="row content" data-aos="fade-up">
+            <div class="col-lg-15">
+              <p style="text-align:justify;line-height:2.0">
+                Em um cenário cada vez mais interconectado e globalizado, temas como integridade, ética, cidadania e combate à corrupção ocupam posição central na construção de uma sociedade justa e equilibrada. Esses princı́pios, que norteiam as ações humanas, são essenciais para fortalecer a confiança mútua, a responsabilidade coletiva e o respeito entre os indivı́duos.</br></br>
+
+                Quando tais valores são enfraquecidos, a corrupção emerge como uma força corrosiva, afetando não apenas o funcionamento das instituições, mas também o cotidiano das pessoas, gerando desigualdades, injustiças e desconfiança social. O combate à corrupção representa, portanto, uma urgência em todas as esferas da sociedade. Governos, empresas e cidadãos devem estar alinhados com práticas que promovam transparência, honestidade e o bem comum. Contudo, para que essa transformação ocorra de forma efetiva e duradoura, é fundamental que a educação ética seja priorizada desde os primeiros anos da formação individual, oferecendo às novas gerações as ferramentas necessárias para identificar e enfrentar condutas corruptas, tanto em ambientes públicos quanto privados.</br></br> 
+
+                Diante desse contexto, desenvolvemos um jogo digital educativo, intitulado Cartas do Fado. A proposta busca explorar o potencial dos jogos sérios como ferramenta lúdica e pedagógica no enfrentamento à corrupção. Mais do que um simples jogo de cartas, o presente projeto pretende estimular a reflexão sobre escolhas morais, incentivando a colaboração e o pensamento crı́tico por meio de uma narrativa envolvente baseada em investigação e estratégia. Ao lidar com dilemas éticos e situações que exigem decisões conscientes, o jogador é convidado a avaliar o impacto de suas ações, considerando o bem coletivo em oposição ao interesse individual. Dessa forma, Cartas do Fado propõe-se como um recurso capaz de contribuir para o desenvolvimento de uma consciência ética mais apurada, oferecendo uma experiência educativa que alia entretenimento e formação cidadã.
+              </p>
+              <a href="#" class="btn-learn-more">Download</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- End About Section -->
+
+      <!-- ======= CTA Cartas do Fado ======= -->
+      <section id="cta-fado" class="cta">
+        <div class="container">
+          <div class="row" data-aos="zoom-out">
+            <div class="col-lg-9 text-center text-lg-start">
+              <h3>Cartas do Fado: Ética e Moral em Jogo</h3>
+              <p>Um jogo educativo envolvente que convida crianças, jovens e adultos a refletirem sobre dilemas morais, ética e combate à corrupção de forma divertida, estratégica e transformadora.</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="#" download>Baixar Jogo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <<!-- ======= News Section ======= -->
+      <section id="news" class="news-section">
+        <div class="container">
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Notícias</h2>
+            <p>Fique por dentro das últimas novidades e materiais</p>
+          </div>
+
+          <div class="row news-container">
+            <!-- Bloco de notícias (adicione mais se quiser) -->
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/129.JPG" alt="Notícia 3">
+                <div class="news-card-body">
+                  <h5>Prêmio Frida - LACNIC</h5>
+                  <p>O InteliGente foi premiado como um dos projetos mais transformadores (Internet Aberta e Livre) da América Latina pelo Fundo Regional para Inovação Digital na América Latina e no Caribe (FRIDA), recebendo um prêmio de US$ 10.000.</p>
+                  <a href="https://blog.lacnic.net/en/program-frida-ai/" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/152.jpeg" alt="Notícia 1">
+                <div class="news-card-body">
+                  <h5>HundrED Global Collection 2026</h5>
+                  <p>Temos orgulho de anunciar que a InteliGente foi selecionada como finalista para a HundrED Global Collection 2026, o que nos coloca entre as iniciativas educacionais mais impactantes e inspiradoras do mundo.</p>
+                  <a href="https://hundred.org/en/innovations/inteligente" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/84.png" alt="Notícia 2">
+                <div class="news-card-body">
+                  <h5>InteliGenteCards</h5>
+                  <p>Conheça nosso baralho de cartas, InteliGenteCards, criado para facilitar o entendimento e a discussão sobre temas complexos relacionados à Inteligência Artificial (IA), ética e impactos sociais.</p>
+                  <a href="InteliGenteCards.html" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Continue adicionando mais .news-item se necessário -->
+          </div>
+
+          <ul class="pagination mt-4"></ul>
+        </div>
+      </section>
+
+      <!-- ======= CTA Educadores Cartas do Fado ======= -->
+      <section id="cta-educadores" class="cta">
+        <div class="container">
+          <div class="row" data-aos="zoom-out">
+            <div class="col-lg-9 text-center text-lg-start">
+              <h3>Leve o Cartas do Fado para sua sala de aula</h3>
+              <p>Professores(as) de todo o Brasil podem utilizar o jogo como ferramenta pedagógica para ensinar valores éticos, cidadania e pensamento crítico. Faça parte dessa transformação!</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="mailto:bonidia@utfpr.edu.br">Quero Aplicar o Jogo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ======= Video Section ======= -->
+      <section id="video" class="video-section">
+          <div class="container">
+              <div class="section-title" data-aos="zoom-out">
+                  <h2>Conheça o Cartas do Fado</h2>
+                  <p>Ética e Moral em Jogo</p>
+              </div>
+
+              <div class="row content" data-aos="fade-up">
+                  <div class="col-lg-12">
+                      <div class="video-container">
+                          <iframe width="100%" height="480" src="https://www.youtube.com/embed/YkZvuO1UA0c"
+                          title="InteliGenteCards - Explicação" frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                          allowfullscreen></iframe>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section><!-- End Video Section -->
+
+      <!-- ======= F.A.Q Section ======= -->
+      <section id="faq" class="faq">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>FAQ</h2>
+            <p>Perguntas Frequentes</p>
+          </div>
+
+          <ul class="faq-list">
+
+            <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">
+              Por que Jogar Cartas do Fado?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                O jogo Cartas do Fado oferece uma experiência única, onde ética e estratégia se misturam em uma narrativa envolvente. Além de ser divertido, ele faz com que o jogador reflita sobre suas escolhas, recompensando a honestidade e a moralidade. A cada turno, é possível se envolver em desafios que testam o caráter dos participantes, tudo isso enquanto se tenta desvendar a identidade do Corrupto. É um jogo desafiador, estratégico e diferente de qualquer outro!
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq2">
+              Por que Cartas do Fado Influenciaria o Modo de Vivência e Atitude do Usuário?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                O jogo encoraja o jogador a pensar nas consequências de suas ações, tanto individuais quanto coletivas. Através das cartas que promovem atitudes de bondade e moralidade, o jogador é constantemente desafiado a fazer o bem, mesmo que haja tentações de agir de forma egoísta. Essa dinâmica contribui para as pessoas refletirem mais sobre suas escolhas na realidade, incentivando atitudes mais positivas e colaborativas no dia a dia.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq3">
+              Por que Incentivar as Pessoas a Jogarem Cartas do Fado?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                Cartas do Fado é uma excelente maneira de ensinar valores essenciais de forma divertida. O jogo incentiva a honestidade, a colaboração e a tomada de decisões conscientes, tudo em um ambiente seguro e interativo. Ao participar desse jogo, você não só se diverte, mas também aprende a importância de fazer o bem, refletindo sobre suas escolhas e seus impactos.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq4">
+              Posso usar o Cartas do Fado com meus alunos?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+              Sim! O jogo foi pensado como ferramenta pedagógica para professores(as) trabalharem temas como ética, cidadania e combate à corrupção. Basta projetar em sala ou usar em laboratório de informática. Se quiser apoio didático, entre em contato conosco por e-mail.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq5">
+              O jogo pode ser distribuído gratuitamente?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+              Sim! O Cartas do Fado é um jogo educativo de acesso livre e gratuito. Educadores e instituições podem utilizá-lo livremente para fins pedagógicos, desde que mantida a autoria e os créditos do projeto.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq6">
+              Como instalar o jogo Cartas do Fado?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+              A instalação é simples! Basta fazer o download do arquivo compactado (ZIP — <a href="#" target="_blank" style="color: #e65100; font-weight: bold;">Download</a>),, descompactar em qualquer pasta do seu computador e executar o arquivo <strong>Cartas_do_Fado.exe</strong>. O jogo não precisa de instalação adicional ou conexão com a internet.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq7">
+              Preciso estar conectado à internet para jogar?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq7" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+              Não. O Cartas do Fado funciona completamente offline após o download. Isso permite seu uso em escolas e comunidades sem acesso constante à internet.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq8">
+              O jogo funciona em todos os computadores?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq8" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+              O jogo foi desenvolvido para funcionar em computadores com sistema operacional <strong>Windows</strong>. Para outros sistemas, como Linux ou macOS, é necessário usar emuladores ou compatibilidade com Wine.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq9">
+              Quem são os autores do Cartas do Fado?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq9" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+               O <strong>Cartas do Fado</strong> é uma criação coletiva e inovadora desenvolvida por estudantes da Universidade Tecnológica Federal do Paraná (UTFPR).<br><br>
+                <strong>Autores:</strong><br>
+                Matheus Victor Martins<br>
+                João Pedro Madureira Sales<br>
+                João Pedro Silva Cassimiro<br>
+                Tom Outsuki<br>
+                Yuri Silvestre Admertides<br><br>
+                <strong>Orientação:</strong><br>
+                Prof. Dr. Robson Parmezan Bonidia<br><br>
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq10">
+              O que é o projeto InteliGente e qual sua relação com o Cartas do Fado?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq10" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+               O <strong>InteliGente</strong> é um projeto educacional premiado que busca democratizar o acesso à Inteligência Artificial e à tecnologia com responsabilidade social, ética e inclusão. Criado para capacitar educadores e estudantes, o projeto desenvolve materiais inovadores — digitais e físicos — que podem ser aplicados em qualquer contexto, mesmo em comunidades com pouca infraestrutura.<br><br>
+
+               O jogo <strong>Cartas do Fado</strong> nasceu dentro do InteliGente como uma proposta para estimular reflexões sobre ética, cidadania e combate à corrupção por meio de um jogo educativo envolvente. Assim, o Cartas do Fado é uma das várias ferramentas criadas dentro do ecossistema InteliGente para transformar a educação.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq11">
+              Como posso entrar em contato com a equipe do Cartas do Fado?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq11" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+               Se você tiver dúvidas, sugestões, quiser aplicar o jogo em sua escola ou colaborar com o projeto, ficaremos muito felizes em conversar com você! <br><br> Entre em contato pelo e-mail: <a href="mailto:bonidia@utfpr.edu.br" style="color: #e65100; font-weight: bold;">bonidia@utfpr.edu.br</a>
+              </p>
+            </div>
+          </li>
+
+          </ul>
+
+        </div>
+      </section><!-- End F.A.Q Section -->  
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <h3>Cartas do Fado</h3>
+            <div class="copyright">
+                &copy; Copyright <strong><span>InteliGente</span></strong>. All Rights Reserved
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Adicione o link para os arquivos CSS e JavaScript do Select2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <!-- Adicione os scripts do Bootstrap no final do seu documento HTML -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = {"default_language":"pt","languages":["pt", "en", "fr","de","it","es"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+    <!-- Include Bootstrap JS for popover functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.min.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const itemsPerPage = 3;
+      const items = document.querySelectorAll('.news-item');
+      const pagination = document.querySelector('.pagination');
+
+      function showPage(page) {
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        items.forEach((item, index) => {
+          item.style.display = (index >= start && index < end) ? 'block' : 'none';
+        });
+
+        document.querySelectorAll('.pagination li').forEach(li => li.classList.remove('active'));
+        const currentLi = document.querySelector(`.pagination li[data-page="${page}"]`);
+        if (currentLi) currentLi.classList.add('active');
+      }
+
+      function createPagination() {
+        const totalPages = Math.ceil(items.length / itemsPerPage);
+        pagination.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+          const li = document.createElement('li');
+          li.classList.add('page-item');
+          li.setAttribute('data-page', i);
+          li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+          li.addEventListener('click', function (e) {
+            e.preventDefault();
+            showPage(i);
+          });
+          pagination.appendChild(li);
+        }
+      }
+
+      createPagination();
+      showPage(1);
+    });
+  </script>
+
+  </body>
+
+  </html>
