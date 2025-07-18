@@ -152,6 +152,19 @@
         background: #e65100;
         color: white;
       }
+      .logo-responsive {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        max-width: 100%;
+        height: auto;
+      }
+      @media (min-width: 768px) {
+        .logo-responsive {
+          max-width: 400px;
+        }
+      }
     </style>
 
     <header id="header" class="fixed-top d-flex align-items-center">
@@ -248,7 +261,7 @@
         <div class="container">
 
           <div class="section-title" data-aos="zoom-out">
-          <img src="assets/figures/AI4LAC/AI4LAC-08.png" alt="AI4LAC Logo" style="max-width: 400px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;" />
+            <img src="assets/figures/AI4LAC/AI4LAC-08.png" alt="AI4LAC Logo" class="logo-responsive" />
             <h2>Sobre</h2>
             <p>O que é o AI4LAC</p>
           </div>
