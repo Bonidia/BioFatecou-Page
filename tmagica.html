@@ -1,0 +1,658 @@
+  <!DOCTYPE html>
+  <html lang="pt">
+
+  <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NCLJFZFPL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NCLJFZFPL');
+    </script>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Tampinha Mágica - Reciclar é simples. Com magia, é divertido!</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="" rel="icon">
+    <link href="assets/figures/TM/03.webp" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    <style>
+      #header {
+        background: #323548; /* cor do header */
+        padding: 5px 0;
+        height: 80px;
+        transition: all 0.5s;
+      }
+      #header .logo h1 {
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #fff;
+      }
+      #header .navbar ul ul {
+        background: #ffffff; /* fundo branco */
+        border-radius: 6px;
+        padding: 10px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #header .navbar ul ul li a {
+        color: #333; /* cor do texto visível (preto suave) */
+        padding: 10px 20px;
+        font-size: 15px;
+        display: block;
+        transition: 0.3s;
+      }
+
+      /* Hover effect */
+      #header .navbar ul ul li a:hover {
+        background-color: #f3f3f3;
+        color: #e65100; /* laranja escuro ao passar o mouse */
+      }
+      #hero {
+        margin-top: 60px; /* Adiciona uma margem superior pequena */
+      }
+      .news-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        height: 100%; /* garante que o card tenha altura total da coluna */
+        display: flex;
+        flex-direction: column;
+      }
+      .news-card img {
+        width: 100%;
+        height: auto;
+        max-height: 250px; /* ajusta a altura máxima */
+        object-fit: contain; /* garante que a imagem fique inteira */
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: block;
+        margin: 0 auto;
+      }
+      .news-card-body {
+        padding: 20px;
+        flex: 1;                 /* ocupa o espaço restante do card */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .news-card-body h5 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .news-card-body p {
+        font-size: 14px;
+        color: #555;
+        flex: 1;
+      }
+
+      .news-card-body a.btn {
+        align-self: start; /* alinha botão no início */
+        margin-top: 10px;
+      }
+      .pagination {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+      }
+      .pagination li {
+        margin: 0 5px;
+      }
+      .pagination a {
+        color: #e65100;
+        padding: 8px 14px;
+        border: 1px solid #e65100;
+        border-radius: 4px;
+        transition: background 0.3s;
+        text-decoration: none;
+      }
+      .pagination a:hover, .pagination .active a {
+        background: #e65100;
+        color: white;
+      }
+      .logo-responsive {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        max-width: 100%;
+        height: auto;
+      }
+      @media (min-width: 768px) {
+        .logo-responsive {
+          max-width: 400px;
+        }
+      }
+    </style>
+
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto" href="#about">Sobre</a></li>
+            <li><a class="nav-link scrollto" href="#news">Novidades</a></li>
+            
+            <li class="dropdown">
+            <a class="nav-link scrollto" href="#">Materiais</a>
+            <ul>
+                <!-- Data Science -->
+                <li class="dropdown">
+                    <a href="#"><span>InteliGente</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                        <li><a class="nav-link scrollto" href="https://inteligentehub.com.br/">Página Oficial</a></li>
+                        <li><a class="nav-link scrollto" href="https://www.instagram.com/inteligente_utfpr/">Instagram</a></li>
+                    </ul>
+                </li>
+
+                </ul>
+            </li>
+
+            <li class="dropdown">
+            <a class="nav-link scrollto" href="#">Escolas Parceiras</a>
+            <ul>
+                <li>
+                    <a class="nav-link scrollto" href="https://www.youtube.com/watch?v=zGGc9LhygEw">Escola - EMEF Bom Pastor - Quatiguá, PR</a>
+                </li>
+
+                </ul>
+            </li>
+
+            <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+        <div class="logo">
+          <h1><a href="index.html">Tampinha Mágica</a></h1>
+        </div>
+
+      </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <img src="assets/figures/TM/03.webp" alt="AI4LAC Logo" class="logo-responsive" loading="lazy"/>
+            <h2>Sobre</h2>
+            <p>O que é o Tampinha Mágica</p>
+          </div>
+
+          <div class="row content" data-aos="fade-up">
+            <div class="col-lg-15">
+              <p style="text-align:justify;line-height:2.0">
+                O <strong>Tampinha Mágica</strong> é uma iniciativa educacional e ambiental que une sustentabilidade, tecnologia de baixo custo e educação transformadora para escolas. O projeto foi idealizado para criar um sistema automatizado que recompensa alunos da educação básica com créditos simbólicos sempre que entregam tampinhas plásticas recicláveis. Por meio da coleta, pesagem e identificação personalizada com cartões QR ou RFID, os estudantes acumulam pontos que podem ser trocados por recompensas. O projeto também incorporará recursos de Inteligência Artificial (IA) para personalização da experiência e análise de impacto, tornando-se um modelo de inovação social replicável em escolas públicas de todo o Brasil. Diferente das tradicionais campanhas de reciclagem, que dependem de contagem manual ou doação coletiva, o <strong>Tampinha Mágica</strong> empodera o aluno como protagonista, utilizando tecnologia acessível para criar um ambiente lúdico, ético e educativo. Portanto, os objetivos do projeto são:
+
+                <ul>
+                <li><i class="ri-check-double-line"></i> Promover a educação ambiental prática e contínua em ambientes escolares.</li>
+                <li><i class="ri-check-double-line"></i> Incentivar a formação de hábitos sustentáveis desde a infância.</li>
+                <li><i class="ri-check-double-line"></i> Engajar estudantes por meio da gamificação e de um sistema de recompensas educativas.</li>
+                <li><i class="ri-check-double-line"></i> Fomentar o uso ético e consciente da tecnologia no ambiente escolar.</li>
+                <li><i class="ri-check-double-line"></i> Integrar conhecimentos interdisciplinares: matemática (peso, contagem), ciências (reciclagem), ética, cidadania digital e inteligência artificial.</li>
+                <li><i class="ri-check-double-line"></i> Criar um modelo replicável de baixo custo para escolas públicas, especialmente em comunidades vulneráveis.</li>
+              </ul>
+
+              </p>
+              <a href="#faq" class="btn-learn-more">Saiba Mais</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- End About Section -->
+
+      <!-- ======= Cta Section ======= -->
+      <section id="cta" class="cta">
+        <div class="container">
+          <div class="row" data-aos="zoom-out">
+            <div class="col-lg-9 text-center text-lg-start">
+              <h3>Participe da Mágica!</h3>
+              <p>Traga suas tampinhas, ganhe pontos e ajude o planeta enquanto se diverte. A cada tampinha, uma nova conquista!</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="#faq">Fale conosco</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Cta Section -->
+
+      <!-- ======= News Section ======= -->
+      <section id="news" class="news-section">
+        <div class="container">
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Notícias</h2>
+            <p>Fique por dentro das últimas novidades e materiais</p>
+          </div>
+
+          <div class="row news-container">
+            <!-- Bloco de notícias (adicione mais se quiser) -->
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/129.JPG" alt="Notícia 3">
+                <div class="news-card-body">
+                  <h5>Prêmio Frida - LACNIC</h5>
+                  <p>O InteliGente foi premiado como um dos projetos mais transformadores (Internet Aberta e Livre) da América Latina pelo Fundo Regional para Inovação Digital na América Latina e no Caribe (FRIDA), recebendo um prêmio de US$ 10.000.</p>
+                  <a href="https://blog.lacnic.net/en/program-frida-ai/" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/152.jpeg" alt="Notícia 1">
+                <div class="news-card-body">
+                  <h5>HundrED Global Collection 2026</h5>
+                  <p>Temos orgulho de anunciar que a InteliGente foi selecionada como finalista para a HundrED Global Collection 2026, o que nos coloca entre as iniciativas educacionais mais impactantes e inspiradoras do mundo.</p>
+                  <a href="https://hundred.org/en/innovations/inteligente" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/84.png" alt="Notícia 2">
+                <div class="news-card-body">
+                  <h5>InteliGenteCards</h5>
+                  <p>Conheça nosso baralho de cartas, InteliGenteCards, criado para facilitar o entendimento e a discussão sobre temas complexos relacionados à Inteligência Artificial (IA), ética e impactos sociais.</p>
+                  <a href="InteliGenteCards.html" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/178.png" alt="Notícia 3">
+                <div class="news-card-body">
+                  <h5>Inteligência Artificial na Educação Básica</h5>
+                  <p>Baixe nosso relatório - Inteligência Artificial na Educação Básica: Percepções e Desafios dos Professores.</p>
+                  <a href="https://drive.google.com/file/d/1IGdytf_n9Jsi03Sr0qX56gAjV7lNXsia/view?usp=sharing" class="btn btn-sm btn-primary">Download</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/183.png" alt="Notícia 3">
+                <div class="news-card-body">
+                  <h5>O Livro dos Ratos Pensantes</h5>
+                  <p>Estamos lançando O Livro dos Ratos Pensantes: Histórias que tornam o conhecimento sobre Inteligência Artificial acessível a todos.</p>
+                  <a href="https://inteligentehub.com.br/book.html" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/54.png" alt="Notícia 3">
+                <div class="news-card-body">
+                  <h5>Ciência de Dados: Fundamentos e Aplicações</h5>
+                  <p>Lançamento do nosso livro — Ciência de Dados: Fundamentos e Aplicações — Primeiro livro que visa democratizar a ciência de dados para não especialistas</p>
+                  <a href="https://www.amazon.com.br/Ci%C3%AAncia-Dados-Fundamentos-Andr%C3%A9-Carvalho/dp/8521638752?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AQXR8211CVV7V" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/81.png" alt="Notícia 3">
+                <div class="news-card-body">
+                  <h5>Nosso Impacto</h5>
+                  <p>Estamos felizes em compartilhar que o Projeto InteliGente nos últimos 12 meses, alcançou usuários do mundo todo.</p>
+                  <a href="https://www.utfpr.edu.br/noticias/cornelio-procopio/professores-da-utfpr-cp-lideram-primeiro-estudo-nacional-sobre-inteligencia-artificial-na-educacao-basica" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/176.jpg" alt="Notícia 3">
+                <div class="news-card-body">
+                  <h5>Palestra Bett Brasil</h5>
+                  <p>InteliGente, Significare e UTFPR-CP lideraram o primeiro estudo nacional sobre Inteligência Artificial na Educação Básica.</p>
+                  <a href="https://www.utfpr.edu.br/noticias/cornelio-procopio/professores-da-utfpr-cp-lideram-primeiro-estudo-nacional-sobre-inteligencia-artificial-na-educacao-basica" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+             <div class="col-lg-4 col-md-6 mb-4 news-item">
+              <div class="news-card">
+                <img src="assets/figures/125.jpg" alt="Notícia 3">
+                <div class="news-card-body">
+                  <h5>GESS Education Awards 2024</h5>
+                  <p>InteliGente foi finalista na categoria Inovação em Educação no prêmio global GESS Education Awards 2024.</p>
+                  <a href="https://www.gessawards.com/" class="btn btn-sm btn-primary">Leia mais</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Continue adicionando mais .news-item se necessário -->
+          </div>
+
+          <ul class="pagination mt-4"></ul>
+        </div>
+      </section>
+
+      <!-- ======= Cta Section ======= -->
+      <section id="cta" class="cta">
+        <div class="container">
+          <div class="row" data-aos="zoom-out">
+            <div class="col-lg-9 text-center text-lg-start">
+              <h3>Seja um Parceiro da Transformação</h3>
+              <p>Apoie um projeto que une educação, sustentabilidade e tecnologia. Com você, podemos levar a magia da reciclagem a milhares de crianças.</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="#faq">Apoie o Projeto</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Cta Section -->
+
+      <!-- ======= Video Section ======= -->
+      <section id="video" class="video-section">
+          <div class="container">
+              <div class="section-title" data-aos="zoom-out">
+                  <h2>Conheça o InteliGente</h2>
+                  <p>Construindo Caminhos de Igualdade com Inteligência Artificial</p>
+              </div>
+
+              <div class="row content" data-aos="fade-up">
+                  <div class="col-lg-12">
+                      <div class="video-container">
+                          <iframe width="100%" height="480" src="https://www.youtube.com/embed/YkZvuO1UA0c"
+                          title="InteliGenteCards - Explicação" frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                          allowfullscreen></iframe>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section><!-- End Video Section -->
+
+      <!-- ======= F.A.Q Section ======= -->
+      <section id="faq" class="faq">
+        <div class="container">
+
+          <div class="section-title" data-aos="zoom-out">
+            <h2>FAQ</h2>
+            <p>Perguntas Frequentes</p>
+          </div>
+
+          <ul class="faq-list">
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq8">
+              O que é o projeto Tampinha Mágica?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq8" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+               É um projeto educacional que incentiva alunos a levarem tampinhas plásticas para a escola. Cada tampinha é pesada e convertida em pontos, que podem ser trocados por recompensas educativas. É uma forma divertida de aprender sobre meio ambiente, cidadania e responsabilidade social. 
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq9">
+              Quem pode participar?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq9" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+               O projeto foi pensado para escolas do ensino básico, mas pode ser adaptado para outras faixas etárias. Toda a escola pode se envolver: alunos, professores, equipe gestora, famílias e comunidade.
+              </p>
+            </div>
+          </li>
+
+            <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">
+              Como Funciona?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                Cada aluno recebe um cartão com código QR ou chip RFID vinculado ao seu perfil no sistema. Na escola, é instalada uma estação de coleta automatizada, composta por uma balança digital integrada a um microcontrolador (como Arduino ou ESP32), acoplada a um leitor de cartão. Ao entregar suas tampinhas, o aluno se identifica e deposita as tampinhas no recipiente. O sistema registra o peso e converte automaticamente o valor em créditos ecológicos, armazenados no perfil do estudante.</br></br>
+
+                Esses créditos podem ser trocados por recompensas determinadas pela escola ou pelo sistema central: figurinhas colecionáveis, materiais escolares, prêmios simbólicos, entre outros. Além disso, um ranking interno pode estimular ainda mais o engajamento coletivo e a colaboração entre turmas. A interface pode ser visualizada por professores e alunos por meio de um painel simples desenvolvido com tecnologias open-source.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq2">
+              Quais os Componentes Educacionais e Curriculares?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                O projeto vai além da reciclagem: ele é uma ferramenta para o desenvolvimento pedagógico, podendo ser incorporado às disciplinas escolares da seguinte forma:</br></br>
+              </p>
+              <ul>
+                <li><i class="ri-check-double-line"></i> Matemática: pesos, medidas, proporcionalidade, pontuação e estatísticas.</li>
+                <li><i class="ri-check-double-line"></i> Ciências: noções de ecologia, tipos de plástico, ciclo da reciclagem.</li>
+                <li><i class="ri-check-double-line"></i> Tecnologia: uso de sensores, RFID, lógica de sistemas automatizados.</li>
+                <li><i class="ri-check-double-line"></i> Educação digital e ética: cuidados com dados, uso de IA, comportamento sustentável.</li>
+                <li><i class="ri-check-double-line"></i> Educação socioemocional: cooperação, empatia, responsabilidade coletiva.</li>
+              </ul>
+              <p style="text-align:justify;line-height:2.0">
+                Além disso, o projeto pode dialogar com políticas públicas como a BNCC, ODS da ONU (Objetivos do Desenvolvimento Sustentável) e diretrizes de educação ambiental e tecnológica nacional.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq3">
+              Uso de Inteligência Artificial (IA)?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                Embora o sistema funcione com hardware simples, ele pode ser aprimorado com módulos de IA leve e eficiente no futuro, com aplicações como: (1) Personalização de recompensas com base no comportamento e engajamento individual (sistemas de recomendação); (2) Previsão da quantidade de tampinhas coletadas por período (modelos preditivos simples); (3) Classificação de perfis de participação (alunos altamente engajados, em risco de evasão, líderes ecológicos etc.); (4) Análise de impacto ambiental e educacional, com dashboards automatizados para educadores e gestores.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq4">
+             Inovação e Diferenciais?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+              <ul></br></br>
+                <li><i class="ri-check-double-line"></i> Identificação personalizada de estudantes (QR/RFID)</li>
+                <li><i class="ri-check-double-line"></i> Sistema automatizado de pesagem e recompensa</li>
+                <li><i class="ri-check-double-line"></i> Tecnologia de baixo custo acessível a escolas públicas</li>
+                <li><i class="ri-check-double-line"></i> Gamificação e recompensas educativas</li>
+                <li><i class="ri-check-double-line"></i> Modelo escalável e replicável para outras regiões</li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq5">
+              O que é o Hub InteliGente?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                O Tampinha Mágina é uma das iniciativas vinculadas ao Hub InteliGente (Construindo Caminhos de Igualdade com Inteligência Artificial). O projeto InteliGente já impactou direta e indiretamente milhares de estudantes, reconhecido, em 2024, pelo Fundo Regional para a Inovação Digital na América Latina e no Caribe (FRIDA) como uma das iniciativas mais transformadoras da região. Também foi selecionado como finalista da Coleção Global HundrED 2026, figurando entre as práticas educacionais mais impactantes e inspiradoras do mundo.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq6">
+              Quem são os idealizadores do Tampinha Mágina?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                O Tampinha Mágina é uma criação coletiva e inovadora idealizada por Amanda Bruna Salvego Santos Bonidia e Robson Parmezan Bonidia em parceria com diversos colaboradores.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq7">
+              Como levar o Tampinha Mágica para minha escola?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq7" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align: justify; line-height: 2.0;">
+                É muito simples! Se você é professor(a), gestor(a) ou faz parte da comunidade escolar e deseja implementar o projeto <strong>Tampinha Mágica</strong> na sua escola, entre em contato com a gente. Basta enviar um e-mail para: 
+                <a href="mailto:amandabrunasantos1@gmail.com">amandabrunasantos1@gmail.com</a> ou 
+                <a href="mailto:rpbonidia@gmail.com">rpbonidia@gmail.com</a> e falar diretamente com os idealizadores.
+              </p>
+            </div>
+          </li>
+
+          </ul>
+
+        </div>
+      </section><!-- End F.A.Q Section -->  
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <h3>Tampinha Mágina</h3>
+            <div class="copyright">
+                &copy; Copyright <strong><span>InteliGente</span></strong>. All Rights Reserved
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Adicione o link para os arquivos CSS e JavaScript do Select2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <!-- Adicione os scripts do Bootstrap no final do seu documento HTML -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = {"default_language":"pt","languages":["pt", "en", "fr","de","it","es"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+    <!-- Include Bootstrap JS for popover functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.min.js"></script>-->
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const itemsPerPage = 6;
+      const items = document.querySelectorAll('.news-item');
+      const pagination = document.querySelector('.pagination');
+
+      function showPage(page) {
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        items.forEach((item, index) => {
+          item.style.display = (index >= start && index < end) ? 'block' : 'none';
+        });
+
+        document.querySelectorAll('.pagination li').forEach(li => li.classList.remove('active'));
+        const currentLi = document.querySelector(`.pagination li[data-page="${page}"]`);
+        if (currentLi) currentLi.classList.add('active');
+      }
+
+      function createPagination() {
+        const totalPages = Math.ceil(items.length / itemsPerPage);
+        pagination.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+          const li = document.createElement('li');
+          li.classList.add('page-item');
+          li.setAttribute('data-page', i);
+          li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+          li.addEventListener('click', function (e) {
+            e.preventDefault();
+            showPage(i);
+          });
+          pagination.appendChild(li);
+        }
+      }
+
+      createPagination();
+      showPage(1);
+    });
+  </script>
+
+  </body>
+
+  </html>
