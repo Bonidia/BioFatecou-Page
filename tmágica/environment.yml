@@ -1,0 +1,7 @@
+name: tmagica
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - streamlit
+prefix: /home/bonidia/miniconda3/envs/tmagica

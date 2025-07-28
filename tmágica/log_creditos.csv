@@ -1,0 +1,9 @@
+data_hora,id_qrcode,nome,escola,operacao,valor,realizado_por
+2025-07-28 15:59:27,1,1,bompastor,Adição,50.0,bompastor
+2025-07-28 15:59:31,1,1,bompastor,Adição,50.0,bompastor
+2025-07-28 16:00:01,1,1,bompastor,Remoção,40.0,bompastor
+2025-07-28 16:00:03,1,1,bompastor,Remoção,40.0,bompastor
+2025-07-28 16:07:25,5,Teste,bompastor,Adição,10.0,bompastor
+2025-07-28 16:07:26,5,Teste,bompastor,Adição,10.0,bompastor
+2025-07-28 16:07:38,5,Teste,bompastor,Remoção,20.0,bompastor
+2025-07-28 16:07:39,5,Teste,bompastor,Remoção,20.0,bompastor
