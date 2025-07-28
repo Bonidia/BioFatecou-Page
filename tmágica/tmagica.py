@@ -224,6 +224,37 @@ def tela_visualizar_saldo():
         - **Data de cadastro:** {aluno_info['data_cadastro']}
         """)
 
+def tela_consultar_por_nome():
+    st.subheader("🔎 Consultar Aluno por Nome")
+
+    nome_busca = st.text_input("Digite o nome (ou parte do nome) do aluno")
+
+    if nome_busca:
+        df_alunos = carregar_dados_alunos()
+        escola_usuario = st.session_state.get("usuario", "").strip().lower()
+        df_alunos["escola"] = df_alunos["escola"].astype(str).str.strip().str.lower()
+
+        resultados = df_alunos[
+            (df_alunos["escola"] == escola_usuario) &
+            (df_alunos["nome"].str.lower().str.contains(nome_busca.strip().lower()))
+        ]
+
+        if resultados.empty:
+            st.warning("❌ Nenhum aluno encontrado com esse nome.")
+        else:
+            st.success(f"✅ {len(resultados)} aluno(s) encontrado(s):")
+            for idx, row in resultados.iterrows():
+                st.markdown(f"""
+                ---
+                - **Nome:** {row['nome']}
+                - **Idade:** {row['idade']} anos
+                - **Turma:** {row['turma']}
+                - **Saldo Atual:** `{row['saldo']} ponto(s)`
+                - **ID QR Code:** `{row['id_qrcode']}`
+                - **Última movimentação:** {row['ultima_movimentacao']}
+                - **Data de cadastro:** {row['data_cadastro']}
+                """)
+
 # --- Layout ---
 def tela_login():
     st.set_page_config(page_title="Tampinha Mágica", page_icon="🧙‍♂️", layout="centered")
@@ -278,6 +309,7 @@ def tela_painel():
         "➕ Adicionar Créditos",
         "➖ Remover Créditos",
         "📦 Visualizar Saldo",
+        "🔎 Consultar por Nome",
         "🚪 Sair"
     ])
 
@@ -291,6 +323,8 @@ def tela_painel():
         tela_creditos("remocao")
     elif menu == "📦 Visualizar Saldo":
         tela_visualizar_saldo()
+    elif menu == "🔎 Consultar por Nome":
+        tela_consultar_por_nome()
     elif menu == "🚪 Sair":
         st.session_state["logado"] = False
         st.session_state["usuario"] = ""
