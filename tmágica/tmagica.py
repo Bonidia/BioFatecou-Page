@@ -282,7 +282,7 @@ def tela_login():
           st.session_state["usuario"] = email
           st.rerun()
       else:
-          st.error("Email ou senha inválidos.")
+          st.error("Usuário ou senha inválidos.")
 
 # --- Painel pós-login ---
 def tela_painel():
