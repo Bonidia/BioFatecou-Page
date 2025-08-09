@@ -222,6 +222,29 @@
         max-width: 100%;
         height: auto;
       }
+      /* Bloco ABOUT: tipografia e espaçamento elegantes */
+      .about .section-title h2 { margin-top: 10px; font-weight: 700; }
+      .about .section-title p { color: #000; margin-bottom: 0; }
+
+      /* Conteúdo com render adiada abaixo da dobra, sem quebrar o design */
+      .about .content { content-visibility: auto; contain-intrinsic-size: 1px 800px; }
+
+      /* Lista com "check" leve (sem libs) */
+      .about .feature-list { list-style: none; padding: 0; margin: 16px 0 0; }
+      .about .feature-list li {
+        display: flex; gap: .6rem; align-items: flex-start;
+        margin: .5rem 0; line-height: 1.6; color: #333;
+      }
+      .about .feature-list li .icon {
+        flex: 0 0 18px; height: 18px; margin-top: .25rem; opacity: .9;
+        background: currentColor;
+        -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23000" d="M6.173 12.727L1.8 8.354l1.414-1.414 2.96 2.96 6.612-6.612 1.414 1.414z"/></svg>') no-repeat center / contain;
+        mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23000" d="M6.173 12.727L1.8 8.354l1.414-1.414 2.96 2.96 6.612-6.612 1.414 1.414z"/></svg>') no-repeat center / contain;
+      }
+
+      /* Parágrafos longos legíveis */
+      .about p { color: #444; }
+
       @media (min-width: 768px) {
         .logo-responsive {
           max-width: 400px;
@@ -326,10 +349,34 @@
       <section id="about" class="about">
         <div class="container">
 
-          <div class="section-title" data-aos="zoom-out">
-            <img src="assets/figures/AI4LAC/AI4LAC-10.webp" alt="AI4LAC Logo"class="logo-responsive" width="400" height="200" fetchpriority="high">
+          <div class="section-title" data-aos="zoom-out" data-aos-once="true">
+            <img src="assets/figures/AI4LAC/AI4LAC-10.webp"
+                 alt="AI4LAC Logo"
+                 class="logo-responsive"
+                 width="400" height="200"
+                 fetchpriority="high" decoding="async">
+            <h2>Sobre</h2>
+            <p>O que é o AI4LAC</p>
+          </div>
 
-          
+          <div class="row content" data-aos="fade-up" data-aos-once="true">
+            <div class="col-lg-12">
+              <p style="text-align:justify;line-height:2.0">
+                O <strong>AI4LAC</strong> — Inteligência Artificial para a América Latina e o Caribe — é uma iniciativa vinculada ao Hub InteliGente que tem como missão democratizar o acesso ao conhecimento em Inteligência Artificial para educadores(as), especialmente aqueles que atuam em comunidades historicamente marginalizadas. O projeto visa oferecer formações inclusivas, recursos didáticos e ferramentas tecnológicas e não tecnológicas, buscando tornar a IA acessível, ética e socialmente responsável para todos.
+              </p>
+
+              <ul class="feature-list">
+                <li><span class="icon" aria-hidden="true"></span> Formação em IA para professores(as) da Educação Básica: com trilhas personalizadas e letramento digital básico.</li>
+                <li><span class="icon" aria-hidden="true"></span> Materiais de IA Desplugada: sem necessidade de internet ou computadores, como o InteliGenteCards e o Livro dos Ratos Pensantes.</li>
+                <li><span class="icon" aria-hidden="true"></span> Plataforma LATINA (no futuro): solução de IA generativa acessível online e offline, voltada à criação de soluções éticas e comunitárias.</li>
+                <li><span class="icon" aria-hidden="true"></span> Foco na diversidade: respeitando os diferentes contextos culturais e educacionais da América Latina e do Caribe, especialmente o Brasil.</li>
+              </ul>
+
+              <p style="text-align:justify;line-height:2.0; margin-top:12px;">
+                O AI4LAC representa um passo pioneiro na inclusão digital, promovendo o uso consciente da IA em sala de aula e empoderando educadores como agentes de transformação.
+              </p>
+
+              <a href="#faq" class="btn-learn-more">Saiba Mais</a>
             </div>
           </div>
 
