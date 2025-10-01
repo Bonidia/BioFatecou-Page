@@ -32,7 +32,11 @@ def verificar_login(usuario, senha, usuarios_df):
 
 def carregar_dados_alunos():
     if os.path.exists(CAMINHO_ARQUIVO_ALUNOS):
-        return pd.read_csv(CAMINHO_ARQUIVO_ALUNOS)
+        return pd.read_csv(
+            CAMINHO_ARQUIVO_ALUNOS,
+            dtype={"id_qrcode": "string", "escola": "string", "nome": "string"},
+            keep_default_na=False  # evita NaN quando a célula está vazia
+        )
     else:
         return pd.DataFrame(columns=[
             "id_qrcode", "nome", "idade", "turma", "escola", 
