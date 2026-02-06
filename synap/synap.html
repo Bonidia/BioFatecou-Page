@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="1b31700e-d808-4eb0-9915-368ab3aea2ca" type="text/javascript" async></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NCLJFZFPL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NCLJFZFPL');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SynapSpeech | InteliGente</title>
+  <meta name="description" content="SynapSpeech: pipeline de pesquisa em fala e linguagem para triagem e acompanhamento cognitivo no contexto do Alzheimer.">
+  <meta name="keywords" content="SynapSpeech, triagem, linguagem, fala, PLN, aprendizado de máquina">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="synapspeech.css">
+</head>
+<body class="synap-page">
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="https://inteligentehub.com.br/">InteliGente</a>
+        <span>SynapSpeech</span>
+      </div>
+      <nav class="nav">
+        <a href="#visao">Visão geral</a>
+        <a href="#dados">Dados</a>
+        <a href="#metodologia">Metodologia</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#connectsynap">ConnectSynap</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-outline" href="connect.html">Entender o ConnectSynap</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-content fade-up">
+          <span class="eyebrow">SynapSpeech</span>
+          <h1>Escutando sinais por meio da linguagem</h1>
+          <p>
+            Pipeline completo para triagem e acompanhamento de sinais cognitivos associados ao Alzheimer a partir de
+            fala espontânea em português brasileiro. Foco em pesquisa aplicada, acessível e de baixo custo.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#visao">Ver visão geral</a>
+            <a class="btn btn-ghost" href="#connectsynap">Conhecer o ConnectSynap</a>
+          </div>
+          <div class="hero-note">
+            <span class="pill">Triagem</span>
+            <span>Resultados indicativos para apoio ao acompanhamento.</span>
+          </div>
+        </div>
+        <aside class="hero-carousel fade-up" style="--delay: 0.15s;" data-hero-carousel data-interval="6500">
+          <div class="hero-slide is-active">
+            <span class="tag">Em resumo</span>
+            <h3>Pipeline em português brasileiro</h3>
+            <p>Dados narrativos e linguagem espontânea.</p>
+          </div>
+          <div class="hero-slide">
+            <span class="tag">Comparação</span>
+            <h3>Alzheimer, MCI/TCL e controles</h3>
+            <p>Leituras comparativas entre grupos clínicos e controles.</p>
+          </div>
+          <div class="hero-slide">
+            <span class="tag">Resultados</span>
+            <h3>Acurácia de 86%</h3>
+            <p>Resultados preliminares de classificação.</p>
+          </div>
+          <div class="hero-carousel-nav">
+            <button class="hero-carousel-btn" type="button" data-carousel-prev aria-label="Slide anterior">‹</button>
+            <div class="hero-carousel-dots">
+              <button class="hero-carousel-dot is-active" type="button" aria-label="Ir para o slide 1"></button>
+              <button class="hero-carousel-dot" type="button" aria-label="Ir para o slide 2"></button>
+              <button class="hero-carousel-dot" type="button" aria-label="Ir para o slide 3"></button>
+            </div>
+            <button class="hero-carousel-btn" type="button" data-carousel-next aria-label="Próximo slide">›</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section alt" id="visao">
+      <div class="container">
+        <div class="section-title">
+          <h2>SynapSpeech</h2>
+          <p>Visão geral</p>
+        </div>
+        <div class="two-col">
+          <div class="fade-up">
+            <p>
+              O SynapSpeech é um pipeline de pesquisa que aplica Processamento de Linguagem Natural e
+              Aprendizado de Máquina para analisar narrativas espontâneas. A proposta é oferecer
+              <strong>triagem</strong> e <strong>apoio ao acompanhamento</strong> de sinais linguísticos
+              associados ao envelhecimento, ao Alzheimer e ao comprometimento cognitivo leve (MCI/TCL), sem substituir
+              avaliação clínica.
+            </p>
+            <ul>
+              <li>Foco em tarefas narrativas e memória episódica.</li>
+              <li>Comparação entre grupos clínicos e controles.</li>
+              <li>Pipeline binário em duas fases para análise refinada.</li>
+            </ul>
+          </div>
+          <div class="card synap-highlight fade-up" style="--delay: 0.1s;">
+            <span class="tag">Princípios</span>
+            <h3>Pesquisa aplicada e ética</h3>
+            <p>
+              A IA é usada como tecnologia assistiva, apoiando a pesquisa e o acompanhamento longitudinal.
+              Os resultados são indicativos e sempre devem ser discutidos com profissionais de saúde.
+            </p>
+            <p class="synap-note"><strong>Autor:</strong> João Pedro Madureira Sales (TCC - UTFPR, 2025).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dados">
+      <div class="container">
+        <div class="section-title">
+          <h2>Dados</h2>
+          <p>DNLT-BP e narrativas</p>
+        </div>
+        <div class="two-col">
+          <div class="fade-up">
+            <p>
+              As transcrições vêm do repositório DNLT-BP (NILC/USP), com consentimento informado (TCLE).
+              As histórias mais usadas são <strong>Cinderella</strong> e <strong>Dog Story</strong>.
+            </p>
+            <ul>
+              <li>Cinderella: 60 amostras (20 Alzheimer, 20 MCI/TCL, 20 controles).</li>
+              <li>Dog Story: 106 amostras (12 Alzheimer, 10 MCI/TCL, 84 controles).</li>
+            </ul>
+          </div>
+          <div class="card fade-up" style="--delay: 0.1s;">
+            <h3>Características do corpus</h3>
+            <p>
+              As narrativas preservam marcas linguísticas naturais (pausas, repetições, reformulações),
+              essenciais para análise linguística e comparação entre grupos.
+            </p>
+            <p class="synap-link-card">
+              Repositório: <a href="https://github.com/nilc-nlp/DNLT-BP" target="_blank" rel="noopener">github.com/nilc-nlp/DNLT-BP</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="metodologia">
+      <div class="container">
+        <div class="section-title">
+          <h2>Metodologia</h2>
+          <p>Etapas principais</p>
+        </div>
+        <div class="two-col">
+          <div class="card fade-up">
+            <h3>Processamento</h3>
+            <ul>
+              <li>Pré-processamento: limpeza, tokenização, stopwords, normalização e lematização.</li>
+              <li>Representações: BoW, TF-IDF, Word2Vec, FastText, GloVe, MiniLM e BERTimbau.</li>
+              <li>Redução de dimensionalidade: PCA, t-SNE e autoencoders.</li>
+              <li>Balanceamento: SMOTE, ADASYN, TomekLinks e estratégias combinadas.</li>
+              <li>Avaliação: acurácia, precisão, revocação e F1 macro.</li>
+            </ul>
+          </div>
+          <div class="card fade-up" style="--delay: 0.1s;">
+            <h3>Modelagem</h3>
+            <p>
+              O estudo testa comitês e modelos clássicos (LightGBM, CatBoost, XGBoost) e utiliza
+              validação cruzada estratificada para lidar com o desbalanceamento de classes. O objetivo
+              é comparar abordagens de forma transparente e reprodutível.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pipeline">
+      <div class="container">
+        <div class="section-title">
+          <h2>Pipeline</h2>
+          <p>Da limpeza aos relatórios</p>
+        </div>
+          <div class="card-carousel pipeline-grid" data-card-carousel data-interval="6000" data-per-view="3">
+            <div class="card-carousel-header">
+              <div class="card-carousel-text">
+                <span class="kicker">Fluxo completo</span>
+                <h3>Etapas do pipeline SynapSpeech</h3>
+                <p>Arraste ou navegue para ver cada fase detalhada.</p>
+              </div>
+              <div class="card-carousel-nav" aria-label="Carrossel de etapas">
+                <button class="card-carousel-btn" type="button" data-carousel-prev aria-label="Etapa anterior">‹</button>
+                <div class="card-carousel-dots"></div>
+                <button class="card-carousel-btn" type="button" data-carousel-next aria-label="Proxima etapa">›</button>
+              </div>
+            </div>
+            <div class="card-carousel-viewport">
+              <div class="card-carousel-track">
+                <article class="card card-carousel-item">
+                  <div class="step-card">
+                    <span class="step-badge">1</span>
+                    <div class="step-content">
+                      <span class="tag">Etapa 1</span>
+                      <h3>Limpeza</h3>
+                      <p>Normalização das transcrições</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="card card-carousel-item">
+                  <div class="step-card">
+                    <span class="step-badge">2</span>
+                    <div class="step-content">
+                      <span class="tag">Etapa 2</span>
+                      <h3>Embeddings</h3>
+                      <p>BoW, TF-IDF, Word2Vec, FastText, GloVe, MiniLM e BERTimbau.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="card card-carousel-item">
+                  <div class="step-card">
+                    <span class="step-badge">3</span>
+                    <div class="step-content">
+                      <span class="tag">Etapa 3</span>
+                      <h3>Fusão</h3>
+                      <p>Combinações par a par de representações em matrizes.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="card card-carousel-item">
+                  <div class="step-card">
+                    <span class="step-badge">4</span>
+                    <div class="step-content">
+                      <span class="tag">Etapa 4</span>
+                      <h3>Modelagem</h3>
+                      <p>Treino supervisionado com validação cruzada e balanceadores.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="card card-carousel-item">
+                  <div class="step-card">
+                    <span class="step-badge">5</span>
+                    <div class="step-content">
+                      <span class="tag">Etapa 5</span>
+                      <h3>Pipeline binário</h3>
+                      <p>Fase 1: saudavel vs. nao saudavel. Fase 2: AD vs. MCI.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="card card-carousel-item">
+                  <div class="step-card">
+                    <span class="step-badge">6</span>
+                    <div class="step-content">
+                      <span class="tag">Etapa 6</span>
+                      <h3>Relatórios</h3>
+                      <p>Resultados das predições</p>
+                    </div>
+                  </div>
+                </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="resultados">
+      <div class="container">
+        <div class="section-title">
+          <h2>Resultados</h2>
+          <p>Resultados</p>
+        </div>
+        <div class="grid cards results-cards">
+          <article class="card fade-up results-overview">
+            <span class="tag">Visão geral</span>
+            <h3>Resultados Preliminares</h3>
+            <p>
+              Na avaliacao preliminar, a melhor configuração foi LightGBM com ADASYN e representações combinadas. Os números abaixo são indicativos e servem para acompanhar o desempenho do pipeline ao longo da pesquisa.
+            </p>
+            <p class="synap-note">Sempre interpretar os resultados como triagem e apoio ao acompanhamento.</p>
+          </article>
+          <article class="card fade-up results-spotlight" style="--delay: 0.1s;">
+            <span class="pill">Destaque</span>
+            <div class="result-big">85%</div>
+            <p class="result-label">F1 macro</p>
+            <p>Acurácia de 86% em avaliacao preliminar.</p>
+            <p class="synap-note">Precisão e revocação variam por grupo clínico.</p>
+          </article>
+        </div>
+
+        <div class="synap-metrics results-metrics fade-up" style="--delay: 0.1s;">
+          <div class="synap-metric">
+            <div class="synap-metric-value">85%</div>
+            <div class="synap-metric-label">F1 macro</div>
+          </div>
+          <div class="synap-metric">
+            <div class="synap-metric-value">86%</div>
+            <div class="synap-metric-label">Acurácia</div>
+          </div>
+          <div class="synap-metric">
+            <div class="synap-metric-value">88%</div>
+            <div class="synap-metric-label">Precisão (saudável)</div>
+          </div>
+          <div class="synap-metric">
+            <div class="synap-metric-value">82%</div>
+            <div class="synap-metric-label">Precisão (não saudável)</div>
+          </div>
+          <div class="synap-metric">
+            <div class="synap-metric-value">90%</div>
+            <div class="synap-metric-label">Revocação (saudável)</div>
+          </div>
+          <div class="synap-metric">
+            <div class="synap-metric-value">79%</div>
+            <div class="synap-metric-label">Revocação (não saudável)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="connectsynap">
+      <div class="container">
+        <div class="section-title">
+          <h2>ConnectSynap</h2>
+          <p>Extensão do SynapSpeech no Telegram</p>
+        </div>
+        <div class="two-col">
+          <div class="fade-up">
+            <p>
+              O ConnectSynap é a vertente aplicada do SynapSpeech. Ele reúne tarefas curtas de narrativa,
+              memória e fluência verbal em um bot no Telegram, facilitando a triagem e o acompanhamento
+              em diferentes contextos.
+            </p>
+            <ul>
+              <li>Fluxo guiado com consentimento informado.</li>
+              <li>Tarefas rápidas e acessíveis em dispositivo móvel.</li>
+              <li>Resultados indicativos, sem substituir avaliação clínica.</li>
+            </ul>
+          </div>
+          <div class="callout fade-up" style="--delay: 0.1s;">
+            <h3>Conheça o ConnectSynap</h3>
+            <p>
+              Veja como o bot funciona, quais testes são aplicados e como acessar o FAQ dedicado.
+            </p>
+            <div class="synap-inline-links">
+              <a class="btn btn-primary" href="connect.html">Abrir página do ConnectSynap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>FAQ</h2>
+          <p>Perguntas sobre o SynapSpeech</p>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question" id="synap-faq1-btn" aria-expanded="false" aria-controls="synap-faq1">
+              <span>O que é o SynapSpeech?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="synap-faq1" role="region" aria-labelledby="synap-faq1-btn">
+              <p>No enfrentamento da Doença de Alzheimer, há um desafio silencioso: o da detecção precoce. Para muitas pessoas, especialmente em regiões com recursos limitados, esse passo inicial nem sempre acontece, seja por falta de acesso, de infraestrutura, ou mesmo de informação. É nesse cenário que o SynapSpeech propõe uma alternativa. Em vez de exames caros e restritivos, ele utiliza a fala espontânea como base para análise. Com o auxílio de técnicas de Processamento de Linguagem Natural (PLN) e Aprendizado de Máquina (AM), o sistema busca identificar padrões linguísticos que possam sinalizar alterações cognitivas associadas aos estágios iniciais da doença. Ou seja, a partir de um celular comum, uma gravação, pode-se iniciar um processo de triagem. A proposta não propõe a substituição do profissional especializado, e sim, uma potencialização na descoberta do diagnóstico antecipado.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" id="synap-faq2-btn" aria-expanded="false" aria-controls="synap-faq2">
+              <span>O projeto substitui avaliação clínica?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="synap-faq2" role="region" aria-labelledby="synap-faq2-btn">
+              <p>Não. Os resultados são indicativos e sempre precisam de acompanhamento profissional.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" id="synap-faq3-btn" aria-expanded="false" aria-controls="synap-faq3">
+              <span>Quais grupos clínicos são comparados?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="synap-faq3" role="region" aria-labelledby="synap-faq3-btn">
+              <p>Alzheimer, comprometimento cognitivo leve e controles, com pipeline binário em duas fases.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" id="synap-faq4-btn" aria-expanded="false" aria-controls="synap-faq4">
+              <span>Quais representações são usadas?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="synap-faq4" role="region" aria-labelledby="synap-faq4-btn">
+              <p>BoW, TF-IDF, Word2Vec, FastText, GloVe, MiniLM e BERTimbau.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" id="synap-faq5-btn" aria-expanded="false" aria-controls="synap-faq5">
+              <span>Referências</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="synap-faq5" role="region" aria-labelledby="synap-faq5-btn">
+              <!-- Referências (lista única, sem sublistas). Texto revisado em PT-BR. -->
+              <ol class="refs">
+                <li>
+                  Base guarda-chuva: Casanova et al. (2020, LREC). “Evaluating Sentence Segmentation in Different Datasets of
+                  Neuropsychological Language Tests in Brazilian Portuguese”.
+                  <a href="https://aclanthology.org/2020.lrec-1.317/" target="_blank" rel="noopener">ACL Anthology</a>
+                </li>
+
+                <li>
+                  Narrativa (picture description / connected speech): Giles, Patterson e Hodges (1996). Perda de informação na
+                  descrição da “Cookie Theft” em Alzheimer.
+                  <a href="https://doi.org/10.1080/02687039608248419" target="_blank" rel="noopener">Taylor &amp; Francis Online</a>
+                </li>
+
+                <li>
+                  Narrativa (picture description / connected speech): Slegers, Filiou, Montembeault e Brambati (2018). Revisão
+                  sistemática sobre discurso em Alzheimer (AD) com “picture description”.
+                  <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Slegers+Filiou+Montembeault+Brambati+2018+picture+description"
+                     target="_blank" rel="noopener">PubMed</a>
+                </li>
+
+                <li>
+                  Sequência de imagens (picture-sequence narrative): Casanova et al. (2020, LREC). Estímulos por sequência de
+                  cenas e livro ilustrado.
+                  <a href="https://aclanthology.org/search/?q=Casanova%202020%20LREC%20Dog%20Story" target="_blank" rel="noopener">ACL Anthology</a>
+                </li>
+
+                <li>
+                  Sequência de imagens (picture-sequence narrative): Malcorra et al. (2022). “The Dog Story” como tarefa de
+                  sequência (BALE).
+                  <a href="https://repositorio.pucrs.br/dspace/bitstream/10923/25153/2/Lower_Education_and_Reading_and_Writing_Habits_Are_Associated_With_Poorer_Oral_Discourse_Production_in_Typical_Adults.pdf"
+                     target="_blank" rel="noopener">Repositório PUCRS</a>
+                </li>
+
+                <li>
+                  Sequência de imagens (picture-sequence narrative): Bateria de Avaliação da Linguagem no Envelhecimento (BALE).
+                  <a href="https://www.researchgate.net/publication/333319991_Bateria_de_Avaliacao_da_Linguagem_no_Envelhecimento_BALE"
+                     target="_blank" rel="noopener">ResearchGate</a>
+                </li>
+
+                <li>
+                  Sequência de imagens (picture-sequence narrative): Bose et al. (2022). Impacto do tipo de tarefa na fala
+                  conectada em demência.
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9277689/" target="_blank" rel="noopener">PMC</a>
+                </li>
+
+                <li>
+                  Recordação verbal (lista de palavras / delayed recall): Zhao et al. (2012). “Short-Term Delayed Recall of
+                  Auditory Verbal Learning Test Is Equivalent to Long-Term Delayed Recall for Identifying Amnestic Mild Cognitive
+                  Impairment”.
+                  <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0051157" target="_blank" rel="noopener">PLOS ONE</a>
+                </li>
+
+                <li>
+                  Recordação verbal (lista de palavras / delayed recall): Xu et al. (2020). AVLT para predição de conversão em MCI.
+                  <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Xu+2020+AVLT+MCI+Alzheimer" target="_blank" rel="noopener">PubMed</a>
+                </li>
+
+                <li>
+                  Recordação verbal (lista de palavras / delayed recall): Vyhnálek et al. (2022). Contribuição de testes de memória
+                  para identificação precoce.
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9484087/" target="_blank" rel="noopener">PMC</a>
+                </li>
+
+                <li>
+                  Recordação verbal (lista de palavras / delayed recall): Takada et al. (2006). “Delayed recall” em demência em
+                  contexto comunitário (Brasil).
+                  <a href="https://www.scielo.br/j/anp/a/JqnWRJ7VBWc5NFvmy4d5CwB/?lang=en" target="_blank" rel="noopener">SciELO</a>
+                </li>
+
+                <li>
+                  Recordação verbal (lista de palavras / delayed recall): ABCD / “Wallet Story” (referências de uso clínico).
+                  <a href="https://www.researchgate.net/publication/272255851_Use_of_the_Arizona_Battery_for_Communication_Disorders_of_Dementia_in_an_Australian_context"
+                     target="_blank" rel="noopener">ResearchGate</a>
+                </li>
+
+                <li>
+                  Fluência verbal semântica (animais / 60s): Radanovic et al. (2009). Animais/frutas discriminando controles, MCI e
+                  Alzheimer.
+                  <a href="https://www.intpsychogeriatrics.org/article/S1041-6102%2824%2902614-0/pdf" target="_blank" rel="noopener">International Psychogeriatrics</a>
+                </li>
+
+                <li>
+                  Fluência verbal semântica (animais / 60s): Tessaro et al. (2020). Fluência verbal em controles vs. MCI vs. AD (Brasil).
+                  <a href="https://www.scielo.br/j/dn/a/qgB9LtsZqRY95SRr5fJYXvK/?format=html&lang=en" target="_blank" rel="noopener">SciELO</a>
+                </li>
+
+                <li>
+                  Fluência verbal semântica (animais / 60s): Neves et al. (2020). Acurácia da fluência semântica para separar grupos (Brasil).
+                  <a href="https://www.scielo.br/j/jbpsiq/a/8CtQLTskTBYf6N6jsGk4v7K/?lang=en" target="_blank" rel="noopener">SciELO</a>
+                </li>
+
+                <li>
+                  Sentença ambígua (compreensão sintático-semântica): Kempler et al. (1998). Déficits de compreensão de sentenças em Alzheimer.
+                  <a href="https://pubmed.ncbi.nlm.nih.gov/9743544/" target="_blank" rel="noopener">PubMed</a>
+                </li>
+
+                <li>
+                  Sentença ambígua (compreensão sintático-semântica): Grossman et al. (1998). Fatores gramaticais/semânticos na compreensão
+                  de sentenças em Alzheimer (AD).
+                  <a href="https://www.sciencedirect.com/science/article/abs/pii/S0093934X97918988" target="_blank" rel="noopener">ScienceDirect</a>
+                </li>
+
+                <li>
+                  Sentença ambígua (compreensão sintático-semântica): Grober et al. (1995). Correspondência sentença–figura em Alzheimer.
+                  <a href="https://www.tandfonline.com/doi/abs/10.1080/87565649509540606" target="_blank" rel="noopener">Taylor &amp; Francis Online</a>
+                </li>
+
+                <li>
+                  Sentença ambígua (compreensão sintático-semântica): Liu et al. (2019). Piora da compreensão de sentenças em DAT/Alzheimer.
+                  <a href="https://peerj.com/search/?q=Liu+2019+sentence+comprehension+Alzheimer" target="_blank" rel="noopener">PeerJ</a>
+                </li>
+
+                <li>
+                  Sentença ambígua (compreensão sintático-semântica): van Boxtel e Hagoort (2021). Revisão sobre compreensão de sentenças no
+                  envelhecimento e em Alzheimer (AD).
+                  <a href="https://compass.onlinelibrary.wiley.com/doi/10.1111/lnc3.12430" target="_blank" rel="noopener">Compass</a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--<section class="section alt" id="referencias">
+      <div class="container">
+        <div class="section-title">
+          <h2>Referências</h2>
+          <p>Principais fontes</p>
+        </div>
+        <div class="card">
+          <ol class="refs">
+            <li>
+              <strong>SynapSpeech: Escutando os primeiros sinais</strong> (TCC, UTFPR, 2025).
+              <a href="../SYNAPSPEECH___ESCUTANDO_OS_PRIMEIROS_SINAIS_DO_ALZHEIMER.pdf" target="_blank" rel="noopener">PDF</a>
+            </li>
+            <li>
+              <strong>Relatorio de Resultados 2025</strong>.
+              <a href="../SynapJP_Conic%202025.docx.pdf" target="_blank" rel="noopener">PDF</a>
+            </li>
+            <li>
+              DNLT-BP (NILC/USP):
+              <a href="https://github.com/nilc-nlp/DNLT-BP" target="_blank" rel="noopener">github.com/nilc-nlp/DNLT-BP</a>
+            </li>
+            <li>
+              Casanova et al. (2020, LREC):
+              <a href="https://inteligentehub.com.br/docs/casanova2020.pdf" target="_blank" rel="noopener">PDF</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>-->
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>SynapSpeech</h3>
+      <p>Pesquisa em fala e linguagem para triagem e acompanhamento.</p>
+      <!--<p class="footer-ack">Acknowledgements: This work has been funded by the Canadian International Development Research Centre (IDRC) under the Grant Agreement 109981, and the UK government's Foreign, Commonwealth and Development Office. The views expressed here do not necessarily reflect those of the UK government's Foreign, Commonwealth and Development Office, IDRC, or IDRC's Board of Governors.</p>-->
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".faq-item").forEach(function (item) {
+      var button = item.querySelector(".faq-question");
+      var answer = item.querySelector(".faq-answer");
+
+      function closeItem(target) {
+        var btn = target.querySelector(".faq-question");
+        var panel = target.querySelector(".faq-answer");
+        target.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+        panel.style.maxHeight = "0px";
+      }
+
+      function openItem(target) {
+        var btn = target.querySelector(".faq-question");
+        var panel = target.querySelector(".faq-answer");
+        target.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+
+      button.addEventListener("click", function () {
+        var isOpen = item.classList.contains("is-open");
+        document.querySelectorAll(".faq-item.is-open").forEach(function (openItemEl) {
+          closeItem(openItemEl);
+        });
+        if (!isOpen) {
+          openItem(item);
+        }
+      });
+
+      if (answer) {
+        answer.style.maxHeight = "0px";
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      document.querySelectorAll(".faq-item.is-open").forEach(function (item) {
+        var panel = item.querySelector(".faq-answer");
+        if (panel) {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+
+  <script>
+    (function () {
+      function initCarousel(root) {
+        var slides = Array.prototype.slice.call(root.querySelectorAll(".hero-slide"));
+        if (!slides.length) return;
+        var dots = Array.prototype.slice.call(root.querySelectorAll(".hero-carousel-dot"));
+        var nextBtn = root.querySelector("[data-carousel-next]");
+        var prevBtn = root.querySelector("[data-carousel-prev]");
+        var index = slides.findIndex(function (slide) { return slide.classList.contains("is-active"); });
+        if (index < 0) index = 0;
+        var interval = parseInt(root.getAttribute("data-interval") || "6500", 10);
+        var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var timerId;
+
+        function setActive(newIndex) {
+          slides[index].classList.remove("is-active");
+          if (dots[index]) dots[index].classList.remove("is-active");
+          index = (newIndex + slides.length) % slides.length;
+          slides[index].classList.add("is-active");
+          if (dots[index]) dots[index].classList.add("is-active");
+        }
+
+        function next() { setActive(index + 1); }
+        function prev() { setActive(index - 1); }
+
+        function start() {
+          if (prefersReduced || slides.length < 2) return;
+          timerId = window.setInterval(next, interval);
+        }
+
+        function stop() {
+          if (timerId) window.clearInterval(timerId);
+        }
+
+        function restart() {
+          stop();
+          start();
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () {
+            next();
+            restart();
+          });
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () {
+            prev();
+            restart();
+          });
+        }
+
+        dots.forEach(function (dot, i) {
+          dot.addEventListener("click", function () {
+            setActive(i);
+            restart();
+          });
+        });
+
+        root.addEventListener("mouseenter", stop);
+        root.addEventListener("mouseleave", start);
+        root.addEventListener("focusin", stop);
+        root.addEventListener("focusout", start);
+
+        start();
+      }
+
+      document.querySelectorAll("[data-hero-carousel]").forEach(initCarousel);
+      function initCardCarousel(root) {
+        var track = root.querySelector(".card-carousel-track");
+        if (!track) return;
+        var items = Array.prototype.slice.call(track.querySelectorAll(".card-carousel-item"));
+        if (!items.length) return;
+        var dotsWrap = root.querySelector(".card-carousel-dots");
+        var prevBtn = root.querySelector("[data-carousel-prev]");
+        var nextBtn = root.querySelector("[data-carousel-next]");
+        var index = 0;
+        var perView = 1;
+        var pageCount = 1;
+        var interval = parseInt(root.getAttribute("data-interval") || "6000", 10);
+        var maxPerView = parseInt(root.getAttribute("data-per-view") || "1", 10);
+        var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var timerId;
+
+        function computePerView() {
+          var width = root.offsetWidth;
+          if (width >= 1100) return Math.max(1, Math.min(3, maxPerView));
+          if (width >= 760) return Math.max(1, Math.min(2, maxPerView));
+          return 1;
+        }
+
+        function setIndex(newIndex) {
+          if (!pageCount) return;
+          index = (newIndex + pageCount) % pageCount;
+          root.style.setProperty("--index", index);
+          updateDots();
+        }
+
+        function updateDots() {
+          if (!dotsWrap) return;
+          Array.prototype.slice.call(dotsWrap.children).forEach(function (dot, i) {
+            dot.classList.toggle("is-active", i === index);
+          });
+        }
+
+        function buildDots() {
+          if (!dotsWrap) return;
+          dotsWrap.innerHTML = "";
+          for (var i = 0; i < pageCount; i += 1) {
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "card-carousel-dot" + (i === index ? " is-active" : "");
+            dot.setAttribute("aria-label", "Ir para o grupo " + (i + 1));
+            dot.setAttribute("data-index", String(i));
+            dot.addEventListener("click", function (event) {
+              var target = parseInt(event.currentTarget.getAttribute("data-index") || "0", 10);
+              setIndex(target);
+              restart();
+            });
+            dotsWrap.appendChild(dot);
+          }
+        }
+
+        function updateLayout() {
+          perView = computePerView();
+          root.style.setProperty("--per-view", perView);
+          pageCount = Math.max(1, Math.ceil(items.length / perView));
+          if (index > pageCount - 1) index = pageCount - 1;
+          root.style.setProperty("--index", index);
+          buildDots();
+          var disableNav = pageCount <= 1;
+          if (prevBtn) prevBtn.disabled = disableNav;
+          if (nextBtn) nextBtn.disabled = disableNav;
+        }
+
+        function next() { setIndex(index + 1); }
+        function prev() { setIndex(index - 1); }
+
+        function start() {
+          if (prefersReduced || pageCount < 2) return;
+          timerId = window.setInterval(next, interval);
+        }
+
+        function stop() {
+          if (timerId) window.clearInterval(timerId);
+        }
+
+        function restart() {
+          stop();
+          start();
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () {
+            next();
+            restart();
+          });
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () {
+            prev();
+            restart();
+          });
+        }
+
+        root.addEventListener("mouseenter", stop);
+        root.addEventListener("mouseleave", start);
+        root.addEventListener("focusin", stop);
+        root.addEventListener("focusout", start);
+
+        window.addEventListener("resize", function () {
+          updateLayout();
+          restart();
+        });
+
+        updateLayout();
+        start();
+      }
+
+      document.querySelectorAll("[data-card-carousel]").forEach(initCardCarousel);
+    })();
+  </script>
+
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"pt","languages":["pt","en","fr","de","it","es"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","alt_flags":{"en":"usa","pt":"brazil"}};</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+</html>

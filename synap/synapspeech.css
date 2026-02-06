@@ -1,0 +1,643 @@
+@import url("faq.css");
+
+.synap-page .synap-metrics {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-top: 20px;
+}
+
+/* === Pipeline carousel: padronizar cartões === */
+.card-carousel-item {
+  height: 100%;
+}
+
+.step-card {
+  height: 100%;
+  min-height: 190px;           /* ajuste conforme seu layout */
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px 18px;
+  border-radius: 16px;
+}
+
+.step-badge {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.step-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;                /* importante p/ ellipsis/clamp */
+}
+
+/* Tag sempre no topo e com mesma altura visual */
+.step-content .tag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  width: fit-content;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Título com altura e quebra controladas */
+.step-content h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.25;
+  min-height: calc(1.25em * 2); /* reserva 2 linhas p/ padronizar */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;        /* no máximo 2 linhas */
+  overflow: hidden;
+}
+
+/* Descrição padronizada (mesmo “bloco” em todos) */
+.step-content p {
+  margin: 0;
+  color: inherit;
+  opacity: 0.9;
+  line-height: 1.45;
+  min-height: calc(1.45em * 3); /* reserva 3 linhas */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;        /* no máximo 3 linhas */
+  overflow: hidden;
+}
+
+/* Opcional: garantir que o card "enche" a célula do grid/track */
+.card.carousel,
+.card.card-carousel-item,
+.card-carousel-track {
+  align-items: stretch;
+}
+
+
+.synap-page .synap-metric {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.synap-page .synap-metric-value {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--brand-orange);
+}
+
+.synap-page .synap-metric-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.synap-page .results-cards {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.synap-page .results-overview {
+  border-left: 4px solid var(--brand-orange);
+}
+
+.synap-page .results-spotlight {
+  background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-dark-2) 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.synap-page .results-spotlight .pill {
+  background: rgba(239, 102, 3, 0.25);
+  border-color: rgba(239, 102, 3, 0.5);
+}
+
+.synap-page .results-spotlight h3,
+.synap-page .results-spotlight p,
+.synap-page .results-spotlight .result-label,
+.synap-page .results-spotlight .synap-note {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.synap-page .result-big {
+  font-size: 46px;
+  font-weight: 700;
+  color: #fff;
+  margin: 10px 0 2px;
+}
+
+.synap-page .result-label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.synap-page .results-metrics {
+  position: relative;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(239, 102, 3, 0.08), transparent);
+  border: 1px solid rgba(239, 102, 3, 0.15);
+}
+
+.synap-page .pipeline-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.synap-page .pipeline-grid .card {
+  border-left: 3px solid rgba(239, 102, 3, 0.35);
+}
+
+.synap-page .pipeline-grid .tag {
+  margin-bottom: 8px;
+}
+
+.synap-page .synap-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.synap-page .synap-timeline li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.synap-page .synap-timeline li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brand-orange);
+}
+
+.synap-page .synap-inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.synap-page .synap-note {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.synap-page .synap-link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.synap-page .synap-link-card a {
+  color: var(--brand-orange);
+  font-weight: 600;
+}
+
+.synap-page .synap-link-card a:hover {
+  color: var(--brand-orange-light);
+}
+
+.synap-page .footer-ack {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.synap-page .connectsynap-gallery {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.synap-page .connectsynap-shot {
+  border-radius: 14px;
+  border: 1px solid rgba(42, 44, 57, 0.08);
+  background: #ffffff;
+  padding: 8px;
+  box-shadow: 0 10px 22px rgba(42, 44, 57, 0.08);
+}
+
+.synap-page .connectsynap-shot img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.synap-page .hero-carousel {
+  position: relative;
+  min-height: 220px;
+  border-radius: var(--radius);
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+.synap-page .hero-slide {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.synap-page .hero-slide.is-active {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.synap-page .hero-carousel h3 {
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.synap-page .hero-carousel p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.synap-page .hero-carousel-nav {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.synap-page .hero-carousel-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.28);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.synap-page .hero-carousel-btn:hover {
+  background: rgba(239, 102, 3, 0.7);
+  transform: translateY(-1px);
+}
+
+.synap-page .hero-carousel-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.synap-page .hero-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+  padding: 0;
+}
+
+.synap-page .hero-carousel-dot.is-active {
+  width: 20px;
+  background: var(--brand-orange);
+}
+
+.synap-page .card-carousel {
+  position: relative;
+  --per-view: 1;
+  --index: 0;
+  --gap: 18px;
+  border-radius: var(--radius);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.synap-page .card-carousel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.synap-page .card-carousel-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.synap-page .card-carousel-text .kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(42, 44, 57, 0.45);
+  font-weight: 700;
+}
+
+.synap-page .card-carousel-text h3 {
+  margin: 0;
+  font-size: 22px;
+  color: var(--brand-dark);
+}
+
+.synap-page .card-carousel-text p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.synap-page .card-carousel-viewport {
+  overflow: hidden;
+  padding: 6px 2px 8px;
+}
+
+.synap-page .card-carousel-track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform: translateX(calc(var(--index) * -100%));
+  margin: 0 calc(var(--gap) / -2);
+  will-change: transform;
+  position: relative;
+  z-index: 0;
+}
+
+.synap-page .card-carousel-item {
+  flex: 0 0 calc(100% / var(--per-view));
+  padding: 0 calc(var(--gap) / 2);
+  box-sizing: border-box;
+  display: block;
+}
+
+.synap-page .card-carousel-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.synap-page .card-carousel-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(42, 44, 57, 0.14);
+  background: #ffffff;
+  color: var(--brand-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, border 0.3s ease;
+  box-shadow: 0 4px 14px rgba(42, 44, 57, 0.12);
+}
+
+.synap-page .card-carousel-btn:hover {
+  background: var(--brand-orange);
+  color: #ffffff;
+  border-color: var(--brand-orange);
+  transform: translateY(-1px);
+}
+
+.synap-page .card-carousel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.synap-page .card-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.synap-page .card-carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(42, 44, 57, 0.25);
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  padding: 0;
+}
+
+.synap-page .card-carousel-dot.is-active {
+  transform: scale(1.6);
+  background: var(--brand-orange);
+}
+
+.synap-page .card-carousel-item.card {
+  height: 100%;
+  border: 1px solid rgba(42, 44, 57, 0.06);
+  background: #ffffff;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(42, 44, 57, 0.1);
+}
+
+.synap-page .card-carousel .tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(239, 102, 3, 0.12);
+  color: var(--brand-orange);
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.synap-page .card-carousel h3 {
+  margin-top: 6px;
+}
+
+.synap-page .card-carousel-item.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(239, 102, 3, 0.25);
+  box-shadow: 0 12px 26px rgba(42, 44, 57, 0.16);
+}
+
+.synap-page .tasks-carousel .card-carousel-item.card {
+  border-left: 4px solid rgba(239, 102, 3, 0.6);
+  padding: 18px 20px;
+}
+
+.synap-page .tasks-carousel .task-card {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.synap-page .tasks-carousel .task-index {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--brand-orange);
+  background: rgba(239, 102, 3, 0.12);
+  border: 1px solid rgba(239, 102, 3, 0.25);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.synap-page .tasks-carousel .task-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(42, 44, 57, 0.6);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.synap-page .tasks-carousel .task-body h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: var(--brand-dark);
+}
+
+.synap-page .tasks-carousel .task-body p {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  .synap-page .tasks-carousel .task-card {
+    grid-template-columns: 1fr;
+  }
+
+  .synap-page .tasks-carousel .task-index {
+    width: 40px;
+    height: 40px;
+  }
+}
+.synap-page .step-card {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.synap-page .step-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--brand-orange);
+  box-shadow: 0 8px 18px rgba(239, 102, 3, 0.3);
+  font-size: 13px;
+}
+
+.synap-page .step-content h3 {
+  margin: 0 0 6px;
+}
+
+@media (max-width: 760px) {
+  .synap-page .card-carousel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .synap-page .connectsynap-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .synap-page .synap-inline-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .synap-page .hero-carousel {
+    min-height: 240px;
+  }
+
+  .synap-page .connectsynap-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .synap-page .header-inner {
+    gap: 12px;
+  }
+
+  .synap-page .nav {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .synap-page .nav a {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .synap-page .site-header .btn {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}

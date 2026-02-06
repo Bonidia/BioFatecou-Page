@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="1b31700e-d808-4eb0-9915-368ab3aea2ca" type="text/javascript" async></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NCLJFZFPL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NCLJFZFPL');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ConnectSynap | SynapSpeech</title>
+  <meta name="description" content="ConnectSynap: bot do SynapSpeech no Telegram para triagem e acompanhamento por linguagem.">
+  <meta name="keywords" content="ConnectSynap, SynapSpeech, triagem, Telegram, linguagem">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="synapspeech.css">
+</head>
+<body class="synap-page">
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="https://inteligentehub.com.br/">InteliGente</a>
+        <span>ConnectSynap</span>
+      </div>
+      <nav class="nav">
+        <a href="synap.html">SynapSpeech</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#testes">Testes</a>
+        <a href="#interpretacao">Interpretação</a>
+        <a href="#privacidade">Privacidade</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-outline" href="#telegram">Telegram</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-content fade-up">
+          <span class="eyebrow">ConnectSynap</span>
+          <h1>A vertente do SynapSpeech no Telegram</h1>
+          <p>
+            Bot de triagem por linguagem com tarefas rápidas de narrativa, memória e fluência verbal.
+            Resultados indicativos para apoio ao acompanhamento.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#como-funciona">Como funciona</a>
+          </div>
+          <div class="hero-note">
+            <span class="pill">Triagem</span>
+            <span>Não é laudo clínico.</span>
+          </div>
+        </div>
+        <aside class="hero-carousel fade-up" style="--delay: 0.15s;" data-hero-carousel data-interval="6500">
+          <div class="hero-slide is-active">
+            <span class="tag">Em resumo</span>
+            <h3>Tarefas curtas no celular</h3>
+            <p>Testes rápidos de narrativa, memória e fluência verbal.</p>
+          </div>
+          <div class="hero-slide">
+            <span class="tag">Consentimento</span>
+            <h3>Participação informada</h3>
+            <p>Sem consentimento não há coleta de dados.</p>
+          </div>
+          <div class="hero-slide">
+            <span class="tag">Acompanhamento</span>
+            <h3>Monitoramento ao longo do tempo</h3>
+            <p>Resultados indicativos para apoiar o acompanhamento.</p>
+          </div>
+          <div class="hero-carousel-nav">
+            <button class="hero-carousel-btn" type="button" data-carousel-prev aria-label="Slide anterior">‹</button>
+            <div class="hero-carousel-dots">
+              <button class="hero-carousel-dot is-active" type="button" aria-label="Ir para o slide 1"></button>
+              <button class="hero-carousel-dot" type="button" aria-label="Ir para o slide 2"></button>
+              <button class="hero-carousel-dot" type="button" aria-label="Ir para o slide 3"></button>
+            </div>
+            <button class="hero-carousel-btn" type="button" data-carousel-next aria-label="Próximo slide">›</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section alt" id="galeria">
+      <div class="container">
+        <div class="section-title">
+          <h2>ConnectSynap</h2>
+          <p>Galeria de uso</p>
+        </div>
+        <div class="connectsynap-gallery">
+          <figure class="connectsynap-shot">
+            <img src="connectsynap-01.jpeg" alt="Participante usando o ConnectSynap no celular">
+          </figure>
+          <figure class="connectsynap-shot">
+            <img src="connectsynap-02.jpeg" alt="Uso do ConnectSynap em ambiente de pesquisa">
+          </figure>
+          <figure class="connectsynap-shot">
+            <img src="connectsynap-03.jpeg" alt="Aplicação do ConnectSynap para coleta de fala">
+          </figure>
+          <figure class="connectsynap-shot">
+            <img src="connectsynap-04.jpeg" alt="Registro de tarefas de linguagem com o ConnectSynap">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="como-funciona">
+      <div class="container">
+        <div class="section-title">
+          <h2>Como funciona</h2>
+          <p>Passo a passo</p>
+        </div>
+        <div class="grid cards">
+          <article class="card fade-up">
+            <h3>Consentimento</h3>
+            <p>O usuário decide participar. Sem consentimento não há coleta de dados.</p>
+          </article>
+          <article class="card fade-up" style="--delay: 0.05s;">
+            <h3>Tarefas guiadas</h3>
+            <p>O bot conduz testes rápidos de narrativa, memória e fluência verbal.</p>
+          </article>
+          <article class="card fade-up" style="--delay: 0.1s;">
+            <h3>Acompanhamento</h3>
+            <p>Resultados indicativos ajudam a observar mudanças ao longo do tempo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testes">
+      <div class="container">
+        <div class="section-title">
+          <h2>Testes no bot</h2>
+          <p>Mapeamento das tarefas</p>
+        </div>
+        <div class="card-carousel tasks-carousel" data-card-carousel data-interval="6000" data-per-view="2">
+          <div class="card-carousel-header">
+            <div class="card-carousel-text">
+              <span class="kicker">Mapeamento</span>
+              <h3>Testes guiados pelo bot</h3>
+              <p>Navegue pelas tarefas que compõem a triagem.</p>
+            </div>
+            <div class="card-carousel-nav" aria-label="Carrossel de testes">
+              <button class="card-carousel-btn" type="button" data-carousel-prev aria-label="Teste anterior">‹</button>
+              <div class="card-carousel-dots"></div>
+              <button class="card-carousel-btn" type="button" data-carousel-next aria-label="Proximo teste">›</button>
+            </div>
+          </div>
+          <div class="card-carousel-viewport">
+            <div class="card-carousel-track">
+              <article class="card card-carousel-item">
+                <div class="task-card">
+                  <span class="task-index">01</span>
+                  <div class="task-body">
+                    <span class="task-tag">Narrativa</span>
+                    <h3>Descrição de cena</h3>
+                    <p>Similar ao paradigma Cookie Theft (BDAE).</p>
+                  </div>
+                </div>
+              </article>
+              <article class="card card-carousel-item">
+                <div class="task-card">
+                  <span class="task-index">02</span>
+                  <div class="task-body">
+                    <span class="task-tag">Sequência</span>
+                    <h3>Narrativa em imagens</h3>
+                    <p>Sequência inspirada na Dog Story.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="card card-carousel-item">
+                <div class="task-card">
+                  <span class="task-index">03</span>
+                  <div class="task-body">
+                    <span class="task-tag">Memória</span>
+                    <h3>Recordação verbal</h3>
+                    <p>Alinhada a paradigmas de recall.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="card card-carousel-item">
+                <div class="task-card">
+                  <span class="task-index">04</span>
+                  <div class="task-body">
+                    <span class="task-tag">Fluência</span>
+                    <h3>Evocação semântica</h3>
+                    <p>Animais em 60 segundos.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="card card-carousel-item">
+                <div class="task-card">
+                  <span class="task-index">05</span>
+                  <div class="task-body">
+                    <span class="task-tag">Frase ambígua</span>
+                    <h3>Compreensão sintática</h3>
+                    <p>Interpretação sintático-semântica.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="interpretacao">
+      <div class="container">
+        <div class="section-title">
+          <h2>Interpretação</h2>
+          <p>Leitura responsável</p>
+        </div>
+        <div class="two-col">
+          <div class="card fade-up">
+            <h3>Resultados são indicativos</h3>
+            <p>
+              O ConnectSynap oferece triagem e apoio ao acompanhamento. Não substitui avaliação clínica
+              e deve ser interpretado junto a profissionais de saúde.
+            </p>
+          </div>
+          <div class="callout fade-up" style="--delay: 0.1s;">
+            <h3>Quando buscar ajuda</h3>
+            <p>
+              Se houver queixas persistentes de memória, linguagem ou atenção, procure profissionais
+              como neurologia, geriatria, fonoaudiologia, psicologia ou neuropsicologia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacidade">
+      <div class="container">
+        <div class="section-title">
+          <h2>Privacidade</h2>
+          <p>Como seus dados são tratados</p>
+        </div>
+        <div class="two-col">
+          <div class="card fade-up">
+            <h3>O que é armazenado</h3>
+            <ul>
+              <li>Áudio enviado e transcrição automática.</li>
+              <li>Metadados mínimos (idade, sexo, região, escolaridade).</li>
+              <li>Identificador técnico para organizar as respostas.</li>
+            </ul>
+          </div>
+          <div class="card fade-up" style="--delay: 0.1s;">
+            <h3>Tempo de retenção e interrupção</h3>
+            <ul>
+              <li>Dados mantidos enquanto o projeto estiver ativo.</li>
+              <li>Remoção mediante solicitação do participante.</li>
+              <li>O usuário pode interromper a qualquer momento.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>FAQ</h2>
+          <p>Dúvidas rápidas</p>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question" id="connect-faq1-btn" aria-expanded="false" aria-controls="connect-faq1">
+              <span>O que é o ConnectSynap?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="connect-faq1" role="region" aria-labelledby="connect-faq1-btn">
+              <p>É a extensão do SynapSpeech no Telegram para coleta de tarefas de linguagem.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" id="connect-faq2-btn" aria-expanded="false" aria-controls="connect-faq2">
+              <span>Ele confirma alguma condição clínica?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="connect-faq2" role="region" aria-labelledby="connect-faq2-btn">
+              <p>Não. Os resultados são indicativos e servem para acompanhamento.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" id="connect-faq3-btn" aria-expanded="false" aria-controls="connect-faq3">
+              <span>Posso refazer os testes?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="connect-faq3" role="region" aria-labelledby="connect-faq3-btn">
+              <p>Sim, repetir com intervalos ajuda a observar mudanças ao longo do tempo.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" id="connect-faq4-btn" aria-expanded="false" aria-controls="connect-faq4">
+              <span>Preciso de ambiente silencioso?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="connect-faq4" role="region" aria-labelledby="connect-faq4-btn">
+              <p>Sim. Isso melhora a qualidade do áudio e a transcrição automática.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" id="faq10-btn" aria-expanded="false" aria-controls="faq10">
+              <span>O que pode gerar falso positivo?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="faq10" role="region" aria-labelledby="faq10-btn">
+              <p>
+                Fatores como estresse, ansiedade, fadiga, baixa escolaridade, ambiente ruidoso
+                ou dificuldades de audição podem reduzir a qualidade da coleta.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" id="faq4-btn" aria-expanded="false" aria-controls="faq4">
+              <span>Quanto tempo dura?</span>
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer" id="faq4" role="region" aria-labelledby="faq4-btn">
+              <p>
+                Em geral, cada tarefa dura poucos minutos. O tempo total varia conforme a quantidade
+                de testes escolhida e o ritmo de resposta do usuário.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="telegram">
+      <div class="container">
+        <div class="callout fade-up">
+          <h3>ConnectSynap no Telegram</h3>
+          <p>Participe das tarefas de linguagem e memória e contribua para a pesquisa.</p>
+          <div class="synap-inline-links">
+            <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Lançamento em Breve</a>
+            <!--<a class="btn btn-outline" href="faq/index.html">Ver FAQ completo</a>-->
+          </div>
+          <!--<p class="synap-note">Link direto: <a href="https://t.me/SynapSpeechBot?start=iniciar" target="_blank" rel="noopener">https://t.me/SynapSpeechBot?start=iniciar</a></p>-->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>ConnectSynap</h3>
+      <p>Triagem e apoio ao acompanhamento via Telegram.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".faq-item").forEach(function (item) {
+      var button = item.querySelector(".faq-question");
+      var answer = item.querySelector(".faq-answer");
+
+      function closeItem(target) {
+        var btn = target.querySelector(".faq-question");
+        var panel = target.querySelector(".faq-answer");
+        target.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+        panel.style.maxHeight = "0px";
+      }
+
+      function openItem(target) {
+        var btn = target.querySelector(".faq-question");
+        var panel = target.querySelector(".faq-answer");
+        target.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+
+      button.addEventListener("click", function () {
+        var isOpen = item.classList.contains("is-open");
+        document.querySelectorAll(".faq-item.is-open").forEach(function (openItemEl) {
+          closeItem(openItemEl);
+        });
+        if (!isOpen) {
+          openItem(item);
+        }
+      });
+
+      if (answer) {
+        answer.style.maxHeight = "0px";
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      document.querySelectorAll(".faq-item.is-open").forEach(function (item) {
+        var panel = item.querySelector(".faq-answer");
+        if (panel) {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+
+  <script>
+    (function () {
+      function initCarousel(root) {
+        var slides = Array.prototype.slice.call(root.querySelectorAll(".hero-slide"));
+        if (!slides.length) return;
+        var dots = Array.prototype.slice.call(root.querySelectorAll(".hero-carousel-dot"));
+        var nextBtn = root.querySelector("[data-carousel-next]");
+        var prevBtn = root.querySelector("[data-carousel-prev]");
+        var index = slides.findIndex(function (slide) { return slide.classList.contains("is-active"); });
+        if (index < 0) index = 0;
+        var interval = parseInt(root.getAttribute("data-interval") || "6500", 10);
+        var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var timerId;
+
+        function setActive(newIndex) {
+          slides[index].classList.remove("is-active");
+          if (dots[index]) dots[index].classList.remove("is-active");
+          index = (newIndex + slides.length) % slides.length;
+          slides[index].classList.add("is-active");
+          if (dots[index]) dots[index].classList.add("is-active");
+        }
+
+        function next() { setActive(index + 1); }
+        function prev() { setActive(index - 1); }
+
+        function start() {
+          if (prefersReduced || slides.length < 2) return;
+          timerId = window.setInterval(next, interval);
+        }
+
+        function stop() {
+          if (timerId) window.clearInterval(timerId);
+        }
+
+        function restart() {
+          stop();
+          start();
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () {
+            next();
+            restart();
+          });
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () {
+            prev();
+            restart();
+          });
+        }
+
+        dots.forEach(function (dot, i) {
+          dot.addEventListener("click", function () {
+            setActive(i);
+            restart();
+          });
+        });
+
+        root.addEventListener("mouseenter", stop);
+        root.addEventListener("mouseleave", start);
+        root.addEventListener("focusin", stop);
+        root.addEventListener("focusout", start);
+
+        start();
+      }
+
+      document.querySelectorAll("[data-hero-carousel]").forEach(initCarousel);
+      function initCardCarousel(root) {
+        var track = root.querySelector(".card-carousel-track");
+        if (!track) return;
+        var items = Array.prototype.slice.call(track.querySelectorAll(".card-carousel-item"));
+        if (!items.length) return;
+        var dotsWrap = root.querySelector(".card-carousel-dots");
+        var prevBtn = root.querySelector("[data-carousel-prev]");
+        var nextBtn = root.querySelector("[data-carousel-next]");
+        var index = 0;
+        var perView = 1;
+        var pageCount = 1;
+        var interval = parseInt(root.getAttribute("data-interval") || "6000", 10);
+        var maxPerView = parseInt(root.getAttribute("data-per-view") || "1", 10);
+        var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var timerId;
+
+        function computePerView() {
+          var width = root.offsetWidth;
+          if (width >= 1100) return Math.max(1, Math.min(3, maxPerView));
+          if (width >= 760) return Math.max(1, Math.min(2, maxPerView));
+          return 1;
+        }
+
+        function setIndex(newIndex) {
+          if (!pageCount) return;
+          index = (newIndex + pageCount) % pageCount;
+          root.style.setProperty("--index", index);
+          updateDots();
+        }
+
+        function updateDots() {
+          if (!dotsWrap) return;
+          Array.prototype.slice.call(dotsWrap.children).forEach(function (dot, i) {
+            dot.classList.toggle("is-active", i === index);
+          });
+        }
+
+        function buildDots() {
+          if (!dotsWrap) return;
+          dotsWrap.innerHTML = "";
+          for (var i = 0; i < pageCount; i += 1) {
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "card-carousel-dot" + (i === index ? " is-active" : "");
+            dot.setAttribute("aria-label", "Ir para o grupo " + (i + 1));
+            dot.setAttribute("data-index", String(i));
+            dot.addEventListener("click", function (event) {
+              var target = parseInt(event.currentTarget.getAttribute("data-index") || "0", 10);
+              setIndex(target);
+              restart();
+            });
+            dotsWrap.appendChild(dot);
+          }
+        }
+
+        function updateLayout() {
+          perView = computePerView();
+          root.style.setProperty("--per-view", perView);
+          pageCount = Math.max(1, Math.ceil(items.length / perView));
+          if (index > pageCount - 1) index = pageCount - 1;
+          root.style.setProperty("--index", index);
+          buildDots();
+          var disableNav = pageCount <= 1;
+          if (prevBtn) prevBtn.disabled = disableNav;
+          if (nextBtn) nextBtn.disabled = disableNav;
+        }
+
+        function next() { setIndex(index + 1); }
+        function prev() { setIndex(index - 1); }
+
+        function start() {
+          if (prefersReduced || pageCount < 2) return;
+          timerId = window.setInterval(next, interval);
+        }
+
+        function stop() {
+          if (timerId) window.clearInterval(timerId);
+        }
+
+        function restart() {
+          stop();
+          start();
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () {
+            next();
+            restart();
+          });
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () {
+            prev();
+            restart();
+          });
+        }
+
+        root.addEventListener("mouseenter", stop);
+        root.addEventListener("mouseleave", start);
+        root.addEventListener("focusin", stop);
+        root.addEventListener("focusout", start);
+
+        window.addEventListener("resize", function () {
+          updateLayout();
+          restart();
+        });
+
+        updateLayout();
+        start();
+      }
+
+      document.querySelectorAll("[data-card-carousel]").forEach(initCardCarousel);
+    })();
+  </script>
+
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"pt","languages":["pt","en","fr","de","it","es"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","alt_flags":{"en":"usa","pt":"brazil"}};</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+</html>
