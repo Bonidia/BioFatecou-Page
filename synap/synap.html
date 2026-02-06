@@ -26,13 +26,14 @@
   <link rel="stylesheet" href="synapspeech.css">
 </head>
 <body class="synap-page">
-  <header class="site-header" id="header">
+  <header class="site-header" data-site-header>
     <div class="container header-inner">
       <div class="logo">
         <a href="https://inteligentehub.com.br/">InteliGente</a>
-        <span>SynapSpeech</span>
+        <span>ConnectSynap</span>
       </div>
-      <nav class="nav">
+
+      <nav class="nav" id="site-nav" data-site-nav>
         <a href="#visao">Visão geral</a>
         <a href="#dados">Dados</a>
         <a href="#metodologia">Metodologia</a>
@@ -40,8 +41,22 @@
         <a href="#resultados">Resultados</a>
         <a href="#connectsynap">ConnectSynap</a>
         <a href="#faq">FAQ</a>
+
+        <!-- CTA aparece dentro do menu no mobile -->
+        <a class="nav-cta" href="#connectsynap">Entender o ConnectSynap</a>
       </nav>
-      <a class="btn btn-outline" href="connect.html">Entender o ConnectSynap</a>
+
+      <!-- Botão hambúrguer (mobile) -->
+      <button class="nav-toggle" type="button"
+        aria-label="Abrir menu"
+        aria-controls="site-nav"
+        aria-expanded="false"
+        data-nav-toggle>
+        <span class="nav-bars" aria-hidden="true"></span>
+      </button>
+
+      <!-- CTA no desktop -->
+      <a class="btn btn-outline header-cta" href="connect.html">Entender o ConnectSynap</a>
     </div>
   </header>
 
@@ -56,7 +71,7 @@
             fala espontânea em português brasileiro. Foco em pesquisa aplicada, acessível e de baixo custo.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#visao">Ver visão geral</a>
+            <a class="btn btn-primary" href="#visao">Visão geral</a>
             <a class="btn btn-ghost" href="#connectsynap">Conhecer o ConnectSynap</a>
           </div>
           <div class="hero-note">
@@ -804,6 +819,45 @@
       }
 
       document.querySelectorAll("[data-card-carousel]").forEach(initCardCarousel);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const header = document.querySelector("[data-site-header]");
+      const nav = document.querySelector("[data-site-nav]");
+      const toggle = document.querySelector("[data-nav-toggle]");
+      if (!header || !nav || !toggle) return;
+
+      function setOpen(open) {
+        header.classList.toggle("nav-open", open);
+        document.documentElement.classList.toggle("nav-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+      }
+
+      toggle.addEventListener("click", () => {
+        const isOpen = header.classList.contains("nav-open");
+        setOpen(!isOpen);
+      });
+
+      // Fecha ao clicar em um link do menu
+      nav.addEventListener("click", (e) => {
+        const a = e.target.closest("a");
+        if (!a) return;
+        setOpen(false);
+      });
+
+      // Fecha com ESC
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+      });
+
+      // Fecha ao sair do mobile (evita ficar travado ao redimensionar)
+      const mq = window.matchMedia("(max-width: 900px)");
+      mq.addEventListener?.("change", (ev) => {
+        if (!ev.matches) setOpen(false);
+      });
     })();
   </script>
 
