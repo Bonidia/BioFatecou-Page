@@ -1,0 +1,248 @@
+/* página do mediador */
+.mediador-hero {
+  position: relative;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+}
+
+/* Layout lado a lado */
+.mediador-hero-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.mediador-hero-logo img {
+  width: 150px;
+  height: auto;
+}
+
+.mediador-hero-text h3 {
+  font-size: 30px;
+  font-weight: 400;
+  margin: 10px 0 0 0;
+}
+
+.mediador-tag {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #ff6b00;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.mediador-hero-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+/* Linha divisória */
+.mediador-hero-logo {
+  position: relative;
+  padding-right: 40px;
+}
+
+.mediador-hero-logo::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 4px;
+
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #ff6b00 0 12px,
+    transparent 12px 24px,
+    #00bcd4 24px 36px,
+    transparent 36px 48px,
+    #8e24aa 48px 60px,
+    transparent 60px 72px
+  );
+}
+
+.mediador-header {
+  text-align: left; 
+}
+
+.mediador-header-content {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.mediador-logo {
+  width: 80px;
+  height: auto;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f7f8f9;
+  color: #444;
+}
+
+#main { padding-top: 100px; }
+
+.mediador-section {
+  padding: 30px 0 20px 0;
+}
+
+.section-light {
+  background-color: #ffffff;
+}
+
+.section-title h2 {
+  color: #ef6603;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+
+.p-title p {
+  font-size: 30px;
+  font-weight: 500;
+  color: #363636;
+  text-transform: none;
+}
+
+.logo-mediator {
+  max-width: 30px;
+  margin-bottom: 20px;
+}
+
+.content-text {
+  line-height: 1.9;
+  text-align: justify;
+  margin-top: 20px;
+}
+
+.content-text p{
+  line-height: 1.9;
+  text-align: justify;
+}
+
+.pratica-images {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.pratica-img {
+  max-width: 200px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.pratica-img:hover {
+  transform: translateY(-5px);
+}
+
+/* Tabela */
+.criteria-table th {
+  background-color: #ef6603;
+  color: #fff;
+}
+
+.criteria-table td {
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .content-text {
+    margin-top: 20px;
+  }
+
+  .mediador-hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mediador-hero-content{
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mediador-hero-logo::after{
+    content: none !important;
+    display: none !important;
+  }
+
+  .mediador-hero-logo{
+    padding-right: 0;
+    margin-bottom: 6px;
+  }
+
+  .mediador-divider{
+    width: 110px;
+    height: 6px;
+    border-radius: 6px;
+    margin: 6px auto 0;
+    background: repeating-linear-gradient(
+      to right,
+      #F28C28 0 10px,
+      transparent 10px 18px,
+      #4DB6AC 18px 28px,
+      transparent 28px 36px,
+      #7E57C2 36px 46px,
+      transparent 46px 54px
+    );
+  }
+
+  .mediador-hero-logo img {
+    width: 90px;
+  }
+
+  .mediador-hero-text h3 {
+    font-size: 26px;
+  }
+
+  .pratica-images{
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .pratica-img{
+    width: min(92vw, 360px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .cards-row,
+  .cards-container,
+  .preview-row{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .cards-row img,
+  .cards-container img,
+  .preview-row img{
+    display: block;
+    margin: 0 auto;
+    width: min(90vw, 360px);
+    height: auto;
+    max-width: 360px;
+  }
+
+}

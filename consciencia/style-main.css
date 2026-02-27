@@ -1,0 +1,121 @@
+/* ConsCiêncIA - CSS separado*/
+/* Header */
+#header {
+  background: #323548;
+  padding: 5px 0;
+  height: 80px;
+  transition: all 0.5s;
+}
+
+#header .logo h1 {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Logo responsiva (mesma ideia do fado.html) */
+.logo-responsive {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .logo-responsive {
+    max-width: 400px;
+  }
+}
+
+/* Texto do Sobre (remove inline style) */
+.text-justify-lg {
+  text-align: justify;
+  line-height: 2;
+}
+
+/* Botões com identidade (laranja do template) */
+.btn-cons {
+  border-radius: 6px;
+}
+
+.btn-cons,
+.btn-cons:focus {
+  background: #ef6603;
+  border-color: #ef6603;
+}
+
+.btn-cons:hover {
+  background: #fc8129;
+  border-color: #fc8129;
+}
+
+.btn-cons-outline {
+  border-radius: 6px;
+  color: #ef6603;
+  border-color: #ef6603;
+}
+
+.btn-cons-outline:hover {
+  background: #ef6603;
+  border-color: #ef6603;
+  color: #fff;
+}
+
+/* Cards padrão "news" (reaproveitado do fado.html) */
+.news-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+}
+
+.news-card img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.news-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.news-card-body h5 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.news-card-body p {
+  font-size: 14px;
+  color: #555;
+  flex: 1;
+}
+
+.news-card-body a.btn {
+  align-self: start;
+  margin-top: 10px;
+}

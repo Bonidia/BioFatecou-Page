@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="1b31700e-d808-4eb0-9915-368ab3aea2ca"
+    type="text/javascript" async></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NCLJFZFPL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-8NCLJFZFPL');
+  </script>
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ConsCiêncIA - Cartas Práticas</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="img/Logo_ConsCiencIA.png">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="style-consciencia.css" rel="stylesheet">
+</head>
+
+<body>
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <h1><a href="consciencia.html">ConsCiêncIA</a></h1>
+      </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="mediador.html">Manual - Mediador</a></li>
+          <li><a class="nav-link scrollto active" href="consciencia.html">Home</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="landing" class="consciencia-landing">
+      <div class="container consciencia-landing__container">
+        <div class="consciencia-landing__brand">
+          <img src="img/Logo_ConsCiencIA.png" alt="Logo ConsCiêncIA" class="consciencia-landing__logo">
+          <h4 class="consciencia-landing__headline">VOCÊ ESTÁ PRONTO PARA O FUTURO?</h4>
+        </div>
+
+        <div class="consciencia-landing__actions">
+          <button id="btn-open-system" class="btn consciencia-cta">
+            <i class="bi bi-controller me-2"></i>
+            Acessar Atividades<br>Práticas
+          </button>
+
+          <div class="consciencia-accordion">
+            <button class="consciencia-accordion__toggle" type="button" data-bs-toggle="collapse"
+              data-bs-target="#quick-instructions" aria-expanded="false" aria-controls="quick-instructions">
+              Instruções rápidas <i class="bi bi-caret-down-fill ms-1"></i>
+            </button>
+
+            <div id="quick-instructions" class="collapse">
+              <div class="consciencia-accordion__body">
+                <p class="mb-2">
+                  Este painel é usado durante a rodada da <strong>Carta Prática</strong>. Todos os jogadores participam
+                  ao mesmo tempo.
+                </p>
+                <ol class="mb-3">
+                  <li>Selecione o nível de ensino (Nível I ou Nível II).</li>
+                  <li>Escolha o modo de avaliação (com ou sem critérios específicos).</li>
+                  <li>O sistema sorteia automaticamente uma carta conforme as opções.</li>
+                  <li>Avalie as respostas e distribua os pontos.</li>
+                </ol>
+
+                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                  data-bs-target="#criteriaModal">
+                  <i class="bi bi-table me-1"></i>
+                  Ver Tabela de Critérios Gerais
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- SISTEMA (MANUAL)      -->
+    <!-- ===================== -->
+    <section id="system" class="consciencia-system" style="display:none;">
+      <!-- Title -->
+      <section id="action-cards" class="act">
+        <div class="container">
+          <div class="row" data-aos="zoom-out">
+            <div class="col-lg-9 text-center text-lg-start">
+              <div class="page-title-section container">
+                <div class="page-title-section container">
+                  <div class="page-title-wrapper">
+                    <img src="img/Carta_Pratica.png"
+                        alt="Carta Prática"
+                        class="page-title-icon">
+                    <h2>Cartas Práticas</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" style="margin-bottom:10px;">
+        <button class="btn btn-outline-secondary btn-sm" onclick="showLanding()">
+          ← Voltar ao início
+        </button>
+      </div>
+
+      <!-- Seletor conforme Manual do Mediador -->
+      <div class="container">
+        <div id="setup-container" class="setup-card">
+          <h5 class="setup-title">Fluxo da atividade</h5>
+          <p class="setup-subtitle mb-3">Selecione o nível e o modo de avaliação. Em seguida, clique em <strong>Sortear
+              Carta</strong>.</p>
+
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <div class="setup-block">
+                <div class="setup-block__title">1) Selecione o nível</div>
+
+                <label class="setup-option">
+                  <input type="radio" name="gradeLevel" value="1" class="me-2" />
+                  <span><strong>Nível I</strong></span>
+                </label>
+
+                <label class="setup-option">
+                  <input type="radio" name="gradeLevel" value="2" class="me-2" />
+                  <span><strong>Nível II</strong></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="setup-block">
+                <div class="setup-block__title">2) Modo de avaliação</div>
+
+                <label class="setup-option">
+                  <input type="radio" name="evalMode" value="withCriteria" class="me-2" />
+                  <span><strong>Com critérios específicos</strong> (exibe critérios e pontuação)</span>
+                </label>
+
+                <label class="setup-option">
+                  <input type="radio" name="evalMode" value="withoutCriteria" class="me-2" />
+                  <span><strong>Sem critérios específicos</strong> (avaliação livre)</span>
+                </label>
+
+                <div class="mt-2">
+                  <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                    data-bs-target="#criteriaModal">
+                    <i class="bi bi-info-circle me-1"></i>
+                    Ver critérios gerais
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="setup-actions">
+            <button id="btn-draw-card" class="btn btn-primary consciencia-btn" disabled>
+              <i class="bi bi-shuffle me-2"></i>
+              Sortear Carta
+            </button>
+          </div>
+        </div>
+
+        <!-- NAV (após sortear) -->
+        <div id="back-container" style="display:none; margin: 10px 0;">
+          <button class="btn btn-outline-secondary btn-sm" onclick="goBackToSetup()">
+            ← Voltar
+          </button>
+        </div>
+
+        <!-- Card Container -->
+        <div id="card-container" class="container"></div>
+
+        <div id="reload-container" style="display:none; text-align:center; margin: 20px 0;">
+          <button class="btn btn-outline-primary" onclick="reloadCard()">
+            Solicitar outra carta
+          </button>
+          <div class="mt-2">
+                  <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                    data-bs-target="#criteriaModal">
+                    <i class="bi bi-info-circle me-1"></i>
+                    Ver critérios gerais
+                  </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <h3>ConsCiêncIA</h3>
+      <div class="social-links">
+            <a href="https://linkedin.com/in/robson-parmezan-bonidia-phd-8b1b8890" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://youtube.com/@InteliGente-AI" class="youtube"><i class="bx bxl-youtube"></i></a>
+            <a href="https://www.instagram.com/inteligente_utfpr/" class="instagram"><i class="bx bxl-instagram"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>InteliGente</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Modal: Tabela de Critérios Gerais -->
+  <div class="modal fade" id="criteriaModal" tabindex="-1" aria-labelledby="criteriaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="criteriaModalLabel">Tabela de Critérios Gerais</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted mb-3">Use estes critérios como apoio quando o modo de avaliação for <strong>sem critérios
+              específicos</strong>.</p>
+
+          <div class="table-responsive">
+            <table class="table table-bordered table-sm align-middle">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 25%;">Critério</th>
+                  <th>O que avaliar?</th>
+                  <th style="width: 12%;">Pontos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Engenharia de Prompt</strong></td>
+                  <td>O prompt define claramente o objetivo? Limita o tipo de resposta e características exigidas no
+                    desafio?</td>
+                  <td>0 - 4</td>
+                </tr>
+                <tr>
+                  <td><strong>Resposta final adequada</strong></td>
+                  <td>O resultado realmente apresenta uma solução ou reflexão sobre o tema da carta?</td>
+                  <td>0 - 2</td>
+                </tr>
+                <tr>
+                  <td><strong>Ética e respeito</strong></td>
+                  <td>O prompt foi escrito de forma adequada? Evitou vieses preconceituosos ou comandos ofensivos?</td>
+                  <td>0 - 2</td>
+                </tr>
+                <tr>
+                  <td><strong>Interação (Refinamento)</strong></td>
+                  <td>Se a primeira resposta não foi perfeita, o aluno ajustou o comando para melhorar o resultado?</td>
+                  <td>0 - 2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="mt-3 mb-0 text-muted"><small>Dica: some até 10 pontos, se fizer sentido para a dinâmica da turma.</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <!-- Include Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="main-consciencia.js" defer></script>
+
+</body>
+
+</html>
