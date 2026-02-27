@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NCLJFZFPL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-8NCLJFZFPL');
+  </script>
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Japiim - Inteligência em Saúde Pública</title>
+  <meta content="Chatbot de Inteligência Artificial para dados de saúde do SUS" name="description">
+  <meta content="Japiim, SUS, Saúde Pública, Chatbot, IA, Dengue" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/figures/japiim/favicon-32x32.png" rel="icon" type="image/png">
+  <link href="assets/figures/japiim/apple-icon-180x180.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/style-japiim.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="#Sobre">Sobre</a></li>
+          <li><a class="nav-link scrollto" href="#Arquitetura">Arquitetura</a></li>
+          <li><a class="nav-link scrollto" href="#Comparativo">Comparativo</a></li>
+          <li><a class="nav-link scrollto" href="#Interface">Interface</a></li>
+          <li><a class="nav-link scrollto" href="#Artefatos">Artefatos</a></li>
+          <li><a class="nav-link scrollto" href="#Tutorial">Tutorial</a></li>
+
+          <li class="dropdown">
+            <a class="nav-link scrollto" href="#">Parceiros</a>
+            <ul>
+              <li class="dropdown">
+                <a href="#"><span>InteliGente</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a class="nav-link scrollto" href="https://inteligentehub.com.br/">Página Oficial</a></li>
+                  <li><a class="nav-link scrollto" href="https://www.instagram.com/inteligente_utfpr/">Instagram</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#"><span>AutoAI-Pandemics</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a class="nav-link scrollto" href="https://autoaipandemics.icmc.usp.br/">Página Oficial</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+      <div class="logo">
+        <h1><a href="index.html">JAPIIM</a></h1>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+          <h1 class="animate__animated animate__fadeInUp">
+            Saúde Pública na <br>
+            <span style="color: #e65100;">Palma da Sua Mão</span>
+          </h1>
+          <h2 class="animate__animated animate__fadeInUp animate__delay-1s">
+            O Japiim traduz dados complexos do SUS em conversas simples no WhatsApp. Informação oficial, rápida e acessível para todos.
+          </h2>
+          <div class="d-flex justify-content-center justify-content-lg-start mt-4 animate__animated animate__fadeInUp animate__delay-2s">
+            <a href="https://wa.me/558896203741?text=Start" class="btn-get-started scrollto">
+              <i class="bi bi-whatsapp me-2"></i> Fale com Japiim
+            </a>
+            <a href="#Tutorial" class="btn-watch-video scrollto d-flex align-items-center ms-4">
+              <i class="bi bi-play-circle"></i><span>Como utilizar</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img animate__animated animate__zoomIn" data-aos-delay="200">
+          <img src="assets/figures/japiim/Japiim_mockup.png" class="img-fluid animated-float" alt="Japiim Interface">
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-waves">
+      <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#fcfcfc" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192V320H1392C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320H0Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!-- Sobre Section -->
+    <section id="Sobre" class="Sobre" style="padding: 80px 0; background: #fcfcfc;">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Sobre</h2>
+          <p>Japiim: Chatbot Guardião da Saúde</p>
+        </div>
+
+        <div class="row align-items-center mb-5 mt-4" data-aos="fade-up">
+          <div class="col-lg-5 mb-4 mb-lg-0">
+            <div class="inspiration-image-container">
+              <img src="assets/figures/japiim/Japiim_logo.png" alt="Pássaro Japiim" class="img-fluid rounded-4">
+            </div>
+          </div>
+          
+          <div class="col-lg-7 ps-lg-5">
+            <h4 style="color: #e65100; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: 700; margin-bottom: 10px;">Nossa Filosofia</h4>
+            <h3 style="color: #2c3e50; font-weight: 800; font-size: 2.2rem; margin-bottom: 20px;">
+              A Inspiração na Natureza
+            </h3>
+            <p style="color: #555; font-size: 1.1rem; line-height: 1.8; text-align: justify;">
+              Na floresta, o Japiim é um mestre tecelão e um comunicador nato. Ele conecta fibras dispersas para criar ninhos seguros e usa sua voz complexa para proteger o bando. Trouxemos essa inteligência biológica para o mundo digital. 
+            </p>
+            <p style="color: #555; font-size: 1.1rem; line-height: 1.8; text-align: justify;">
+              Aqui, Japiim é um Chatbot de Inteligência Artificial que "tece" conexões entre bases de dados complexas de saúde de todo o Brasil para entregar informação vital a quem mais precisa: você.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 mb-5 pb-4">
+          <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+            <div class="modern-card problem-card">
+              <div class="card-icon-bg">
+                <i class="bi bi-file-earmark-x"></i>
+              </div>
+              <h3>O Problema: Dados Invisíveis</h3>
+              <p style="text-align: justify;">O Brasil possui um dos maiores sistemas de saúde do mundo, o SUS, e bases ricas como o SINAN. Porém, esses dados muitas vezes estão "presos" em tabelas burocráticas e linguagem técnica inacessível. O cidadão comum sofre para saber a situação real de sua região.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="modern-card solution-card">
+              <div class="card-icon-bg active">
+                <i class="bi bi-chat-heart"></i>
+              </div>
+              <h3>A Solução: Diálogo</h3>
+              <p style="text-align: justify;">Atuamos como um intérprete instantâneo. Ao invés de baixar planilhas, você conversa. Nossa IA processa milhões de registros oficiais e responde em segundos com precisão estatística, transformando dados frios em alertas claros de prevenção.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-grid-container" data-aos="fade-up">
+          <div class="col-lg-12 text-center mb-5">
+            <div class="funcionalidades-title">
+              <h3 style="color: #2c3e50; font-weight: 800; font-size: 2rem; margin: 0;">Funcionalidades que Salvam Vidas</h3>
+            </div>
+          </div>
+          
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-item-modern">
+                <i class="bi bi-activity"></i>
+                <h5>Monitoramento de Risco</h5>
+                <p>Japiim gera relatórios detalhados sobre <strong>Dengue Grave e Comorbidades</strong>, analisando a correlação crítica entre condições pré-existentes e casos severos na sua região.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-item-modern">
+                <i class="bi bi-bar-chart-line"></i>
+                <h5>Inteligência Visual</h5>
+                <p>Transformamos números em visão. O sistema gera <strong>Mapas de Calor Espaço-Temporais</strong> e <strong>Pirâmides Etárias</strong> para que você entenda quem está mais vulnerável.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-item-modern">
+                <i class="bi bi-geo-alt-fill"></i>
+                <h5>Inteligência Local</h5>
+                <p>Atuamos com base na sua localização, entregando resultados do seu <strong>município ou estado</strong> e recomendando os <strong>postos de saúde</strong> mais próximos de você em casos necessários.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-item-modern">
+                <i class="bi bi-clock-history"></i>
+                <h5>Análise Histórica</h5>
+                <p>Acesse dados mensais para identificar <strong>padrões de sazonalidade</strong> e prever ciclos de surtos antes que eles aconteçam.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-item-modern">
+                <i class="bi bi-mic"></i>
+                <h5>Acessibilidade Universal</h5>
+                <p>Sem apps extras, tudo no WhatsApp. Com suporte para <strong>mensagens de voz</strong>, o Japiim elimina barreiras digitais, permitindo que qualquer cidadão ou gestor consulte dados complexos falando naturalmente.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="feature-item-modern">
+                <i class="bi bi-shield-lock-fill"></i>
+                <h5>Segurança Médica & Dados</h5>
+                <p>Diferente de IAs genéricas, o Japiim possui <strong>Guardrails de Segurança</strong> que impedem diagnósticos falsos e automedicação, além de não armazenar seus dados pessoais (PII).</p>
+            </div>
+          </div>
+        </div>
+              
+        <div class="row mt-5" data-aos="zoom-in">
+          <div class="col-lg-12">
+            <div class="highlight-box text-center">
+              <h3 style="font-weight: 700; margin-bottom: 20px;">Cidadania e Transparência</h3>
+              <p style="font-size: 1.1rem; opacity: 0.9; max-width: 900px; margin: 0 auto 30px auto; line-height: 1.8;">
+                O Japiim é uma ferramenta de <strong>empoderamento cívico</strong>. Ao democratizar o acesso aos dados, permitimos que a população e gestores tomem decisões mais rápidas e assertivas. Voamos sobre a burocracia para entregar a verdade sobre a saúde pública na palma da sua mão.
+              </p>
+              <a href="#faq" class="btn" style="background: #e65100; color: #fff; padding: 12px 35px; border-radius: 50px; font-weight: 600; transition: 0.3s;">Saiba Mais</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Arquitetura Section -->
+    <section id="Arquitetura" class="Arquitetura" style="position: relative; background-color: #f9f9fa; overflow: hidden;">
+      
+      <!-- Background Canvas -->
+      <canvas id="networkCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.4;"></canvas>
+
+      <div class="container" style="position: relative; z-index: 2;">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Arquitetura Técnica</h2>
+          <p>Engenharia de Dados & Pipeline RAG</p>
+        </div>
+
+        <div class="row content mb-4" data-aos="fade-up">
+          <div class="col-lg-12">
+            <p style="text-align:justify;line-height:1.8; color: #555;">
+               O Japiim não "alucina" dados. Ele opera uma arquitetura proprietária de <strong>RAG (Retrieval-Augmented Generation)</strong> que processa microdados brutos do SINAN. O sistema converte milhões de notificações em <em>inteligência estruturada</em> antes mesmo de você enviar a primeira mensagem.
+          </div>
+        </div>
+
+        <!-- Architecture Steps -->
+        <div class="row" data-aos="fade-up">
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-4">
+            <div class="card border-0 shadow-sm w-100" style="border-top: 4px solid #e65100;">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="icon-box me-3" style="background: #fff3e0; padding: 10px; border-radius: 50%;">
+                    <i class="bi bi-database-fill-gear text-primary" style="font-size: 1.5rem; color: #e65100 !important;"></i>
+                  </div>
+                  <h5 class="card-title fw-bold m-0">1. Ingestão (PySUS)</h5>
+                </div>
+                <p class="card-text small text-muted">
+                  Conectamos diretamente à infraestrutura do DATASUS via biblioteca <strong>PySUS</strong>. O sistema extrai e decodifica microdados brutos, capturando não apenas casos confirmados, mas todas as notificações suspeitas para garantir alertas precoces.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-4">
+            <div class="card border-0 shadow-sm w-100" style="border-top: 4px solid #e65100;">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="icon-box me-3" style="background: #fff3e0; padding: 10px; border-radius: 50%;">
+                    <i class="bi bi-graph-up-arrow text-primary" style="font-size: 1.5rem; color: #e65100 !important;"></i>
+                  </div>
+                  <h5 class="card-title fw-bold m-0">2. Geração de Artefatos</h5>
+                </div>
+                <p class="card-text small text-muted">
+                  Diferente de IAs comuns, o Japiim não gera gráficos "na hora". Ele pré-calcula <strong>Artefatos Visuais</strong> (Mapas de Calor, Pirâmides Etárias) e Relatórios Textuais, armazenando-os como ativos prontos para recuperação instantânea e sem erros.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-4">
+            <div class="card border-0 shadow-sm w-100" style="border-top: 4px solid #e65100;">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="icon-box me-3" style="background: #fff3e0; padding: 10px; border-radius: 50%;">
+                    <i class="bi bi-shield-lock-fill text-primary" style="font-size: 1.5rem; color: #e65100 !important;"></i>
+                  </div>
+                  <h5 class="card-title fw-bold m-0">3. Guardrails (Segurança)</h5>
+                </div>
+                <p class="card-text small text-muted">
+                  Ao receber sua mensagem (texto ou áudio via WhatsApp), a primeira camada é de segurança. Filtros de moderação avaliam a relevância e impedem que o bot forneça diagnósticos médicos ou fuja do escopo de saúde pública.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-4">
+            <div class="card border-0 shadow-sm w-100" style="border-top: 4px solid #2c3e50;">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="icon-box me-3" style="background: #e9ecef; padding: 10px; border-radius: 50%;">
+                    <i class="bi bi-search text-dark" style="font-size: 1.5rem;"></i>
+                  </div>
+                  <h5 class="card-title fw-bold m-0">4. Busca Contextual</h5>
+                </div>
+                <p class="card-text small text-muted">
+                  O sistema utiliza seus metadados (localização, doença) para consultar nosso banco <strong>PostgreSQL</strong>. Ele ignora dados irrelevantes e recupera um pool inicial de ~20 documentos altamente específicos para o seu município.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-4">
+            <div class="card border-0 shadow-sm w-100" style="border-top: 4px solid #2c3e50;">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="icon-box me-3" style="background: #e9ecef; padding: 10px; border-radius: 50%;">
+                    <i class="bi bi-filter-circle-fill text-dark" style="font-size: 1.5rem;"></i>
+                  </div>
+                  <h5 class="card-title fw-bold m-0">5. Reranking Inteligente</h5>
+                </div>
+                <p class="card-text small text-muted">
+                  Para máxima precisão, um modelo de <strong>Reranking</strong> reordena os candidatos. Ele seleciona apenas os melhores relatórios textuais (para profundidade analítica) e os melhores artefatos visuais (para suporte interpretativo) para enviar ao LLM.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-4">
+            <div class="card border-0 shadow-sm w-100" style="border-top: 4px solid #2c3e50;">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="icon-box me-3" style="background: #e9ecef; padding: 10px; border-radius: 50%;">
+                    <i class="bi bi-chat-square-quote-fill text-dark" style="font-size: 1.5rem;"></i>
+                  </div>
+                  <h5 class="card-title fw-bold m-0">6. Geração (MariTalk)</h5>
+                </div>
+                <p class="card-text small text-muted">
+                  A resposta final é gerada pelo <strong>MariTalk</strong>, um LLM treinado especificamente em português. Ele lê os dados validados e escreve uma resposta natural e culturalmente adequada, citando fontes e anexando os gráficos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div class="row" data-aos="fade-in">
+          <div class="col-12 d-flex justify-content-center align-items-center my-5">
+            <div style="height: 2px; width: 100px; background: linear-gradient(90deg, transparent, #e65100, transparent);"></div>
+            <div class="mx-3 text-muted">
+              <i class="bi bi-arrow-down-circle-fill" style="font-size: 2rem; color: #e65100;"></i>
+            </div>
+            <div style="height: 2px; width: 100px; background: linear-gradient(90deg, transparent, #e65100, transparent);"></div>
+          </div>
+        </div>
+
+      <!-- Journey Timeline -->
+      <div id="Jornada" class="row mt-5">
+
+        <div class="col-lg-12 text-center mb-5" data-aos="fade-up">
+          <span style="color: #e65100; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem;">Como funciona?</span>
+          <h2 style="color: #2c3e50; font-weight: 800; font-size: 2.5rem; margin-top: 10px;">
+            A Jornada da sua Pergunta
+          </h2>
+          <p style="max-width: 700px; margin: 20px auto 0; color: #666; font-size: 1.1rem; line-height: 1.6;">
+            Por trás de cada resposta simples no WhatsApp, existe uma operação complexa de inteligência e segurança. Veja o caminho que seus dados percorrem em segundos.
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="timeline-centered">
+
+              <article class="timeline-entry" data-aos="fade-right">
+                <div class="timeline-entry-inner">
+                  <div class="timeline-icon shadow-lg" style="background: #25D366; color: #fff;">
+                    <i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i>
+                  </div>
+                  <div class="timeline-label bg-light border-0 shadow-sm p-4 rounded-4">
+                    <span class="badge bg-success mb-2">Início</span>
+                    <h3 style="color: #2c3e50; font-weight: 700; font-size: 1.3rem;">1. Você Pergunta (Texto ou Áudio)</h3>
+                    <p class="text-muted mb-0">
+                      Tudo começa no seu WhatsApp. Você pode escrever <em>"Quantos casos de Dengue teve aqui?"</em> ou simplesmente <strong>gravar um áudio</strong> como se falasse com um amigo. Não precisa baixar nada nem preencher formulários.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-entry left-aligned" data-aos="fade-left">
+                <div class="timeline-entry-inner">
+                  <div class="timeline-icon shadow-lg" style="background: #2c3e50; color: #fff;">
+                    <i class="bi bi-shield-lock-fill" style="font-size: 1.5rem;"></i>
+                  </div>
+                  <div class="timeline-label bg-light border-0 shadow-sm p-4 rounded-4">
+                    <span class="badge bg-secondary mb-2">Segurança</span>
+                    <h3 style="color: #2c3e50; font-weight: 700; font-size: 1.3rem;">2. O "Porteiro" Verifica</h3>
+                    <p class="text-muted mb-0">
+                      Antes de tudo, nossa <strong>Inteligência de Segurança</strong> entra em ação. Por ética e cuidado com você, o sistema identifica e recusa pedidos de diagnóstico médico ou receitas, e perguntas que sejam fora do contexto de saúde. Nosso compromisso é com a informação oficial.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-entry" data-aos="fade-right">
+                <div class="timeline-entry-inner">
+                  <div class="timeline-icon shadow-lg" style="background: #e65100; color: #fff;">
+                    <i class="bi bi-database-check" style="font-size: 1.5rem;"></i>
+                  </div>
+                  <div class="timeline-label bg-light border-0 shadow-sm p-4 rounded-4">
+                    <span class="badge bg-warning text-dark mb-2">Busca Oficial</span>
+                    <h3 style="color: #2c3e50; font-weight: 700; font-size: 1.3rem;">3. Consulta na Biblioteca do SUS</h3>
+                    <p class="text-muted mb-0">
+                      O Japiim não perde tempo, ele já consulta nossa própria base de dados, onde as informações do SINAN já foram <strong>limpas, organizadas e traduzidas</strong> para facilitar a leitura. É como ter o livro certo já aberto na página certa.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-entry left-aligned" data-aos="fade-left">
+                <div class="timeline-entry-inner">
+                  <div class="timeline-icon shadow-lg" style="background: #6c757d; color: #fff;">
+                    <i class="bi bi-funnel-fill" style="font-size: 1.5rem;"></i>
+                  </div>
+                  <div class="timeline-label bg-light border-0 shadow-sm p-4 rounded-4">
+                    <span class="badge bg-secondary mb-2">Curadoria</span>
+                    <h3 style="color: #2c3e50; font-weight: 700; font-size: 1.3rem;">4. A "Peneira" Inteligente</h3>
+                    <p class="text-muted mb-0">
+                      A busca encontra muita coisa técnica. Para não te confundir, usamos um filtro especial que separa o essencial do excesso. Ele escolhe apenas os relatórios e estatísticas <strong>mais importantes</strong> para responder sua dúvida específica.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-entry" data-aos="fade-right">
+                <div class="timeline-entry-inner">
+                  <div class="timeline-icon shadow-lg" style="background: #0d6efd; color: #fff;">
+                    <i class="bi bi-chat-quote-fill" style="font-size: 1.5rem;"></i>
+                  </div>
+                  <div class="timeline-label bg-light border-0 shadow-sm p-4 rounded-4">
+                    <span class="badge bg-primary mb-2">Inteligência Brasileira</span>
+                    <h3 style="color: #2c3e50; font-weight: 700; font-size: 1.3rem;">5. O Tradutor (MariTalk)</h3>
+                    <p class="text-muted mb-0">
+                      Aqui entra a LLM brasileira. O modelo <strong>MariTalk</strong> lê os dados técnicos e escreve uma resposta em português claro, natural e acolhedor. Ele transforma tabelas frias em uma explicação que qualquer pessoa entende.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-entry left-aligned" data-aos="fade-left">
+                <div class="timeline-entry-inner">
+                  <div class="timeline-icon shadow-lg" style="background: #198754; color: #fff;">
+                    <i class="bi bi-phone-vibrate" style="font-size: 1.5rem;"></i>
+                  </div>
+                  <div class="timeline-label bg-light border-0 shadow-sm p-4 rounded-4">
+                    <span class="badge bg-success mb-2">Resultado</span>
+                    <h3 style="color: #2c3e50; font-weight: 700; font-size: 1.3rem;">6. Resposta na Palma da Mão</h3>
+                    <p class="text-muted mb-0">
+                      Pronto! Seu celular vibra com a resposta explicada. E tem mais: o Japiim envia <strong>gráficos visuais</strong> gerados na hora para você ver a evolução dos casos. Informação completa, confiável e visual.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- Top SVG Transition -->
+    <div style="background-color: #ffffff; line-height: 0; width: 100%; overflow: hidden;">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style="width: 100%; height: 80px; display: block;">
+        <path fill="#2c3e50" d="M0,120L1440,120L1440,60C1440,60,1160,0,720,0C280,0,0,60,0,60Z"></path>
+      </svg>
+    </div>
+    
+    <!-- Comparativo Section -->
+    <section id="Comparativo" class="comparativo-cards-section">
+      <div class="container" data-aos="fade-up">
+        
+        <div class="section-title text-center" style="margin-bottom: 60px;">
+          <h2 style="color: rgba(255,255,255,0.5); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #e65100; display: inline-block; padding-bottom: 5px;">O Diferencial</h2>
+          <p style="color: #fff; font-size: 32px; font-weight: 700; margin-top: 10px;">Por que o Japiim é diferente?</p>
+        </div>
+
+        <div class="row justify-content-center align-items-center">
+          
+          <div class="col-lg-5 col-md-6">
+            <div class="compare-card compare-card-llm">
+              <h3 class="card-header-title">LLMs Genéricas</h3>
+              <span class="card-subtitle">ChatGPT, Gemini, Claude, etc.</span>
+              
+              <ul class="compare-list">
+                <li>
+                  <i class="bi bi-x-lg icon-llm"></i>
+                  <div>
+                    <span class="feature-label">Fonte de Dados</span>
+                    Conhecimento Geral (Desatualizado)
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-x-lg icon-llm"></i>
+                  <div>
+                    <span class="feature-label">Precisão Numérica</span>
+                    Alucina números e datas
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-exclamation-lg icon-llm warning"></i>
+                  <div>
+                    <span class="feature-label">Segurança Médica</span>
+                    Pode sugerir tratamentos
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-x-lg icon-llm"></i>
+                  <div>
+                    <span class="feature-label">Visualização</span>
+                    Apenas Texto ou Gráficos alucinados
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-x-lg icon-llm"></i>
+                  <div>
+                    <span class="feature-label">Acessibilidade</span>
+                    App Próprio / Navegador
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-6">
+            <div class="compare-card compare-card-japiim">
+              <div class="badge-exclusivo">CONFIANÇA</div>
+              <h3 class="card-header-title">Japiim</h3>
+              <span class="card-subtitle">Inteligência em Saúde Pública</span>
+              
+              <ul class="compare-list">
+                <li>
+                  <i class="bi bi-check-lg icon-japiim"></i>
+                  <div>
+                    <span class="feature-label" style="color: #e65100; opacity: 1;">Fonte de Dados</span>
+                    Microdados SINAN
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-check-lg icon-japiim"></i>
+                  <div>
+                    <span class="feature-label" style="color: #e65100; opacity: 1;">Precisão Numérica</span>
+                    Dados Oficiais Exatos
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-check-lg icon-japiim"></i>
+                  <div>
+                    <span class="feature-label" style="color: #e65100; opacity: 1;">Segurança Médica</span>
+                    Bloqueio Ético de Diagnóstico
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-check-lg icon-japiim"></i>
+                  <div>
+                    <span class="feature-label" style="color: #e65100; opacity: 1;">Visualização</span>
+                    Gráficos e Mapas Reais
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-check-lg icon-japiim"></i>
+                  <div>
+                    <span class="feature-label" style="color: #e65100; opacity: 1;">Acessibilidade</span>
+                    100% via WhatsApp
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+        
+    <!-- Bottom SVG Transition -->
+    <div style="background-color: #ffffff; line-height: 0; width: 100%; overflow: hidden;">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style="width: 100%; height: 80px; display: block;">
+        <path fill="#2c3e50" d="M0,0L1440,0L1440,60C1440,60,1160,120,720,120C280,120,0,60,0,60Z"></path>
+      </svg>
+    </div>
+   
+    <!-- Interface Section -->
+    <section id="Interface" class="portfolio" style="background-color: #ffffff; overflow: hidden; padding-top: 60px;">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Interface</h2>
+          <p>Japiim em Ação</p>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <p style="font-size: 1.4rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px;">
+              A interface do Japiim foi desenhada para ser familiar.
+            </p>
+            <p style="font-size: 1.1rem; color: #666;">
+              Navegue pelos exemplos abaixo e veja como o Japiim entrega gráficos, mapas e alertas em tempo real, diretamente do WhatsApp.
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper japiim-3d-slider">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <a href="assets/figures/japiim/Japiim8.png" class="glightbox" data-gallery="japiim-gallery" data-title="Termo de Acordo">
+                <img src="assets/figures/japiim/Japiim8.png" alt="Interface 1">
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="assets/figures/japiim/Japiim7.png" class="glightbox" data-gallery="japiim-gallery" data-title="Seleção de preferência de resposta e Compartilhamento de localização">
+                <img src="assets/figures/japiim/Japiim7.png" alt="Interface 2">
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="assets/figures/japiim/Japiim6.png" class="glightbox" data-gallery="japiim-gallery" data-title="Menu de Opções e Resposta conforme localização">
+                <img src="assets/figures/japiim/Japiim6.png" alt="Interface 3">
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="assets/figures/japiim/Japiim5.png" class="glightbox" data-gallery="japiim-gallery" data-title="Resposta da pergunta da imagem anterior e Opções de Gráficos da mesma">
+                <img src="assets/figures/japiim/Japiim5.png" alt="Interface 4">
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="assets/figures/japiim/Japiim4.png" class="glightbox" data-gallery="japiim-gallery" data-title="Geração de Resposta conforme o contexto da conversa">
+                <img src="assets/figures/japiim/Japiim4.png" alt="Interface 5">
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="assets/figures/japiim/Japiim3.png" class="glightbox" data-gallery="japiim-gallery" data-title="Respostas sobre Dengue Grave relacionadas a comorbidades em Belo Horizonte">
+                <img src="assets/figures/japiim/Japiim3.png" alt="Interface 6">
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="assets/figures/japiim/Japiim2.png" class="glightbox" data-gallery="japiim-gallery" data-title="Continuação da resposta sobre Dengue Grave relacionadas a comorbidades em Belo Horizonte">
+                <img src="assets/figures/japiim/Japiim2.png" alt="Interface 7">
+              </a>
+            </div>
+            
+            <div class="swiper-slide">
+              <a href="assets/figures/japiim/Japiim1.png" class="glightbox" data-gallery="japiim-gallery" data-title="Resposta sobre sintomas e geração de perguntas baseadas no contexto">
+                <img src="assets/figures/japiim/Japiim1.png" alt="Interface 8">
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <video controls class="img-fluid" style="border-radius: 10px; width: 100%;">
+                <source src="assets/figures/japiim/Japiim9.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="swiper-slide">
+              <video controls class="img-fluid" style="border-radius: 10px; width: 100%;">
+                <source src="assets/figures/japiim/Japiim10.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+          
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+      
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="row" data-aos="fade-in">
+      <div class="col-12 d-flex justify-content-center align-items-center my-5">
+        <div style="height: 2px; width: 100px; background: linear-gradient(90deg, transparent, #e65100, transparent);"></div>
+        <div class="mx-3 text-muted">
+          <i class="bi bi-arrow-down-circle-fill" style="font-size: 2rem; color: #e65100;"></i>
+        </div>
+        <div style="height: 2px; width: 100px; background: linear-gradient(90deg, transparent, #e65100, transparent);"></div>
+      </div>
+    </div>
+
+    <!-- Artefatos Section -->
+    <section id="Artefatos" class="graficos-animados section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Inteligência Visual</h2>
+          <p>Explore os Gráficos Gerados</p>
+        </div>
+
+        <div class="wrapper-cards">
+          <div class="container-cards">
+            
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="card-japiim" style="background-image: url('assets/figures/japiim/Japiim_linha.png');">
+                <div class="row-content">
+                    <div class="icon">1</div>
+                    <div class="description">
+                        <div class="description-header">
+                            <h4>Sazonalidade</h4>
+                            <a href="assets/figures/japiim/Japiim_linha.png" class="glightbox btn-expand-img" data-gallery="charts" title="Sazonalidade - Chikungunya (Recife, 2017-2024)">
+                                <i class="bi bi-arrows-fullscreen"></i>
+                            </a>
+                        </div>
+                        <p>Sazonalidade Histórica e Evolução Mensal da Chikungunya </p>
+                    </div>
+                </div>
+            </label>
+
+            <input type="radio" name="slide" id="c2" >
+            <label for="c2" class="card-japiim" style="background-image: url('assets/figures/japiim/Japiim_anual.png');">
+                <div class="row-content">
+                    <div class="icon">2</div>
+                    <div class="description">
+                        <div class="description-header">
+                            <h4>Tendência Temporal</h4>
+                            <a href="assets/figures/japiim/Japiim_anual.png" class="glightbox btn-expand-img" data-gallery="charts" title="Tendência Temporal - Chikungunya (Fortaleza, 2017)">
+                                <i class="bi bi-arrows-fullscreen"></i>
+                            </a>
+                        </div>
+                        <p>Evolução Mensal e Pico Epidêmico de Chikungunya .</p>
+                    </div>
+                </div>
+            </label>
+
+            <input type="radio" name="slide" id="c3" >
+            <label for="c3" class="card-japiim" style="background-image: url('assets/figures/japiim/Japiim_piramide.png');">
+                <div class="row-content">
+                    <div class="icon">3</div>
+                    <div class="description">
+                        <div class="description-header">
+                            <h4>Perfil Demográfico</h4>
+                            <a href="assets/figures/japiim/Japiim_piramide.png" class="glightbox btn-expand-img" data-gallery="charts" title="Pirâmide Etária - Dengue por Sexo e Faixa Etária (São Paulo, 2017)">
+                                <i class="bi bi-arrows-fullscreen"></i>
+                            </a>
+                        </div>
+                        <p>Pirâmide Etária da Incidência de Dengue por Sexo e Faixa Etária </p>
+                    </div>
+                </div>
+            </label>
+
+            <input type="radio" name="slide" id="c4">
+            <label for="c4" class="card-japiim">
+                <video class="card-video-bg" autoplay loop muted playsinline>
+                    <source src="assets/figures/japiim/Japiim_mapa.mp4" type="video/mp4">
+                </video>
+                <div class="row-content">
+                    <div class="icon">4</div>
+                    <div class="description">
+                        <div class="description-header">
+                            <h4>Progressão Geoespacia</h4>
+                            <a href="assets/figures/japiim/Japiim_mapa.mp4" class="glightbox btn-expand-img" data-gallery="charts" title="Mapa de Calor - Evolução Temporal (Ceará, 2024)">
+                                <i class="bi bi-play-circle"></i>
+                            </a>
+                        </div>
+                        <p>Dinâmica Espacial da Dengue: Mapa de Calor da Evolução Temporal </p>
+                    </div>
+                </div>
+            </label>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Tutorial Section -->
+    <section id="Tutorial" style="background-color: #2c3e50; padding: 20px 0 60px 0; color: #fff;">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title text-center" style="margin-bottom: 40px;">
+          <h2 style="color: rgba(255,255,255,0.5); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #e65100; display: inline-block; padding-bottom: 5px;">Passo a Passo</h2>
+          <p style="color: #fff; font-size: 28px; font-weight: 700; margin-top: 10px;">Veja como é simples usar o Japiim</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            
+            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);">
+              <iframe 
+                src="https://www.youtube.com/embed/I9r4RNzXKwk" 
+                title="Tutorial Japiim" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="text-center mt-5">
+              <p style="color: #ccc; margin-bottom: 20px;">Viu como é fácil? Não precisa instalar nada.</p>
+              <a href="https://wa.me/558896203741?text=Start" class="btn" style="background: #e65100; color: #fff; padding: 12px 40px; border-radius: 50px; font-weight: 600; font-size: 1.1rem; transition: 0.3s; text-decoration: none;">
+                <i class="bi bi-whatsapp me-2"></i> Testar Agora
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>FAQ</h2>
+          <p>Perguntas Frequentes</p>
+        </div>
+
+        <ul class="faq-list">
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq8">
+              O que é o Japiim?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq8" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                O Japiim é um ChatBot inteligente que une tecnologia avançada e transparência social. Utilizando inteligência artificial (RAG), ela traduz as complexas tabelas oficiais do SINAN em informações acessíveis, com o objetivo de democratizar os dados de saúde pública no Brasil.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq9">
+              Para que o Japiim foi criada?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq9" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                O Japiim nasceu de uma necessidade urgente: transformar dados públicos em conhecimento público. Historicamente, as informações vitais sobre saúde (como as do SINAN) sempre estiveram disponíveis, mas "trancadas" em tabelas complexas e sistemas de difícil navegação, inacessíveis para a maioria da população.
+                <br><br>
+                O Japiim foi criada para derrubar essas barreiras técnicas e democratizar o acesso à informação. Seu propósito é traduzir a complexidade dos dados governamentais, permitindo que qualquer brasileiro compreenda facilmente o cenário epidemiológico do país. Seja para alertar sobre a situação atual de um surto ou para aprender com o histórico passado das doenças, o Japiim existe para entregar poder de análise e conscientização nas mãos de cada cidadão.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">
+              Quem pode usar o Japiim?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                <strong>Toda e qualquer pessoa</strong> com acesso à internet e ao aplicativo <strong>WhatsApp</strong> pode utilizar o Japiim. Embora o acesso seja livre para qualquer usuário, é importante destacar que nossa base de conhecimento é focada exclusivamente em <strong>dados de saúde pública do Brasil</strong>.
+                <br><br>
+                Portanto, seja você um morador local, um pesquisador ou apenas alguém interessado no cenário epidemiológico brasileiro, o Japiim está pronta para responder suas dúvidas de forma simples e direta, sem necessidade de cadastros complexos.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq2">
+              Como funciona o Japiim na prática?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                A experiência é desenhada para ser <strong>extremamente simples</strong>. Basta adicionar o contato do Japiim no <strong>WhatsApp</strong> e começar a interagir.
+                <br><br>
+                Você pode enviar suas dúvidas sobre a saúde pública brasileira da forma que preferir: digitando <strong>texto</strong> ou enviando <strong>áudios</strong>. O Japiim entende sua pergunta e responde instantaneamente com uma linguagem <strong>clara, direta e acessível</strong>, traduzindo dados complexos em respostas fáceis de compreender.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq3">
+              O que diferencia o Japiim das ferramentas de IA já existentes?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                O grande diferencial é a <strong>veracidade e a segurança</strong>. A maioria das IAs famosas hoje não possui acesso aos dados específicos da saúde pública brasileira, o que faz com que elas se recusem a dar números ou, pior, "alucinem" (inventem dados falsos).
+                <br><br>
+                O Japiim opera com tecnologia <strong>RAG</strong>, que busca a informação diretamente nas tabelas oficiais do SINAN e a insere no contexto da sua pergunta. Isso garante que a resposta seja baseada em <strong>dados reais e oficiais</strong>.
+                <br><br>
+                Além disso, o Japiim possui <strong>Guardians</strong> (camadas de segurança) rigorosos. Diferente de IAs generalistas que podem cometer erros perigosos, o Japiim é programada para <strong>jamais recomendar medicamentos ou realizar diagnósticos médicos</strong>. Nosso foco é puramente informativo e preventivo, com responsabilidade ética.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq5">
+              Qual o futuro para o Japiim?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                Nossa visão é ambiciosa: tornar o Japiim a referência definitiva em dados de saúde no Brasil. O futuro envolve a <strong>expansão massiva da nossa base de conhecimento</strong> para englobar a maior quantidade possível de doenças e agravos disponíveis no SINAN, indo muito além da Dengue.
+                <br><br>
+                Estamos trabalhando continuamente para construir um sistema cada vez mais <strong>robusto de processamento e manipulação de dados</strong>. O objetivo é refinar nossa inteligência conversacional para que ela possa cruzar informações complexas de diferentes patologias e entregar análises ainda mais profundas, mantendo a simplicidade na conversa com o usuário.
+              </p>
+            </div>
+          </li>
+
+           <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq10">
+              O Japiim envia apenas respostas em texto?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq10" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                Não! O Japiim vai muito além do texto. Ele possui uma <strong>inteligência visual</strong> capaz de gerar gráficos e mapas dinâmicos na hora.
+                <br><br>
+                Dependendo da sua pergunta, o chatbot pode enviar <strong>Mapas de Calor</strong> (vídeos que mostram a evolução da doença no mapa), <strong>Pirâmides Etárias</strong> (para entender quem é mais afetado) ou <strong>Gráficos de Tendência</strong> (para visualizar se os casos estão subindo ou descendo). O objetivo é que você não apenas leia, mas <strong>veja e entenda</strong> o cenário da saúde.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq11">
+              Meus dados pessoais ficam salvos? É seguro?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq11" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                Sua privacidade é nossa prioridade absoluta. O Japiim foi desenhado com uma arquitetura que <strong>não armazena Informações Pessoais Identificáveis (PII)</strong>.
+                <br><br>
+                Nós processamos sua pergunta apenas para gerar a resposta e os gráficos necessários. Não guardamos histórico médico pessoal, nem dados sensíveis. Além disso, utilizamos um sistema de segurança (o "Guardian") que filtra e bloqueia qualquer tentativa de uso indevido, garantindo um ambiente seguro e focado exclusivamente em informação pública.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq12">
+              O Japiim sabe o que está acontecendo na minha cidade específica?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq12" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                Sim! O Japiim possui <strong>inteligência hiperlocal</strong>. Diferente de notícias genéricas que falam do "Brasil" ou do "Estado", o Japiim consegue filtrar os dados oficiais do SUS especificamente para o <strong>seu município</strong>.
+                <br><br>
+                Ele cruza os dados de notificação locais e pode até informar sobre a localização de postos de saúde próximos. Seja você de uma grande capital ou de uma pequena cidade do interior, se os dados estiverem no sistema oficial do governo (SINAN), o Japiim consegue analisá-los para você.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq13">
+              De onde vêm os dados e por que devo confiar neles?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq13" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                O Japiim é uma ferramenta de combate à desinformação. Todos os dados são extraídos diretamente do <strong>SINAN (Sistema de Informação de Agravos de Notificação)</strong>, a base oficial do Ministério da Saúde.
+                <br><br>
+                Nossa tecnologia processa milhões de notificações (de 2017 até hoje), incluindo casos suspeitos e confirmados, passando por uma rigorosa limpeza e organização. Ao contrário de boatos de redes sociais, o que o Japiim entrega é <strong>estatística oficial pura</strong>, traduzida de forma que todos possam entender.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq14">
+              Preciso pagar ou baixar algum aplicativo extra?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq14" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                Não. O acesso à informação pública é um direito, não um produto. O Japiim é <strong>100% gratuito</strong> para o cidadão.
+                <br><br>
+                Além disso, eliminamos a "fadiga de aplicativos": você <strong>não precisa baixar nada novo</strong>. O Japiim vive onde você já está: no WhatsApp . É só mandar um "Oi" e começar a se informar.
+              </p>
+            </div>
+          </li>
+          
+           <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq15">
+              O Japiim responde sobre quais doenças?
+              <i class="bi bi-chevron-down icon-show"></i>
+              <i class="bi bi-chevron-up icon-close"></i>
+            </div>
+            <div id="faq15" class="collapse" data-bs-parent=".faq-list">
+              <p style="text-align:justify;line-height:2.0">
+                Atualmente, o Japiim é especialista nas chamadas <strong>arboviroses urbanas: Dengue, Zika e Chikungunya</strong>. Escolhemos começar por elas devido ao alto impacto que causam na saúde pública brasileira todos os anos.
+                <br><br>
+                No entanto, a arquitetura do Japiim já está pronta para escalar. Nossa tecnologia foi desenhada para ler qualquer agravo do SINAN, e o plano de expansão inclui adicionar gradualmente outras doenças infecciosas e condições de saúde à nossa base de conhecimento.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Japiim Health</h3>
+      <div class="copyright">
+        &copy; Copyright <strong><span>InteliGente</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Select2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  
+  <!-- DataTables & Bootstrap JS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+
+  <!-- GTranslate -->
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = { "default_language": "pt", "languages": ["pt", "en", "fr", "de", "it", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "left", "switcher_vertical_position": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+  <!-- Swiper & GLightbox Initialization -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      new Swiper('.japiim-3d-slider', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        loop: true,
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true, 
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+
+      const lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true
+      });
+
+    });
+  </script>
+
+  <!-- Network Canvas Effect -->
+  <script>
+    const canvas = document.getElementById('networkCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    const properties = {
+      bgColor: 'rgba(249, 249, 250, 1)',
+      particleColor: 'rgba(230, 81, 0, 1)',
+      particleRadius: 3,
+      particleCount: 60,
+      lineLength: 150,
+      particleSpeed: 0.5,
+    };
+
+    function resize() {
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.velocityX = Math.random() * (properties.particleSpeed * 2) - properties.particleSpeed;
+        this.velocityY = Math.random() * (properties.particleSpeed * 2) - properties.particleSpeed;
+      }
+
+      position() {
+        this.x + this.velocityX > width && this.velocityX > 0 || this.x + this.velocityX < 0 && this.velocityX < 0 ? this.velocityX *= -1 : this.velocityX;
+        this.y + this.velocityY > height && this.velocityY > 0 || this.y + this.velocityY < 0 && this.velocityY < 0 ? this.velocityY *= -1 : this.velocityY;
+        this.x += this.velocityX;
+        this.y += this.velocityY;
+      }
+
+      reDraw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fillStyle = properties.particleColor;
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < properties.particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function drawLines() {
+      let x1, y1, x2, y2, length, opacity;
+      for (let i in particles) {
+        for (let j in particles) {
+          x1 = particles[i].x;
+          y1 = particles[i].y;
+          x2 = particles[j].x;
+          y2 = particles[j].y;
+          length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+          
+          if (length < properties.lineLength) {
+            opacity = 1 - length / properties.lineLength;
+            ctx.lineWidth = '0.5';
+            ctx.strokeStyle = 'rgba(230, 81, 0, '+ opacity +')';
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function loop() {
+      ctx.clearRect(0, 0, width, height); 
+      
+      for (let i in particles) {
+        particles[i].position();
+        particles[i].reDraw();
+      }
+      drawLines();
+      requestAnimationFrame(loop);
+    }
+
+    resize();
+    initParticles();
+    loop();
+
+    window.onresize = resize;
+  </script>
+
+</body>
+
+</html>
