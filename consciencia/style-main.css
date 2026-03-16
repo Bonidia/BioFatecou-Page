@@ -7,6 +7,58 @@
   transition: all 0.5s;
 }
 
+/* ============================= */
+/* Seção do jogo */
+/* ============================= */
+
+#jogo .icon-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border-top: 5px solid #ef6603;
+}
+
+#jogo .icon-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+#jogo .icon-box i {
+  font-size: 32px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+/* cores por categoria */
+
+.card-conhecimento {
+  border-top: 5px solid #4DB6AC;
+}
+
+.card-etica {
+  border-top: 5px solid #8e24aa;
+}
+
+.card-criativo {
+  border-top: 5px solid #FBC02D;
+}
+
+.card-sorte {
+  border-top: 5px solid #43A047;
+}
+
+.card-pratica {
+  border-top: 5px solid #ef6603;
+}
+
+/* funcionamento */
+
+.card-func {
+  border-top: 5px solid #6a2c91;
+}
+
 #header .logo h1 {
   font-size: 20px;
   margin: 0;
