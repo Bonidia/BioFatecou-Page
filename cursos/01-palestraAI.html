@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NCLJFZFPL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NCLJFZFPL');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>InteliGente: Democratizando a Inteligência Artificial para o Bem Social</title>
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/style-cursos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    .hero-simple-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .palestra-layout{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 360px;
+      gap:24px;
+      align-items:start;
+    }
+
+    .info-box{
+      background:linear-gradient(145deg, rgba(19,35,59,.78), rgba(12,23,40,.92));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      padding:24px;
+    }
+
+    .rule-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .rule-list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:10px 0;
+      color:#d8e4f8;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .rule-list li:last-child{
+      border-bottom:none;
+    }
+
+    .rule-list i{
+      color:#ffb88a;
+      margin-top:2px;
+    }
+
+    .status-line{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .status-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+      color:#dbe7fb;
+    }
+
+    .status-pill.ok{
+      background:rgba(34,197,94,.12);
+      border-color:rgba(34,197,94,.20);
+      color:#b8f7cb;
+    }
+
+    .progress-box{
+      margin-top:18px;
+    }
+
+    .progress-track{
+      position:relative;
+      height:10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      overflow:hidden;
+      margin-bottom:10px;
+    }
+
+    .progress-fill{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg, var(--orange), var(--orange-2));
+      border-radius:999px;
+      transition:width .3s ease;
+    }
+
+    .progress-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .unlock-note{
+      margin-top:12px;
+      color:#8ea2bf;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .btn-disabled-link{
+      pointer-events:none;
+      opacity:.6;
+      cursor:not-allowed;
+    }
+
+    .speaker-mini{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .speaker-mini .avatar{
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg, rgba(249,115,22,.22), rgba(249,115,22,.08));
+      border:1px solid rgba(249,115,22,.18);
+      color:#ffcfaf;
+      font-size:24px;
+      flex-shrink:0;
+    }
+
+    .speaker-mini h4{
+      margin:0 0 4px;
+      color:#fff;
+      font-size:16px;
+      font-weight:800;
+    }
+
+    .speaker-mini p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    @media (max-width: 1199px){
+      .palestra-layout{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-card reveal">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-badge">
+              <i class="bi bi-mic-fill"></i>
+              Palestra • Fórum da Pós-Graduação em Computação do Paraná
+            </div>
+
+            <h1>InteliGente:<br>Democratizando a Inteligência Artificial para o Bem Social</h1>
+
+            <p>
+              Esta palestra apresenta o projeto InteliGente, uma iniciativa dedicada a democratizar o acesso ao conhecimento em Inteligência Artificial, promovendo igualdade social e educacional. O conteúdo aborda o uso ético e responsável da IA e seu potencial transformador.
+            </p>
+
+            <div class="hero-simple-actions">
+              <a href="#palestra" class="btn-premium btn-premium-primary">
+                <i class="bi bi-play-fill"></i> Assistir palestra
+              </a>
+
+              <a href="#certificacao" class="btn-premium btn-premium-ghost">
+                <i class="bi bi-award"></i> Regras do certificado
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-card">
+              <div class="meta-icon"><i class="bi bi-clock-history"></i></div>
+              <div class="meta-label">Duração</div>
+              <div class="meta-value">1h00</div>
+            </div>
+
+            <div class="meta-card">
+              <div class="meta-icon"><i class="bi bi-bar-chart-fill"></i></div>
+              <div class="meta-label">Formato</div>
+              <div class="meta-value">Palestra</div>
+            </div>
+
+            <div class="meta-card">
+              <div class="meta-icon"><i class="bi bi-award-fill"></i></div>
+              <div class="meta-label">Certificação</div>
+              <div class="meta-value">Condicional</div>
+            </div>
+
+            <div class="meta-card">
+              <div class="meta-icon"><i class="bi bi-translate"></i></div>
+              <div class="meta-label">Idioma</div>
+              <div class="meta-value">PT-BR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-wrap reveal">
+        <div class="stat-card">
+          <h4>Canal</h4>
+          <p class="big">Fórum PGC-PR</p>
+          <div class="small">Transmissão hospedada no canal do Fórum da Pós-Graduação em Computação do Paraná.</div>
+        </div>
+
+        <div class="stat-card">
+          <h4>Conteúdo</h4>
+          <p class="big">InteliGente</p>
+          <div class="small">Democratização da Inteligência Artificial com foco em ética e impacto social.</div>
+        </div>
+
+        <div class="stat-card">
+          <h4>Público</h4>
+          <p class="big">Aberto</p>
+          <div class="small">Indicado para estudantes, educadores, pesquisadores e interessados em IA para o bem social.</div>
+        </div>
+
+        <div class="stat-card">
+          <h4><i class="bi bi-laptop"></i> Plataforma</h4>
+          <p class="big">Acesso imediato</p>
+          <div class="small">Assista online e acompanhe sua elegibilidade para certificado nesta página.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALESTRA -->
+  <section class="section-space pt-0" id="palestra">
+    <div class="container">
+      <div class="palestra-layout">
+
+        <div class="panel reveal">
+          <div class="video-shell">
+            <div class="video-frame">
+              <div id="player"></div>
+            </div>
+          </div>
+
+          <div class="video-caption">
+            <h3>Assista à palestra completa</h3>
+            <p>
+              Para habilitar o certificado, é necessário assistir à maior parte da palestra com a aba ativa e responder a uma confirmação de acompanhamento durante a reprodução. Isso ajuda a garantir uma participação mais consistente antes do redirecionamento para o seu sistema de certificação.
+            </p>
+
+            <div class="progress-box">
+              <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+
+              <div class="progress-meta">
+                <span id="progressText">Progresso elegível: 0%</span>
+                <span id="watchTimeText">Tempo validado: 0 min</span>
+              </div>
+
+              <div class="unlock-note">
+                O certificado será liberado quando o progresso mínimo for atingido e a confirmação de presença for validada.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box reveal" id="certificacao">
+          <div class="price-badge">
+            <i class="bi bi-patch-check-fill"></i> Certificado condicionado à participação
+          </div>
+
+          <div class="sticky-title">Como liberar o certificado</div>
+
+          <div class="sticky-text">
+            O botão abaixo leva ao seu sistema de emissão, mas só será habilitado após o cumprimento das regras de validação desta palestra.
+          </div>
+
+          <ul class="rule-list">
+            <li><i class="bi bi-check2-circle"></i><span>Assistir pelo menos 70% da palestra.</span></li>
+            <li><i class="bi bi-check2-circle"></i><span>Manter a aba ativa durante o acompanhamento validado.</span></li>
+            <li><i class="bi bi-check2-circle"></i><span>Não avançar manualmente trechos longos do vídeo.</span></li>
+          </ul>
+
+          <div class="status-line">
+            <span class="status-pill" id="statusWatch">
+              <i class="bi bi-hourglass-split"></i> Tempo insuficiente
+            </span>
+
+            <span class="status-pill" id="statusCheckpoint">
+              <i class="bi bi-shield-lock"></i> Presença não confirmada
+            </span>
+          </div>
+
+          <div class="access-row">
+            <a
+              id="certBtn"
+              href="javascript:void(0)"
+              class="btn-premium btn-premium-ghost btn-disabled-link"
+              aria-disabled="true"
+              rel="noopener"
+            >
+              <i class="bi bi-award"></i> Certificado bloqueado
+            </a>
+          </div>
+
+          <div class="mini-note">
+            Quando liberado, o botão redirecionará para o seu sistema externo de emissão de certificado.
+          </div>
+
+          <div class="speaker-mini">
+            <div class="avatar">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div>
+              <h4>Robson P. Bonidia</h4>
+              <p>
+                Pesquisador e professor, com atuação em Inteligência Artificial, democratização do conhecimento e impacto social.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIAIS -->
+  <section class="section-space pt-0" id="materiais">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow"><i class="bi bi-folder2-open"></i> Recursos complementares</div>
+        <h2>Materiais da palestra</h2>
+        <p>
+          Espaço para disponibilizar slides, material de apoio, links institucionais ou referências relacionadas ao projeto InteliGente.
+        </p>
+      </div>
+
+      <div class="materials-grid">
+        <div class="material-card reveal">
+          <div class="material-icon"><i class="bi bi-easel2-fill"></i></div>
+          <h4>Site Oficial</h4>
+          <a class="material-link" href="https://inteligentehub.com.br/"><i class="bi bi-arrow-right-circle-fill"></i> Acessar</a>
+        </div>
+
+        <div class="material-card reveal">
+          <div class="material-icon"><i class="bi bi-globe2"></i></div>
+          <h4>Prêmios e Impacto</h4>
+          <a class="material-link" href="https://inteligentehub.com.br/awards.html"><i class="bi bi-arrow-right-circle-fill"></i> Conhecer o projeto</a>
+        </div>
+
+        <div class="material-card reveal">
+          <div class="material-icon"><i class="bi bi-book-half"></i></div>
+          <h4>Notícias sobre o Projeto</h4>
+          <a class="material-link" href="https://inteligentehub.com.br/news.html"><i class="bi bi-arrow-right-circle-fill"></i> Ver notícias</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-space pt-0">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow"><i class="bi bi-question-circle"></i> Dúvidas frequentes</div>
+        <h2>Perguntas frequentes</h2>
+        <p>Uma seção útil para orientar participantes e reduzir dúvidas sobre a emissão do certificado.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal active">
+          <div class="faq-q">
+            <span>Preciso assistir a palestra inteira?</span>
+            <i class="bi bi-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">
+            <p>Para liberar o botão do certificado, a página exige pelo menos 70% de acompanhamento validado da palestra.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-q">
+            <span>Posso deixar o vídeo rodando em segundo plano?</span>
+            <i class="bi bi-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">
+            <p>Não. O tempo elegível é contado prioritariamente enquanto a aba estiver ativa durante a reprodução.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-q">
+            <span>O botão gera o certificado nesta página?</span>
+            <i class="bi bi-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">
+            <p>Não. Esta página apenas valida as regras e, quando concluídas, libera o link para o seu sistema externo de certificação.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p><strong>InteliGente</strong> — Democratizando a Inteligência Artificial para o Bem Social.</p>
+    <p>Página de acompanhamento e elegibilidade para certificado da palestra.</p>
+    <p>©2026 InteliGente. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- GTranslate -->
+  <div class="gtranslate_wrapper"></div>
+  <script>
+    window.gtranslateSettings = {
+      "default_language":"pt",
+      "languages":["en","fr","de","pt","it","es"],
+      "wrapper_selector":".gtranslate_wrapper",
+      "switcher_horizontal_position":"left",
+      "switcher_vertical_position":"bottom",
+      "alt_flags":{"en":"usa","pt":"brazil"}
+    };
+  </script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+  <!-- YouTube API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <script>
+    // =========================
+    // CONFIGURAÇÃO
+    // =========================
+    const VIDEO_ID = "zGGc9LhygEw";
+    const API_URL = "https://script.google.com/macros/s/AKfycbzZgr12eiT3-zNfyACjBELJAffLgmXRp26EUXDYMbL7kvnqLUaWBKFaPj1qOW3l6hWR/exec";
+    const CERTIFICATE_PAGE = "gerador/certificado.html";
+
+    const REQUIRED_PERCENT = 0.05;
+    const CHECKPOINT_SECONDS = 2; // 15 min
+    const SEEK_TOLERANCE = 8; // segundos
+    const STORAGE_KEY = "inteligente_palestra_ai_forum_cert_v3";
+
+    // =========================
+    // ESTADO
+    // =========================
+    let player = null;
+    let videoDuration = 0;
+    let validatedWatchTime = 0;
+    let checkpointPassed = false;
+    let isTabActive = !document.hidden;
+    let lastPlayerTime = 0;
+    let checkpointShown = false;
+    let certificateUnlocked = false;
+    let certLink = null;
+    let requestingToken = false;
+
+    // =========================
+    // ELEMENTOS
+    // =========================
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
+    const watchTimeText = document.getElementById("watchTimeText");
+    const statusWatch = document.getElementById("statusWatch");
+    const statusCheckpoint = document.getElementById("statusCheckpoint");
+    const certBtn = document.getElementById("certBtn");
+
+    // =========================
+    // SCROLL / REVEAL / FAQ
+    // =========================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    document.querySelectorAll(".faq-q").forEach(q => {
+      q.addEventListener("click", () => {
+        q.closest(".faq-item").classList.toggle("active");
+      });
+    });
+
+    // =========================
+    // VISIBILIDADE DA ABA
+    // =========================
+    document.addEventListener("visibilitychange", () => {
+      isTabActive = !document.hidden;
+    });
+
+    // =========================
+    // LOCAL STORAGE
+    // =========================
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        validatedWatchTime,
+        checkpointPassed,
+        checkpointShown,
+        certificateUnlocked,
+        certLink
+      }));
+    }
+
+    function loadState() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+
+      try {
+        const data = JSON.parse(raw);
+        validatedWatchTime = Number(data.validatedWatchTime || 0);
+        checkpointPassed = !!data.checkpointPassed;
+        checkpointShown = !!data.checkpointShown;
+        certificateUnlocked = !!data.certificateUnlocked;
+        certLink = data.certLink || null;
+      } catch (e) {
+        console.error("Erro ao carregar estado local:", e);
+      }
+    }
+
+    loadState();
+
+    // =========================
+    // YOUTUBE API
+    // =========================
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player("player", {
+        videoId: VIDEO_ID,
+        playerVars: {
+          rel: 0,
+          modestbranding: 1
+        },
+        events: {
+          onReady: (event) => {
+            videoDuration = event.target.getDuration() || 0;
+            lastPlayerTime = event.target.getCurrentTime() || 0;
+            updateUI();
+          }
+        }
+      });
+    }
+
+    // =========================
+    // AUXILIARES
+    // =========================
+    function formatMinutes(seconds) {
+      const min = Math.floor(seconds / 60);
+      return `${min} min`;
+    }
+
+    function getValidatedPercent() {
+      if (!videoDuration || videoDuration <= 0) return 0;
+      return Math.min(validatedWatchTime / videoDuration, 1);
+    }
+
+    async function requestCertificateToken() {
+      const url = API_URL.includes("?")
+        ? `${API_URL}&action=gerarToken`
+        : `${API_URL}?action=gerarToken`;
+
+      const res = await fetch(url, { method: "GET" });
+
+      if (!res.ok) {
+        throw new Error("Falha HTTP ao gerar token.");
+      }
+
+      const data = await res.json();
+
+      if (!data.token) {
+        throw new Error("Token não retornado pela API.");
+      }
+
+      return data.token;
+    }
+
+    // =========================
+    // UI
+    // =========================
+    function updateUI() {
+      const percent = Math.round(getValidatedPercent() * 100);
+
+      progressFill.style.width = percent + "%";
+      progressText.textContent = `Progresso elegível: ${percent}%`;
+      watchTimeText.textContent = `Tempo validado: ${formatMinutes(validatedWatchTime)}`;
+
+      if (getValidatedPercent() >= REQUIRED_PERCENT) {
+        statusWatch.classList.add("ok");
+        statusWatch.innerHTML = `<i class="bi bi-check-circle-fill"></i> Tempo mínimo atingido`;
+      } else {
+        statusWatch.classList.remove("ok");
+        statusWatch.innerHTML = `<i class="bi bi-hourglass-split"></i> Tempo insuficiente`;
+      }
+
+      if (checkpointPassed) {
+        statusCheckpoint.classList.add("ok");
+        statusCheckpoint.innerHTML = `<i class="bi bi-check-circle-fill"></i> Presença confirmada`;
+      } else {
+        statusCheckpoint.classList.remove("ok");
+        statusCheckpoint.innerHTML = `<i class="bi bi-shield-lock"></i> Presença não confirmada`;
+      }
+
+      if (certificateUnlocked) {
+        certBtn.classList.remove("btn-disabled-link");
+        certBtn.setAttribute("aria-disabled", "false");
+        certBtn.innerHTML = `<i class="bi bi-award-fill"></i> Gerar certificado`;
+      } else {
+        certBtn.classList.add("btn-disabled-link");
+        certBtn.setAttribute("aria-disabled", "true");
+        certBtn.innerHTML = `<i class="bi bi-award"></i> Certificado bloqueado`;
+      }
+    }
+
+    // =========================
+    // LIBERAÇÃO DO CERTIFICADO
+    // =========================
+    async function maybeUnlockCertificate() {
+      if (certificateUnlocked || requestingToken) return;
+
+      const enoughTime = getValidatedPercent() >= REQUIRED_PERCENT;
+
+      if (enoughTime && checkpointPassed) {
+        requestingToken = true;
+
+        try {
+          const token = await requestCertificateToken();
+          certLink = `${CERTIFICATE_PAGE}?token=${encodeURIComponent(token)}`;
+          certificateUnlocked = true;
+          saveState();
+          updateUI();
+        } catch (e) {
+          console.error("Erro ao gerar token:", e);
+        } finally {
+          requestingToken = false;
+        }
+      }
+    }
+
+    // =========================
+    // LOOP DE VALIDAÇÃO
+    // =========================
+    setInterval(async () => {
+      if (!player || typeof player.getPlayerState !== "function") return;
+
+      let currentTime = 0;
+      let state = -1;
+
+      try {
+        currentTime = player.getCurrentTime() || 0;
+        state = player.getPlayerState();
+      } catch (e) {
+        return;
+      }
+
+      // Bloqueia avanço grande manual
+      if (state === YT.PlayerState.PLAYING && currentTime - lastPlayerTime > SEEK_TOLERANCE) {
+        player.seekTo(lastPlayerTime, true);
+        currentTime = lastPlayerTime;
+      }
+
+      // Conta só se estiver tocando e com a aba ativa
+      if (state === YT.PlayerState.PLAYING && isTabActive) {
+        validatedWatchTime += 1;
+      }
+
+      // Checkpoint após tempo validado
+      if (!checkpointShown && validatedWatchTime >= CHECKPOINT_SECONDS) {
+        checkpointShown = true;
+        const ok = window.confirm("Confirma que está acompanhando a palestra?");
+        if (ok) checkpointPassed = true;
+        saveState();
+      }
+
+      lastPlayerTime = currentTime;
+
+      await maybeUnlockCertificate();
+      updateUI();
+      saveState();
+    }, 1000);
+
+    // =========================
+    // BOTÃO CERTIFICADO
+    // =========================
+    certBtn.addEventListener("click", function(event) {
+      event.preventDefault();
+
+      if (!certificateUnlocked || !certLink) {
+        alert("O certificado ainda está bloqueado. Assista à maior parte da palestra e confirme sua presença para liberar o link.");
+        return;
+      }
+
+      window.open(certLink, "_blank");
+    });
+
+    updateUI();
+  </script>
+</body>
+</html>

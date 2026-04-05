@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Consultar Certificado</title>
+
+<style>
+
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#0f172a,#1e3a8a);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  color:white;
+}
+
+.container {
+  width:90%;
+  max-width:600px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+input, button {
+  width:100%;
+  padding:16px;
+  margin-top:15px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+  box-sizing:border-box;
+}
+
+button {
+  background: linear-gradient(135deg,#3b82f6,#2563eb);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:disabled {
+  opacity:0.6;
+}
+
+#loading {
+  display:none;
+  margin-top:20px;
+}
+
+.spinner {
+  border:4px solid rgba(255,255,255,0.2);
+  border-top:4px solid #3b82f6;
+  border-radius:50%;
+  width:35px;
+  height:35px;
+  margin:auto;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%{transform:rotate(0)}
+  100%{transform:rotate(360deg)}
+}
+
+.result {
+  margin-top:20px;
+  padding:15px;
+  border-radius:12px;
+  display:none;
+}
+
+.success {
+  background: rgba(34,197,94,0.2);
+}
+
+.error {
+  background: rgba(239,68,68,0.2);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>🔎 Consultar Certificado</h2>
+
+  <p>Digite o código para verificar autenticidade</p>
+
+  <input id="codigo" placeholder="Ex: TK_ABC123">
+
+  <button onclick="consultar()">
+    Consultar
+  </button>
+
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Consultando...</p>
+  </div>
+
+  <div id="result" class="result"></div>
+
+  <p>Em caso de problemas, enviar e-mail para: bonidia@utfpr.edu.br</p>
+
+</div>
+
+<script>
+
+// 🔥 SUA API
+const API_URL = "https://script.google.com/macros/s/AKfycbzZgr12eiT3-zNfyACjBELJAffLgmXRp26EUXDYMbL7kvnqLUaWBKFaPj1qOW3l6hWR/exec";
+
+async function consultar(){
+
+  const codigoInput = document.getElementById("codigo");
+  const btn = document.querySelector("button");
+  const loading = document.getElementById("loading");
+  const result = document.getElementById("result");
+
+  const codigo = codigoInput.value;
+
+  if(!codigo){
+    alert("Digite o código.");
+    return;
+  }
+
+  // 🔒 trava interface
+  btn.disabled = true;
+  codigoInput.disabled = true;
+  loading.style.display = "block";
+  result.style.display = "none";
+
+  try{
+
+    const res = await fetch(API_URL + "?action=validar&token=" + codigo.trim());
+    const data = await res.json();
+
+    loading.style.display = "none";
+    result.style.display = "block";
+
+    if(data.status === "gerado" || data.status === "usado"){
+
+      result.className = "result success";
+
+      result.innerHTML = `
+        ✅ Certificado válido<br><br>
+        <b>Nome:</b> ${data.nome || "—"}<br>
+        <b>Data:</b> ${data.data || "—"}
+      `;
+
+    }else if(data.status === "expirado"){
+
+      result.className = "result error";
+      result.innerHTML = "⏳ Token expirado";
+
+    }else{
+
+      result.className = "result error";
+      result.innerHTML = "❌ Certificado inválido";
+
+  }
+
+  }catch(e){
+
+    result.className = "result error";
+    result.innerHTML = "Erro ao consultar.";
+
+  }
+
+  // 🔓 liberar novamente
+  btn.disabled = false;
+  codigoInput.disabled = false;
+
+}
+
+</script>
+
+</body>
+</html>

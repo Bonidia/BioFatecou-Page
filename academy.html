@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NCLJFZFPL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NCLJFZFPL');
+  </script>
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>Academy | InteliGente e Japiim Digital</title>
+
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+
+<style>
+  :root{
+    --ig-orange:#f97316;
+    --ig-dark:#0f172a;
+  }
+
+  /* HERO */
+  .hero-academy{
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    padding:150px 20px 80px;
+    text-align:center;
+  }
+
+  .hero-academy h1{
+    font-weight:800;
+    font-size:42px;
+  }
+
+  .hero-academy p{
+    max-width:750px;
+    margin:auto;
+    opacity:.9;
+    font-size:17px;
+  }
+
+  /* CARDS */
+  .course-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+    height:100%;
+  }
+
+  .course-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 50px rgba(249,115,22,.2);
+  }
+
+  .course-img{
+    height:200px;
+    background-size:cover;
+    background-position:center;
+  }
+
+  .course-body{
+    padding:20px;
+  }
+
+  .course-title{
+    font-weight:800;
+    font-size:20px;
+  }
+
+  .course-desc{
+    font-size:14px;
+    color:#475569;
+    margin:10px 0;
+  }
+
+  .course-btn{
+    background:rgba(249,115,22,.12);
+    border:1px solid rgba(249,115,22,.3);
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:700;
+    text-decoration:none;
+    color:#9a3412;
+    display:inline-block;
+  }
+
+  /* HEADER */
+    .ig-header{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:999;
+
+      background: linear-gradient(
+        to bottom,
+        rgba(15,23,42,0.95),
+        rgba(15,23,42,0.7),
+        rgba(15,23,42,0.3)
+      );
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: none;
+    }
+
+  .ig-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 20px;
+  }
+
+  /* LOGO */
+  .ig-logo{
+    font-weight:800;
+    font-size:20px;
+    color:white;
+    letter-spacing:.5px;
+  }
+
+  /* MENU */
+  .ig-menu{
+    display:flex;
+    gap:28px;
+    align-items:center;
+  }
+
+  .ig-menu a{
+    color:#e2e8f0;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    position:relative;
+    transition:0.3s;
+  }
+
+  .ig-menu a::after{
+    content:"";
+    position:absolute;
+    bottom:-4px;
+    left:0;
+    width:0%;
+    height:2px;
+    background:#f97316;
+    transition:0.3s;
+  }
+
+  .ig-menu a:hover{
+    color:white;
+  }
+
+  .ig-menu a:hover::after{
+    width:100%;
+  }
+
+  /* BOTÃO */
+  .ig-btn{
+    background:linear-gradient(135deg,#f97316,#ea580c);
+    padding:8px 14px;
+    border-radius:10px;
+    color:white !important;
+    box-shadow:0 6px 20px rgba(249,115,22,.3);
+  }
+
+  .ig-btn:hover{
+    transform:translateY(-1px);
+  }
+
+  /* MOBILE */
+  .ig-toggle{
+    display:none;
+    font-size:26px;
+    color:white;
+    cursor:pointer;
+  }
+
+  @media(max-width:768px){
+
+    .ig-menu{
+      position:absolute;
+      top:70px;
+      right:20px;
+      background:#0f172a;
+      flex-direction:column;
+      padding:20px;
+      border-radius:12px;
+      display:none;
+    }
+
+    .ig-menu.active{
+      display:flex;
+    }
+
+    .ig-toggle{
+      display:block;
+    }
+
+  }
+
+  .pagination{
+    gap:8px;
+  }
+
+  .pagination li{
+    list-style:none;
+  }
+
+  .pagination button{
+    border:none;
+    background:#1e293b;
+    color:white;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+  }
+
+  .pagination button:hover{
+    background:#334155;
+  }
+
+  .pagination button.active{
+    background:#f97316;
+    box-shadow:0 6px 20px rgba(249,115,22,.4);
+  }
+  .course-btn:hover{
+    background:rgba(249,115,22,.2);
+  }
+
+  /* FOOTER */
+  .footer{
+    background:#0f172a;
+    color:#cbd5f5;
+    padding:30px 20px;
+    text-align:center;
+    font-size:14px;
+  }
+  .footer strong{
+    color:white;
+  }
+</style>
+
+</head>
+
+<body>
+
+<header class="ig-header">
+
+  <div class="container ig-nav">
+
+    <div class="ig-logo">
+      InteliGente e Japiim Digital
+    </div>
+
+    <nav class="ig-menu" id="igMenu">
+      <a href="#">Início</a>
+      <a href="#cursos">Cursos</a>
+      <a href="https://inteligentehub.com.br/">InteliGente</a>
+      <a href="https://japiim.inteligentehub.com.br/">Japiim Digital</a>
+      <a href="gerador/consultar.html" class="ig-btn">Consultar Certificado</a>
+    </nav>
+
+    <div class="ig-toggle" onclick="toggleMenu()">
+      <i class="bi bi-list"></i>
+    </div>
+
+  </div>
+
+</header>
+
+  <!-- HERO -->
+  <section class="hero-academy">
+    <h1>InteliGente e Japiim Digital</h1>
+    <p>
+      Plataforma educacional criada para democratizar o acesso à Inteligência Artificial, promovendo inclusão, impacto social e formação de pessoas capazes de transformar suas realidades por meio da tecnologia.
+    </p>
+  </section>
+
+  <!-- ACADEMIAS -->
+  <section class="container py-5">
+
+    <div class="row g-4">
+
+      <!-- INTELIACADEMY -->
+      <div class="col-lg-6">
+        <div class="course-card">
+
+          <div class="course-img" style="background-image:url('assets/figures/419.png');"></div>
+
+          <div class="course-body">
+            <h3 class="course-title">InteliAcademy</h3>
+
+            <p class="course-desc">
+              Formação avançada em Inteligência Artificial, Ciência de Dados e Machine Learning.
+              Desenvolvida para estudantes, pesquisadores e profissionais que desejam criar
+              soluções tecnológicas com impacto real no mundo.
+            </p>
+
+            <a href="inteliacademy.html" class="course-btn">
+              Explorar Cursos
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- JAPIIMACADEMY -->
+      <div class="col-lg-6">
+        <div class="course-card">
+
+          <div class="course-img" style="background-image:url('assets/figures/124.png');"></div>
+
+          <div class="course-body">
+            <h3 class="course-title">JapiimAcademy</h3>
+
+            <p class="course-desc">
+              Educação acessível e inclusiva em Inteligência Artificial para escolas e comunidades.
+              Foco em ética, criatividade e resolução de problemas reais, especialmente em contextos
+              de vulnerabilidade social.
+            </p>
+
+            <a href="japiimacademy.html" class="course-btn">
+              Começar Agora
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CURSOS -->
+  <section id="cursos" class="container pb-5">
+
+    <div class="text-center mb-5">
+      <h2 style="font-weight:800;">Cursos em Destaque</h2>
+      <p>Inicie sua jornada em Inteligência Artificial para o bem social</p>
+    </div>
+
+    <div class="row g-4" id="coursesContainer">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-img" style="background-image:url('assets/figures/154.png');"></div>
+
+          <div class="course-body">
+            <h4 class="course-title">IA para Iniciantes</h4>
+            <p class="course-desc">Introdução prática à Inteligência Artificial com exemplos do mundo real.</p>
+            <a href="#" class="course-btn">Acessar Curso</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-img" style="background-image:url('assets/figures/124.png');"></div>
+
+          <div class="course-body">
+            <h4 class="course-title">IA para o Bem Social</h4>
+            <p class="course-desc">Como usar IA para resolver problemas reais da sociedade.</p>
+            <a href="#" class="course-btn">Acessar Curso</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-img" style="background-image:url('assets/figures/course3.jpg');"></div>
+
+          <div class="course-body">
+            <h4 class="course-title">Ética em IA</h4>
+            <p class="course-desc">Compreenda vieses, justiça e uso responsável da Inteligência Artificial.</p>
+            <a href="#" class="course-btn">Acessar Curso</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+      <ul class="pagination" id="pagination"></ul>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      <strong>InteliGente</strong> — Construindo Caminhos de Igualdade com Inteligência Artificial.
+    </p>
+
+    <p style="opacity:0.7;">
+      ©2026 InteliGente. Todos os direitos reservados.
+    </p>
+  </footer>
+
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"pt","languages":["en","fr","de", "pt", "it","es"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+  <script>
+  function toggleMenu(){
+    document.getElementById("igMenu").classList.toggle("active");
+  }
+  </script>
+
+  <script>
+      const itemsPerPage = 6;
+      const cards = document.querySelectorAll("#coursesContainer > div");
+      const pagination = document.getElementById("pagination");
+
+      let currentPage = 1;
+
+      function showPage(page){
+
+        currentPage = page;
+
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        cards.forEach((card, index)=>{
+          if(index >= start && index < end){
+            card.style.display = "block";
+          }else{
+            card.style.display = "none";
+          }
+        });
+
+        updatePagination();
+      }
+
+      function updatePagination(){
+
+        const totalPages = Math.ceil(cards.length / itemsPerPage);
+
+        pagination.innerHTML = "";
+
+        for(let i=1; i<=totalPages; i++){
+
+          const li = document.createElement("li");
+          const btn = document.createElement("button");
+
+          btn.innerText = i;
+
+          if(i === currentPage){
+            btn.classList.add("active");
+          }
+
+          btn.onclick = ()=>showPage(i);
+
+          li.appendChild(btn);
+          pagination.appendChild(li);
+        }
+      }
+
+      // iniciar
+      showPage(1);
+  </script>
+
+</body>
+</html>

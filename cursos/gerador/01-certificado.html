@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Certificado</title>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#0f172a,#1e3a8a);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  color:white;
+}
+
+.container {
+  width:90%;
+  max-width:600px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+input, button {
+  width:100%;
+  padding:16px;
+  margin-top:15px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+  box-sizing:border-box;
+}
+
+button {
+  background: linear-gradient(135deg,#3b82f6,#2563eb);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:disabled {
+  opacity:0.6;
+}
+
+#loading {
+  display:none;
+  margin-top:20px;
+}
+
+.spinner {
+  border:4px solid rgba(255,255,255,0.2);
+  border-top:4px solid #3b82f6;
+  border-radius:50%;
+  width:35px;
+  height:35px;
+  margin:auto;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%{transform:rotate(0)}
+  100%{transform:rotate(360deg)}
+}
+#loading {
+  display:none;
+  margin-top:20px;
+  opacity:0;
+  transition: opacity 0.3s ease;
+}
+
+#loading.show {
+  display:block;
+  opacity:1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>🎓 Emitir Certificado</h2>
+
+  <p id="status">Validando acesso...</p>
+
+  <input id="nome" placeholder="Digite seu nome completo">
+
+  <button id="btn" onclick="gerar()" disabled>
+    Gerar Certificado
+  </button>
+
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Gerando certificado...</p>
+  </div>
+
+  <p>Em caso de problemas, enviar e-mail para: bonidia@utfpr.edu.br</p>
+
+</div>
+
+<script>
+
+function baixarPDF(){
+
+  const element = document.querySelector(".page");
+
+  const opt = {
+    margin: 0,
+    filename: 'certificado_${token}.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 3 },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(element).save();
+}
+
+</script>
+
+<script>
+
+// 🔥 CONFIGURE AQUI
+const API_URL = "https://script.google.com/macros/s/AKfycbzZgr12eiT3-zNfyACjBELJAffLgmXRp26EUXDYMbL7kvnqLUaWBKFaPj1qOW3l6hWR/exec";
+
+// =====================
+// PEGAR TOKEN
+// =====================
+const params = new URLSearchParams(window.location.search);
+const token = params.get("token");
+
+if(!token){
+  document.body.innerHTML = "<h2>❌ Token inválido</h2>";
+}
+
+// =====================
+// VALIDAR TOKEN
+// =====================
+async function validar(){
+
+  try{
+
+    const res = await fetch(API_URL + "?token=" + token);
+    const data = await res.json();
+
+    if(data.status === "invalido"){
+      document.body.innerHTML = "<h2>❌ Token inválido</h2>";
+      return;
+    }
+
+    if(data.status === "usado"){
+      document.body.innerHTML = "<h2>❌ Certificado já utilizado</h2>";
+      return;
+    }
+
+    document.getElementById("status").innerText = "Acesso validado ✔";
+    document.getElementById("btn").disabled = false;
+
+  }catch(e){
+    document.body.innerHTML = "<h2>Erro ao validar</h2>";
+  }
+
+}
+
+validar();
+
+// =====================
+// GERAR CERTIFICADO
+// =====================
+async function gerar(){
+
+  const nomeInput = document.getElementById("nome");
+  const btn = document.getElementById("btn");
+  const loading = document.getElementById("loading");
+
+  const nome = nomeInput.value;
+
+  if(!nome){
+    alert("Digite seu nome completo.");
+    return;
+  }
+
+  // 🔒 travar interface
+  btn.disabled = true;
+  nomeInput.disabled = true;
+  loading.classList.add("show");
+
+  try{
+
+    const res = await fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        token: token,
+        nome: nome
+      })
+    });
+
+    const data = await res.json();
+
+    if(data.error){
+      alert(data.error);
+
+      // 🔓 reativar se erro
+      btn.disabled = false;
+      nomeInput.disabled = false;
+      loading.style.display = "none";
+
+      return;
+    }
+
+    abrirCertificado(nome);
+
+  }catch(e){
+
+    alert("Erro ao gerar certificado.");
+    console.error(e);
+
+    btn.disabled = false;
+    nomeInput.disabled = false;
+    loading.style.display = "none";
+  }
+}
+
+// =====================
+// ABRIR CERTIFICADO
+// =====================
+function abrirCertificado(nome){
+
+  const urlVerificacao = "https://inteligentehub.com.br/cursos/gerador/consultar.html";
+  const win = window.open('', '', 'width=900,height=1200');
+
+  win.document.write(`
+    <html>
+    <head>
+      <title>Certificado</title>
+      <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"><\/script>
+
+      <style>
+
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        body {
+          margin:0;
+          font-family: 'Georgia', serif;
+          background:#e5e7eb;
+        }
+
+        .page {
+          width:210mm;
+          height:297mm;
+          background:white;
+          position:relative;
+          padding:70px;
+          box-sizing:border-box;
+        }
+
+        /* Marca d'água */
+        .watermark {
+          position:absolute;
+          top:50%;
+          left:50%;
+          transform:translate(-50%, -50%);
+          opacity:0.06;
+          width:65%;
+        }
+
+        /* Borda elegante */
+        .border {
+          position:absolute;
+          top:25px;
+          left:25px;
+          right:25px;
+          bottom:25px;
+          border:3px solid #1e3a8a;
+        }
+
+        .content {
+          position:relative;
+          z-index:2;
+          text-align:center;
+          height:100%;
+          display:flex;
+          flex-direction:column;
+          justify-content:space-between;
+        }
+
+        .header {
+          margin-top:10px;
+        }
+
+        .title {
+          font-size:44px;
+          font-weight:bold;
+          color:#1e3a8a;
+          letter-spacing:3px;
+        }
+
+        .subtitle {
+          margin-top:8px;
+          font-size:18px;
+          color:#374151;
+        }
+
+        .nome {
+          font-size:34px;
+          margin:35px 0;
+          font-weight:bold;
+          color:#111827;
+        }
+
+        .descricao {
+          font-size:18px;
+          line-height:1.7;
+          color:#374151;
+          max-width:720px;
+          margin:0 auto;
+        }
+
+        .institucional {
+          margin-top:25px;
+          font-size:16px;
+          color:#4b5563;
+        }
+
+        .footer {
+          display:flex;
+          justify-content:space-between;
+          align-items:flex-end;
+          margin-top:50px;
+        }
+
+        .selo-assinatura {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          margin-top: 40px;
+        }
+
+        .selo-assinatura img {
+          width: 140px; /* AUMENTA aqui */
+          height: auto;
+          opacity: 0.95;
+        }
+
+        .assinatura {
+          border-top: 2px solid #333;
+          padding-top: 5px;
+          font-size: 14px;
+          text-align: center;
+          min-width: 280px;
+        }
+
+        .linha {
+          border-top:1px solid #000;
+          margin-top:50px;
+        }
+
+        .assinatura-nome {
+          font-weight:bold;
+          margin-top:5px;
+        }
+
+        .selo-assinatura img {
+          filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+          transform: rotate(-5deg);
+        }
+
+        .qrcode {
+          text-align:center;
+        }
+
+        .codigo {
+          margin-top:10px;
+          font-size:13px;
+          color:#555;
+        }
+
+        .actions {
+          position:absolute;
+          top:20px;
+          right:30px;
+          z-index:10;
+        }
+
+        .print-btn {
+          background:#1e3a8a;
+          color:white;
+          border:none;
+          padding:10px 14px;
+          border-radius:8px;
+          cursor:pointer;
+          font-size:13px;
+          margin-left:5px;
+        }
+
+        .print-btn:hover {
+          background:#172554;
+        }
+
+        @media print {
+          .actions {
+            display:none;
+          }
+        }
+
+      </style>
+    </head>
+
+    <body>
+
+      <div class="page">
+
+        <div class="actions">
+          <button class="print-btn" onclick="window.print()">🖨️ Imprimir</button>
+          <button class="print-btn" onclick="baixarPDF()">⬇️ PDF</button>
+        </div>
+
+        <div class="border"></div>
+
+        <!-- LOGO FUNDO -->
+        <img src="logo.png" class="watermark">
+
+        <div class="content">
+
+          <div class="header">
+            <div class="title">CERTIFICADO</div>
+            <div class="subtitle">Declaração de Participação</div>
+          </div>
+
+          <div>
+
+            <p class="descricao">Certificamos que</p>
+
+            <div class="nome">${nome}</div>
+
+            <p class="descricao">
+              assistiu a palestra online <b>“InteliGente: Democratizando a Inteligência Artificial para o Bem Social”</b>,
+              com carga horária de <b>1 hora e 30 minutos</b>, contribuindo para a formação em
+              tecnologias emergentes, ética e impacto social por meio da Inteligência Artificial.
+            </p>
+
+            <p class="institucional">
+              O projeto <b>InteliGente</b> é uma iniciativa de extensão vinculada à
+              <b>Universidade Tecnológica Federal do Paraná (UTFPR) – Campus Cornélio Procópio</b>.
+            </p>
+
+            <p class="institucional" style="margin-top:15px;">
+              Emitido em ${new Date().toLocaleDateString()}
+            </p>
+
+          </div>
+
+          <div class="footer">
+
+            <div class="selo-assinatura">
+
+              <img src="selobg.png" alt="Selo InteliGente">
+
+            </div>
+
+            <div class="qrcode">
+              <canvas id="qrcode"></canvas>
+              <div class="codigo">Código de verificação: ${token}</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <script>
+        QRCode.toCanvas(document.getElementById('qrcode'), "${urlVerificacao}");
+      <\/script>
+
+    </body>
+    </html>
+  `);
+
+  win.document.close();
+
+  setTimeout(()=>win.print(), 800);
+
+}
+
+</script>
+
+</body>
+</html>
