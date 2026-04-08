@@ -60,17 +60,16 @@
 }
 
 #header .logo h1 {
-  font-size: 20px;
+  font-size: 30px;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-weight: 700;
   letter-spacing: 1px;
-  text-transform: uppercase;
   color: #fff;
 }
 
-/* Logo responsiva (mesma ideia do fado.html) */
+/* Logo responsiva */
 .logo-responsive {
   display: block;
   margin-left: auto;
@@ -170,4 +169,78 @@
 .news-card-body a.btn {
   align-self: start;
   margin-top: 10px;
+}
+
+.manual-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 18px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: var(--manual-shadow);
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* HOVER BONITO */
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* EFEITO DE LUZ */
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.25),
+    transparent
+  );
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* IMAGEM PRINCIPAL */
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* RESPONSIVO */
+@media (max-width: 991px) {
+  .manual-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .manual-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item.large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
 }
