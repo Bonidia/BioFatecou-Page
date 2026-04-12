@@ -318,7 +318,7 @@
           </div>
 
           <ul class="rule-list">
-            <li><i class="bi bi-check2-circle"></i><span>Assistir pelo menos 70% do PodCast.</span></li>
+            <li><i class="bi bi-check2-circle"></i><span id="rulePercentText">Assistir pelo menos 70% do conteúdo.</span></li>
             <li><i class="bi bi-check2-circle"></i><span>Manter a aba ativa durante o acompanhamento validado.</span></li>
             <li><i class="bi bi-check2-circle"></i><span>Não avançar manualmente trechos longos do vídeo.</span></li>
           </ul>
@@ -415,7 +415,7 @@
             <i class="bi bi-chevron-down faq-icon"></i>
           </div>
           <div class="faq-a">
-            <p>Para liberar o botão do certificado, a página exige pelo menos 70% de acompanhamento validado do PodCast.</p>
+            <p id="faqPercentText">Para liberar o botão do certificado, a página exige pelo menos 70% de acompanhamento validado do conteúdo.</p>
           </div>
         </div>
 
@@ -501,6 +501,8 @@
     const statusWatch = document.getElementById("statusWatch");
     const statusCheckpoint = document.getElementById("statusCheckpoint");
     const certBtn = document.getElementById("certBtn");
+    const rulePercentText = document.getElementById("rulePercentText");
+    const faqPercentText = document.getElementById("faqPercentText");
 
     // =========================
     // SCROLL / REVEAL / FAQ
@@ -585,6 +587,16 @@
       const data = await res.json();
       if (!data.ok || !data.sessionId) {
         throw new Error(data.error || "Sessão não iniciada.");
+      }
+
+      const percentNumber = Math.round(REQUIRED_PERCENT * 100);
+
+      if (rulePercentText) {
+        rulePercentText.textContent = `Assistir pelo menos ${percentNumber}% do conteúdo.`;
+      }
+
+      if (faqPercentText) {
+        faqPercentText.textContent = `Para liberar o botão do certificado, a página exige pelo menos ${percentNumber}% de acompanhamento validado do conteúdo.`;
       }
 
       sessionId = data.sessionId;
@@ -716,7 +728,7 @@
 
         if (!checkpointShown && validatedWatchTime >= CHECKPOINT_SECONDS) {
           checkpointShown = true;
-          const ok = window.confirm("Confirma que está acompanhando a palestra?");
+          const ok = window.confirm("Confirma que está acompanhando este conteúdo?");
           if (ok) {
             await confirmCheckpoint();
             await getStatus();
