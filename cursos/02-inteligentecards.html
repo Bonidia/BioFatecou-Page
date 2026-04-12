@@ -9,6 +9,7 @@
     gtag('js', new Date());
     gtag('config', 'G-8NCLJFZFPL');
   </script>
+  <script src="config.js"></script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -471,7 +472,7 @@
     // =========================
     const COURSE_ID = "inteligentecards";
     const VIDEO_ID = "ERklQsima5g";
-    const API_URL = "https://script.google.com/macros/s/AKfycbyjb3xKg5lAcDvjka4vs991bnT0VJoYR5ZmkX5tb5ZBp-Wwr_PtGCkEddByAIRMy23X/exec";
+    const API_URL = window.APP_CONFIG.API_URL;
     const CERTIFICATE_PAGE = "gerador/02-certificado.html";
 
     let REQUIRED_PERCENT = 0.70;

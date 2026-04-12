@@ -8,6 +8,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="../config.js"></script>
 
 <style>
 
@@ -113,7 +114,7 @@ button:disabled {
 </div>
 
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbyjb3xKg5lAcDvjka4vs991bnT0VJoYR5ZmkX5tb5ZBp-Wwr_PtGCkEddByAIRMy23X/exec";
+const API_URL = window.APP_CONFIG.API_URL;
 
 const params = new URLSearchParams(window.location.search);
 const token = params.get("token");
@@ -322,6 +323,7 @@ function abrirCertificado(nome, issuedAt) {
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"><\/script>
 
       <style>
+
         @page {
           size: A4;
           margin: 0;
@@ -329,19 +331,20 @@ function abrirCertificado(nome, issuedAt) {
 
         body {
           margin:0;
-          font-family: Georgia, serif;
+          font-family: 'Georgia', serif;
           background:#e5e7eb;
         }
 
         .page {
           width:210mm;
-          min-height:297mm;
+          height:297mm;
           background:white;
           position:relative;
           padding:70px;
           box-sizing:border-box;
         }
 
+        /* Marca d'água */
         .watermark {
           position:absolute;
           top:50%;
@@ -351,6 +354,7 @@ function abrirCertificado(nome, issuedAt) {
           width:65%;
         }
 
+        /* Borda elegante */
         .border {
           position:absolute;
           top:25px;
@@ -413,23 +417,43 @@ function abrirCertificado(nome, issuedAt) {
           justify-content:space-between;
           align-items:flex-end;
           margin-top:50px;
-          gap:20px;
         }
 
         .selo-assinatura {
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          gap:20px;
-          margin-top:40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          margin-top: 40px;
         }
 
         .selo-assinatura img {
-          width:140px;
-          height:auto;
-          opacity:0.95;
-          filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-          transform:rotate(-5deg);
+          width: 140px; /* AUMENTA aqui */
+          height: auto;
+          opacity: 0.95;
+        }
+
+        .assinatura {
+          border-top: 2px solid #333;
+          padding-top: 5px;
+          font-size: 14px;
+          text-align: center;
+          min-width: 280px;
+        }
+
+        .linha {
+          border-top:1px solid #000;
+          margin-top:50px;
+        }
+
+        .assinatura-nome {
+          font-weight:bold;
+          margin-top:5px;
+        }
+
+        .selo-assinatura img {
+          filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+          transform: rotate(-5deg);
         }
 
         .qrcode {
@@ -440,8 +464,6 @@ function abrirCertificado(nome, issuedAt) {
           margin-top:10px;
           font-size:13px;
           color:#555;
-          word-break:break-word;
-          max-width:220px;
         }
 
         .actions {
@@ -471,6 +493,7 @@ function abrirCertificado(nome, issuedAt) {
             display:none;
           }
         }
+
       </style>
     </head>
 
