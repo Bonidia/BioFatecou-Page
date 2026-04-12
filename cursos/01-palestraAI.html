@@ -9,6 +9,7 @@
     gtag('js', new Date());
     gtag('config', 'G-8NCLJFZFPL');
   </script>
+  <script src="config.js"></script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -318,7 +319,7 @@
           </div>
 
           <ul class="rule-list">
-            <li><i class="bi bi-check2-circle"></i><span>Assistir pelo menos 70% da palestra.</span></li>
+            <li><i class="bi bi-check2-circle"></i><span id="rulePercentText">Assistir pelo menos 70% do conteúdo.</span></li>
             <li><i class="bi bi-check2-circle"></i><span>Manter a aba ativa durante o acompanhamento validado.</span></li>
             <li><i class="bi bi-check2-circle"></i><span>Não avançar manualmente trechos longos do vídeo.</span></li>
           </ul>
@@ -415,7 +416,7 @@
             <i class="bi bi-chevron-down faq-icon"></i>
           </div>
           <div class="faq-a">
-            <p>Para liberar o botão do certificado, a página exige pelo menos 70% de acompanhamento validado da palestra.</p>
+            <p id="faqPercentText">Para liberar o botão do certificado, a página exige pelo menos 70% de acompanhamento validado do conteúdo.</p>
           </div>
         </div>
 
@@ -469,28 +470,28 @@
     // =========================
     // CONFIGURAÇÃO
     // =========================
+    const COURSE_ID = "inteligente_palestra_ai";
     const VIDEO_ID = "zGGc9LhygEw";
-    const API_URL = "https://script.google.com/macros/s/AKfycbzY6SuuRjhSt0ytDC-10xir0QddSSHpgtQSb3iMdXTA1yKr_sqkpMJYsMbAcS6LngyW/exec";
+    const API_URL = window.APP_CONFIG.API_URL;
     const CERTIFICATE_PAGE = "gerador/01-certificado.html";
 
-    const REQUIRED_PERCENT = 0.70;
-    const CHECKPOINT_SECONDS = 900; // 15 min
-    const SEEK_TOLERANCE = 8; // segundos
-    const STORAGE_KEY = "inteligente_palestra_ai_forum_cert_v3";
+    let REQUIRED_PERCENT = 0.70;
+    let VIDEO_DURATION_SECONDS = 3600;
+    let REQUIRED_SECONDS = 630;
+    let CHECKPOINT_SECONDS = 20;
+    const HEARTBEAT_INTERVAL_MS = 15000;
 
     // =========================
     // ESTADO
     // =========================
     let player = null;
-    let videoDuration = 0;
+    let sessionId = null;
     let validatedWatchTime = 0;
     let checkpointPassed = false;
-    let isTabActive = !document.hidden;
-    let lastPlayerTime = 0;
     let checkpointShown = false;
     let certificateUnlocked = false;
     let certLink = null;
-    let requestingToken = false;
+    let isTabActive = !document.hidden;
 
     // =========================
     // ELEMENTOS
@@ -501,6 +502,8 @@
     const statusWatch = document.getElementById("statusWatch");
     const statusCheckpoint = document.getElementById("statusCheckpoint");
     const certBtn = document.getElementById("certBtn");
+    const rulePercentText = document.getElementById("rulePercentText");
+    const faqPercentText = document.getElementById("faqPercentText");
 
     // =========================
     // SCROLL / REVEAL / FAQ
@@ -520,62 +523,11 @@
     });
 
     // =========================
-    // VISIBILIDADE DA ABA
+    // ABA ATIVA
     // =========================
     document.addEventListener("visibilitychange", () => {
       isTabActive = !document.hidden;
     });
-
-    // =========================
-    // LOCAL STORAGE
-    // =========================
-    function saveState() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        validatedWatchTime,
-        checkpointPassed,
-        checkpointShown,
-        certificateUnlocked,
-        certLink
-      }));
-    }
-
-    function loadState() {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return;
-
-      try {
-        const data = JSON.parse(raw);
-        validatedWatchTime = Number(data.validatedWatchTime || 0);
-        checkpointPassed = !!data.checkpointPassed;
-        checkpointShown = !!data.checkpointShown;
-        certificateUnlocked = !!data.certificateUnlocked;
-        certLink = data.certLink || null;
-      } catch (e) {
-        console.error("Erro ao carregar estado local:", e);
-      }
-    }
-
-    loadState();
-
-    // =========================
-    // YOUTUBE API
-    // =========================
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player("player", {
-        videoId: VIDEO_ID,
-        playerVars: {
-          rel: 0,
-          modestbranding: 1
-        },
-        events: {
-          onReady: (event) => {
-            videoDuration = event.target.getDuration() || 0;
-            lastPlayerTime = event.target.getCurrentTime() || 0;
-            updateUI();
-          }
-        }
-      });
-    }
 
     // =========================
     // AUXILIARES
@@ -586,33 +538,10 @@
     }
 
     function getValidatedPercent() {
-      if (!videoDuration || videoDuration <= 0) return 0;
-      return Math.min(validatedWatchTime / videoDuration, 1);
+      if (!VIDEO_DURATION_SECONDS) return 0;
+      return Math.min(validatedWatchTime / VIDEO_DURATION_SECONDS, 1);
     }
 
-    async function requestCertificateToken() {
-      const url = API_URL.includes("?")
-        ? `${API_URL}&action=gerarToken&key=INTELIGENTE_2026`
-        : `${API_URL}?action=gerarToken&key=INTELIGENTE_2026`;
-
-      const res = await fetch(url, { method: "GET" });
-
-      if (!res.ok) {
-        throw new Error("Falha HTTP ao gerar token.");
-      }
-
-      const data = await res.json();
-
-      if (!data.token) {
-        throw new Error("Token não retornado pela API.");
-      }
-
-      return data.token;
-    }
-
-    // =========================
-    // UI
-    // =========================
     function updateUI() {
       const percent = Math.round(getValidatedPercent() * 100);
 
@@ -647,72 +576,169 @@
       }
     }
 
-    // =========================
-    // LIBERAÇÃO DO CERTIFICADO
-    // =========================
-    async function maybeUnlockCertificate() {
-      if (certificateUnlocked || requestingToken) return;
+    function buildStartSessionUrl() {
+      const ua = navigator.userAgent || "";
+      return `${API_URL}?action=startSession&courseId=${encodeURIComponent(COURSE_ID)}&video=${encodeURIComponent(VIDEO_ID)}&ua=${encodeURIComponent(ua)}`;
+    }
 
-      const enoughTime = getValidatedPercent() >= REQUIRED_PERCENT;
+    async function startSession() {
+      const res = await fetch(buildStartSessionUrl(), { method: "GET" });
+      if (!res.ok) throw new Error("Falha ao iniciar sessão.");
 
-      if (enoughTime && checkpointPassed) {
-        requestingToken = true;
+      const data = await res.json();
+      if (!data.ok || !data.sessionId) {
+        throw new Error(data.error || "Sessão não iniciada.");
+      }
 
-        try {
-          const token = await requestCertificateToken();
-          certLink = `${CERTIFICATE_PAGE}?token=${encodeURIComponent(token)}`;
-          certificateUnlocked = true;
-          saveState();
-          updateUI();
-        } catch (e) {
-          console.error("Erro ao gerar token:", e);
-        } finally {
-          requestingToken = false;
-        }
+      const percentNumber = Math.round(REQUIRED_PERCENT * 100);
+
+      if (rulePercentText) {
+        rulePercentText.textContent = `Assistir pelo menos ${percentNumber}% do conteúdo.`;
+      }
+
+      if (faqPercentText) {
+        faqPercentText.textContent = `Para liberar o botão do certificado, a página exige pelo menos ${percentNumber}% de acompanhamento validado do conteúdo.`;
+      }
+
+      sessionId = data.sessionId;
+
+      VIDEO_DURATION_SECONDS = Number(data.videoDuration || 4500);
+      REQUIRED_SECONDS = Number(data.requiredSeconds || 3150);
+      CHECKPOINT_SECONDS = Number(data.checkpointSeconds || 100);
+      REQUIRED_PERCENT = VIDEO_DURATION_SECONDS > 0
+        ? REQUIRED_SECONDS / VIDEO_DURATION_SECONDS
+        : 0.70;
+    }
+
+    async function getStatus() {
+      if (!sessionId) return;
+
+      const res = await fetch(`${API_URL}?action=status&sessionId=${encodeURIComponent(sessionId)}`, {
+        method: "GET"
+      });
+
+      if (!res.ok) return;
+
+      const data = await res.json();
+      if (!data.ok) return;
+
+      validatedWatchTime = Number(data.validatedSeconds || 0);
+      checkpointPassed = !!data.checkpointPassed;
+      certificateUnlocked = !!data.certificateUnlocked;
+
+      if (certificateUnlocked && data.token) {
+        certLink = `${CERTIFICATE_PAGE}?token=${encodeURIComponent(data.token)}`;
+      }
+
+      updateUI();
+    }
+
+    async function sendHeartbeat() {
+      if (!sessionId || !player) return;
+
+      const playerState = player.getPlayerState ? player.getPlayerState() : -1;
+      const currentTime = player.getCurrentTime ? Number(player.getCurrentTime() || 0) : 0;
+
+      const payload = {
+        action: "heartbeat",
+        sessionId: sessionId,
+        videoTime: currentTime,
+        playing: playerState === YT.PlayerState.PLAYING,
+        tabActive: isTabActive
+      };
+
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) return;
+
+      const data = await res.json();
+      if (!data.ok) return;
+
+      validatedWatchTime = Number(data.validatedSeconds || 0);
+      checkpointPassed = !!data.checkpointPassed;
+      certificateUnlocked = !!data.certificateUnlocked;
+
+      if (certificateUnlocked && data.token) {
+        certLink = `${CERTIFICATE_PAGE}?token=${encodeURIComponent(data.token)}`;
+      }
+
+      updateUI();
+    }
+
+    async function confirmCheckpoint() {
+      if (!sessionId) return;
+
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify({
+          action: "confirmCheckpoint",
+          sessionId: sessionId
+        })
+      });
+
+      if (!res.ok) return;
+
+      const data = await res.json();
+      if (data.ok) {
+        checkpointPassed = true;
+        updateUI();
       }
     }
 
     // =========================
-    // LOOP DE VALIDAÇÃO
+    // YOUTUBE API
+    // =========================
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player("player", {
+        videoId: VIDEO_ID,
+        playerVars: {
+          rel: 0,
+          modestbranding: 1
+        },
+        events: {
+          onReady: async () => {
+            try {
+              await startSession();
+              await getStatus();
+              updateUI();
+            } catch (e) {
+              console.error("Erro ao iniciar sessão:", e);
+            }
+          }
+        }
+      });
+    }
+
+    // =========================
+    // LOOP PRINCIPAL
     // =========================
     setInterval(async () => {
-      if (!player || typeof player.getPlayerState !== "function") return;
-
-      let currentTime = 0;
-      let state = -1;
-
       try {
-        currentTime = player.getCurrentTime() || 0;
-        state = player.getPlayerState();
+        if (!player || !sessionId) return;
+
+        await sendHeartbeat();
+
+        if (!checkpointShown && validatedWatchTime >= CHECKPOINT_SECONDS) {
+          checkpointShown = true;
+          const ok = window.confirm("Confirma que está acompanhando este conteúdo?");
+          if (ok) {
+            await confirmCheckpoint();
+            await getStatus();
+          }
+        }
       } catch (e) {
-        return;
+        console.error("Erro no loop de validação:", e);
       }
-
-      // Bloqueia avanço grande manual
-      if (state === YT.PlayerState.PLAYING && currentTime - lastPlayerTime > SEEK_TOLERANCE) {
-        player.seekTo(lastPlayerTime, true);
-        currentTime = lastPlayerTime;
-      }
-
-      // Conta só se estiver tocando e com a aba ativa
-      if (state === YT.PlayerState.PLAYING && isTabActive) {
-        validatedWatchTime += 1;
-      }
-
-      // Checkpoint após tempo validado
-      if (!checkpointShown && validatedWatchTime >= CHECKPOINT_SECONDS) {
-        checkpointShown = true;
-        const ok = window.confirm("Confirma que está acompanhando a palestra?");
-        if (ok) checkpointPassed = true;
-        saveState();
-      }
-
-      lastPlayerTime = currentTime;
-
-      await maybeUnlockCertificate();
-      updateUI();
-      saveState();
-    }, 1000);
+    }, HEARTBEAT_INTERVAL_MS);
 
     // =========================
     // BOTÃO CERTIFICADO

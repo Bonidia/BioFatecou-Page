@@ -8,6 +8,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="../config.js"></script>
 
 <style>
 
@@ -113,140 +114,213 @@ button:disabled {
 </div>
 
 <script>
+const API_URL = window.APP_CONFIG.API_URL;
 
-function baixarPDF(){
-
-  const element = document.querySelector(".page");
-
-  const opt = {
-    margin: 0,
-    filename: 'certificado_${token}.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 3 },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  html2pdf().set(opt).from(element).save();
-}
-
-</script>
-
-<script>
-
-// 🔥 CONFIGURE AQUI
-const API_URL = "https://script.google.com/macros/s/AKfycbzY6SuuRjhSt0ytDC-10xir0QddSSHpgtQSb3iMdXTA1yKr_sqkpMJYsMbAcS6LngyW/exec";
-
-// =====================
-// PEGAR TOKEN
-// =====================
 const params = new URLSearchParams(window.location.search);
 const token = params.get("token");
 
-if(!token){
-  document.body.innerHTML = "<h2>❌ Token inválido</h2>";
+const statusEl = document.getElementById("status");
+const nomeInput = document.getElementById("nome");
+const btn = document.getElementById("btn");
+const loading = document.getElementById("loading");
+
+let tokenValid = false;
+let emittedData = null;
+
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function showFatal(message) {
+  document.body.innerHTML = `<h2 style="color:white;text-align:center;">${message}</h2>`;
+}
+
+function setLoading(isLoading) {
+  if (isLoading) {
+    loading.classList.add("show");
+    btn.disabled = true;
+    nomeInput.disabled = true;
+  } else {
+    loading.classList.remove("show");
+    btn.disabled = !tokenValid;
+    nomeInput.disabled = false;
+  }
+}
+
+function formatDateBR(dateIso) {
+  if (!dateIso) return new Date().toLocaleDateString("pt-BR");
+  return new Date(dateIso).toLocaleDateString("pt-BR");
 }
 
 // =====================
 // VALIDAR TOKEN
 // =====================
-async function validar(){
-
-  try{
-
-    const res = await fetch(API_URL + "?token=" + token);
-    const data = await res.json();
-
-    if(data.status === "invalido"){
-      document.body.innerHTML = "<h2>❌ Token inválido</h2>";
-      return;
-    }
-
-    if(data.status === "usado"){
-      document.body.innerHTML = "<h2>❌ Certificado já utilizado</h2>";
-      return;
-    }
-
-    document.getElementById("status").innerText = "Acesso validado ✔";
-    document.getElementById("btn").disabled = false;
-
-  }catch(e){
-    document.body.innerHTML = "<h2>Erro ao validar</h2>";
+async function validarToken() {
+  if (!token) {
+    showFatal("❌ Token ausente ou inválido.");
+    return;
   }
 
+  try {
+    const res = await fetch(`${API_URL}?action=validateToken&token=${encodeURIComponent(token)}`);
+    const data = await res.json();
+
+    if (!data.valid) {
+      if (data.reason === "already_used") {
+        // pode já ter certificado salvo, então tentamos buscar
+        await tentarCarregarCertificadoExistente();
+        return;
+      }
+
+      if (data.reason === "expired") {
+        await tentarCarregarCertificadoExistente("❌ Este link expirou.");
+        return;
+      }
+
+      showFatal("❌ Token inválido.");
+      return;
+    }
+
+    tokenValid = true;
+    statusEl.innerText = "Acesso validado ✔";
+    btn.disabled = false;
+  } catch (e) {
+    console.error(e);
+    showFatal("❌ Erro ao validar o acesso.");
+  }
 }
 
-validar();
+// =====================
+// TENTAR CARREGAR CERTIFICADO JÁ EMITIDO
+// =====================
+async function tentarCarregarCertificadoExistente(fallbackMessage = "❌ Certificado já utilizado.") {
+  try {
+    const res = await fetch(`${API_URL}?action=getCertificate&token=${encodeURIComponent(token)}`);
+    const data = await res.json();
+
+    if (data.ok) {
+      emittedData = data;
+      statusEl.innerText = "Certificado já emitido ✔";
+      nomeInput.value = data.nome || "";
+      nomeInput.disabled = true;
+      btn.disabled = false;
+      btn.innerText = "Abrir certificado";
+      tokenValid = true;
+      return;
+    }
+
+    showFatal(fallbackMessage);
+  } catch (e) {
+    console.error(e);
+    showFatal(fallbackMessage);
+  }
+}
 
 // =====================
-// GERAR CERTIFICADO
+// EMITIR CERTIFICADO
 // =====================
-async function gerar(){
+async function emitirCertificado(nome) {
+  const res = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify({
+      action: "issueCertificate",
+      token: token,
+      nome: nome
+    })
+  });
 
-  const nomeInput = document.getElementById("nome");
-  const btn = document.getElementById("btn");
-  const loading = document.getElementById("loading");
+  return await res.json();
+}
 
-  const nome = nomeInput.value;
+// =====================
+// GERAR
+// =====================
+async function gerar() {
+  const nome = nomeInput.value.trim();
 
-  if(!nome){
+  if (!tokenValid) {
+    alert("Token ainda não validado.");
+    return;
+  }
+
+  if (emittedData && emittedData.nome) {
+    abrirCertificado(emittedData.nome, emittedData.issuedAt || new Date().toISOString());
+    return;
+  }
+
+  if (!nome) {
     alert("Digite seu nome completo.");
     return;
   }
 
-  // 🔒 travar interface
-  btn.disabled = true;
-  nomeInput.disabled = true;
-  loading.classList.add("show");
+  setLoading(true);
 
-  try{
+  try {
+    const data = await emitirCertificado(nome);
 
-    const res = await fetch(API_URL, {
-      method: "POST",
-      body: JSON.stringify({
-        token: token,
-        nome: nome
-      })
-    });
+    if (!data.ok) {
+      if (data.error === "token_already_used") {
+        await tentarCarregarCertificadoExistente();
+        setLoading(false);
+        return;
+      }
 
-    const data = await res.json();
+      if (data.error === "token_expired") {
+        alert("Este token expirou.");
+        setLoading(false);
+        return;
+      }
 
-    if(data.error){
-      alert(data.error);
-
-      // 🔓 reativar se erro
-      btn.disabled = false;
-      nomeInput.disabled = false;
-      loading.style.display = "none";
-
+      alert("Não foi possível emitir o certificado.");
+      setLoading(false);
       return;
     }
 
-    abrirCertificado(nome);
+    emittedData = data;
 
-  }catch(e){
+    statusEl.innerText = "Certificado emitido ✔";
+    btn.innerText = "Abrir certificado";
+    nomeInput.disabled = true;
+    loading.classList.remove("show");
 
-    alert("Erro ao gerar certificado.");
+    abrirCertificado(data.nome, data.issuedAt);
+  } catch (e) {
     console.error(e);
-
-    btn.disabled = false;
-    nomeInput.disabled = false;
-    loading.style.display = "none";
+    alert("Erro ao gerar certificado.");
+    setLoading(false);
   }
 }
 
 // =====================
 // ABRIR CERTIFICADO
 // =====================
-function abrirCertificado(nome){
+function abrirCertificado(nome, issuedAt) {
+  const nomeSeguro = escapeHtml(nome);
+  const dataEmissao = formatDateBR(issuedAt);
+  const urlVerificacao = `https://inteligentehub.com.br/cursos/gerador/consultar.html?token=${encodeURIComponent(token)}`;
 
-  const urlVerificacao = "https://inteligentehub.com.br/cursos/gerador/consultar.html";
-  const win = window.open('', '', 'width=900,height=1200');
+  const win = window.open("", "", "width=900,height=1200");
+
+  if (!win) {
+    alert("O navegador bloqueou a janela do certificado.");
+    return;
+  }
 
   win.document.write(`
-    <html>
+    <html lang="pt-br">
     <head>
+      <meta charset="UTF-8">
       <title>Certificado</title>
       <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"><\/script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"><\/script>
 
       <style>
 
@@ -421,34 +495,29 @@ function abrirCertificado(nome){
         }
 
       </style>
+    
     </head>
 
     <body>
-
       <div class="page">
-
         <div class="actions">
           <button class="print-btn" onclick="window.print()">🖨️ Imprimir</button>
-          <button class="print-btn" onclick="baixarPDF()">⬇️ PDF</button>
+          <button class="print-btn" onclick="baixarPDFInterno()">⬇️ PDF</button>
         </div>
 
         <div class="border"></div>
-
-        <!-- LOGO FUNDO -->
-        <img src="logo.png" class="watermark">
+        <img src="logo.png" class="watermark" alt="Logo">
 
         <div class="content">
-
           <div class="header">
             <div class="title">CERTIFICADO</div>
             <div class="subtitle">Declaração de Participação</div>
           </div>
 
           <div>
-
             <p class="descricao">Certificamos que</p>
 
-            <div class="nome">${nome}</div>
+            <div class="nome">${nomeSeguro}</div>
 
             <p class="descricao">
               assistiu a palestra gravada <b>“InteliGente: Democratizando a Inteligência Artificial para o Bem Social”</b>,
@@ -462,44 +531,51 @@ function abrirCertificado(nome){
             </p>
 
             <p class="institucional" style="margin-top:15px;">
-              Emitido em ${new Date().toLocaleDateString()}
+              Emitido em ${dataEmissao}
             </p>
-
           </div>
 
           <div class="footer">
-
             <div class="selo-assinatura">
-
               <img src="selobg.png" alt="Selo InteliGente">
-
             </div>
 
             <div class="qrcode">
               <canvas id="qrcode"></canvas>
               <div class="codigo">Código de verificação: ${token}</div>
             </div>
-
           </div>
-
         </div>
-
       </div>
 
       <script>
-        QRCode.toCanvas(document.getElementById('qrcode'), "${urlVerificacao}");
-      <\/script>
+        function baixarPDFInterno() {
+          const element = document.querySelector(".page");
 
+          const opt = {
+            margin: 0,
+            filename: "certificado_${token}.pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 3 },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+          };
+
+          html2pdf().set(opt).from(element).save();
+        }
+
+        QRCode.toCanvas(document.getElementById("qrcode"), "${urlVerificacao}");
+      <\/script>
     </body>
     </html>
   `);
 
   win.document.close();
-
-  setTimeout(()=>win.print(), 800);
-
 }
 
+// =====================
+// INÍCIO
+// =====================
+validarToken();
 </script>
 
 </body>
