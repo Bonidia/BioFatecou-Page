@@ -116,73 +116,64 @@ button:disabled {
 </div>
 
 <script>
+const API_URL = "https://script.google.com/macros/s/AKfycbxNq-9DOzgpND-xFMgux1zASQoIXFp_hWB8JRbF4am_rj9nlAxVKzZ6gHySNrpqLrJx/exec";
 
-// 🔥 SUA API
-const API_URL = "https://script.google.com/macros/s/AKfycbzY6SuuRjhSt0ytDC-10xir0QddSSHpgtQSb3iMdXTA1yKr_sqkpMJYsMbAcS6LngyW/exec";
+function formatDateBR(dateIso) {
+  if (!dateIso) return "—";
+  return new Date(dateIso).toLocaleString("pt-BR");
+}
 
-async function consultar(){
-
+async function consultar() {
   const codigoInput = document.getElementById("codigo");
   const btn = document.querySelector("button");
   const loading = document.getElementById("loading");
   const result = document.getElementById("result");
 
-  const codigo = codigoInput.value;
+  const codigo = codigoInput.value.trim();
 
-  if(!codigo){
+  if (!codigo) {
     alert("Digite o código.");
     return;
   }
 
-  // 🔒 trava interface
   btn.disabled = true;
   codigoInput.disabled = true;
   loading.style.display = "block";
   result.style.display = "none";
 
-  try{
-
-    const res = await fetch(API_URL + "?action=validar&token=" + codigo.trim());
+  try {
+    const res = await fetch(
+      `${API_URL}?action=getCertificate&token=${encodeURIComponent(codigo)}`
+    );
     const data = await res.json();
 
     loading.style.display = "none";
     result.style.display = "block";
 
-    if(data.status === "gerado" || data.status === "usado"){
-
+    if (data.ok) {
       result.className = "result success";
-
       result.innerHTML = `
         ✅ Certificado válido<br><br>
         <b>Nome:</b> ${data.nome || "—"}<br>
-        <b>Data:</b> ${data.data || "—"}
+        <b>Emitido em:</b> ${formatDateBR(data.issuedAt)}<br>
+        <b>Código:</b> ${data.token || "—"}<br>
+        <b>ID do certificado:</b> ${data.certificateId || "—"}
       `;
-
-    }else if(data.status === "expirado"){
-
+    } else {
       result.className = "result error";
-      result.innerHTML = "⏳ Token expirado";
+      result.innerHTML = "❌ Certificado não encontrado ou inválido.";
+    }
 
-    }else{
-
-      result.className = "result error";
-      result.innerHTML = "❌ Certificado inválido";
-
-  }
-
-  }catch(e){
-
+  } catch (e) {
+    loading.style.display = "none";
+    result.style.display = "block";
     result.className = "result error";
     result.innerHTML = "Erro ao consultar.";
-
   }
 
-  // 🔓 liberar novamente
   btn.disabled = false;
   codigoInput.disabled = false;
-
 }
-
 </script>
 
 </body>
