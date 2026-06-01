@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RoboLibras | Objeto de Aprendizagem Multimodal para LIBRAS</title>
+  <meta name="description" content="RoboLibras: mão robótica educacional para ensino do alfabeto manual da LIBRAS com texto, voz, câmera, Arduino, MediaPipe e Streamlit." />
+  <meta name="keywords" content="RoboLibras, LIBRAS, robótica educacional, Arduino, MediaPipe, Streamlit, inclusão, acessibilidade" />
+  <meta name="theme-color" content="#2F324D" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVBAR
+       ═══════════════════════════════════════════════════════ -->
+  <header class="topbar" id="topo">
+    <div class="container nav-wrap">
+      <a class="brand" href="#" aria-label="Página inicial RoboLibras">
+        <img src="assets/logo.png" alt="RoboLibras" class="brand-logo">
+        <span><strong>RoboLibras</strong></span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
+        <i class="bi bi-list"></i>
+      </button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#modalidades">Modalidades</a></li>
+          <li><a href="#modos">Modos</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#tutorial">Tutorial</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#autores">Autores</a></li>
+          <li><a class="nav-cta" href="#download"><i class="bi bi-download"></i> Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO
+         ═══════════════════════════════════════════════════════ -->
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="eyebrow"><i class="bi bi-stars"></i> Objeto de aprendizagem multimodal</span>
+          <h1>Ensino de <span>LIBRAS</span> com IA, acessibilidade e interação real</h1>
+          <p class="hero-lead">O <strong>RoboLibras</strong> é um software educacional que transforma o alfabeto manual da LIBRAS em uma experiência concreta e inclusiva, combinando texto, voz e câmera.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#download"><i class="bi bi-download"></i> Baixar RoboLibras</a>
+            <a class="btn btn-ghost" href="#tutorial"><i class="bi bi-play-circle"></i> Ver tutorial</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Representação visual do RoboLibras">
+          <div class="device-card">
+            <div class="screen" style="min-height:auto; padding:14px;">
+              <div class="demo-gif-wrap">
+                <img src="assets/demo.gif" alt="Demonstração RoboLibras" class="demo-gif">
+                <div class="demo-overlay"></div>
+                <div class="demo-badge"><i class="bi bi-camera-video-fill"></i> Em tempo real</div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-card">
+            <div class="chat-row">
+              <div class="avatar"><i class="bi bi-person"></i></div>
+              <div class="bubble">Como aprender <strong>LIBRAS</strong> de forma interativa?</div>
+            </div>
+            <div class="chat-row">
+              <div class="avatar"><i class="bi bi-robot"></i></div>
+              <div class="bubble">Com o <strong>RoboLibras</strong> você tem aulas guiadas, quiz, prática com câmera e reconhecimento por IA — tudo para dominar o alfabeto da LIBRAS em um só lugar.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         STATS
+         ═══════════════════════════════════════════════════════ -->
+    <div class="container stats">
+      <div class="stats-grid">
+        <div class="stat-card"><strong>3</strong><span>modos de interação</span></div>
+        <div class="stat-card"><strong>26</strong><span>letras do alfabeto manual</span></div>
+        <div class="stat-card"><strong>5</strong><span>modos de aprendizagem</span></div>
+        <div class="stat-card"><strong>100%</strong><span>gratuito e open source</span></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SOBRE
+         ═══════════════════════════════════════════════════════ -->
+    <section id="sobre">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker"><i class="bi bi-heart"></i> Sobre o projeto</span>
+          <h2 class="section-title">Um recurso concreto para tornar a aprendizagem de LIBRAS mais concreta, interativa e inclusiva</h2>
+          <p class="section-desc">O RoboLibras foi pensado para professores e estudantes que desejam trabalhar o alfabeto manual da LIBRAS de forma prática. Em vez de apenas observar imagens estáticas, o estudante interage com uma mão robótica, testa sinais, recebe feedback e explora diferentes formas de aprendizagem.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="iconbox"><i class="bi bi-exclamation-diamond"></i></div>
+            <h3>O desafio educacional</h3>
+            <p>O ensino de LIBRAS em contextos inclusivos ainda enfrenta escassez de recursos didáticos interativos. Muitos materiais mostram os sinais, mas poucos permitem compreender concretamente a formação da mão, praticar com feedback e atender diferentes estilos de aprendizagem.</p>
+          </article>
+          <article class="card">
+            <div class="iconbox"><i class="bi bi-hand-thumbs-up"></i></div>
+            <h3>A solução RoboLibras</h3>
+            <p>O sistema integra texto, voz e câmera com o controle de uma mão robótica, oferecendo múltiplos modos de aprendizagem. Com inteligência artificial, é capaz de reconhecer gestos em tempo real e fornecer feedback imediato ao usuário.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         MODALIDADES
+         ═══════════════════════════════════════════════════════ -->
+    <section id="modalidades" class="dark-section">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker"><i class="bi bi-ui-checks-grid"></i> Modalidades</span>
+          <h2 class="section-title">Três formas de interação para aprender, praticar e demonstrar</h2>
+          <p class="section-desc">A experiência foi desenhada para funcionar tanto em aula quanto em atividades autônomas, com ou sem Arduino em alguns modos.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card dark-card modality">
+            <div class="iconbox"><i class="bi bi-keyboard"></i></div>
+            <div>
+              <h3>Texto</h3>
+              <p>O usuário digita uma palavra ou sequência de caracteres. O sistema soletra cada letra e movimenta a mão robótica conforme a pose cadastrada.</p>
+            </div>
+          </article>
+          <article class="card dark-card modality">
+            <div class="iconbox"><i class="bi bi-mic"></i></div>
+            <div>
+              <h3>Voz</h3>
+              <p>O modo de voz reconhece fala em português do Brasil e converte palavras e números em sinais executáveis pela interface e pelo robô.</p>
+            </div>
+          </article>
+          <article class="card dark-card modality">
+            <div class="iconbox"><i class="bi bi-camera-video"></i></div>
+            <div>
+              <h3>Câmera</h3>
+              <p>Com MediaPipe e OpenCV, o sistema estima landmarks da mão e permite espelhamento ou prática com reconhecimento do sinal realizado.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         MODOS DE APRENDIZAGEM
+         ═══════════════════════════════════════════════════════ -->
+    <section id="modos">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker"><i class="bi bi-grid-3x2-gap"></i> Modos de aprendizagem</span>
+          <h2 class="section-title">Cinco modos para aprender, explorar e praticar</h2>
+          <p class="section-desc">Do primeiro contato com o alfabeto à prática autônoma com reconhecimento em tempo real — o RoboLibras acompanha cada etapa do aprendizado.</p>
+        </div>
+
+        <p style="font-size:.85rem; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:.1em; margin-bottom:16px;">Funcionam sem Arduino</p>
+        <div class="grid-3" style="margin-bottom:32px;">
+          <article class="card">
+            <div class="iconbox"><i class="bi bi-easel2"></i></div>
+            <h3>Modo Aula</h3>
+            <p>Explore cada letra do alfabeto com imagem de referência e visualização dos dedos. Perfeito para um primeiro contato guiado com a LIBRAS.</p>
+          </article>
+          <article class="card">
+            <div class="iconbox"><i class="bi bi-patch-question"></i></div>
+            <h3>Quiz</h3>
+            <p>Teste o que aprendeu identificando a letra correspondente ao sinal exibido. Uma forma leve e dinâmica de fixar o conteúdo.</p>
+          </article>
+          <article class="card">
+            <div class="iconbox"><i class="bi bi-hand-index-thumb"></i></div>
+            <h3>Siga o Sinal</h3>
+            <p>Faça o sinal para a câmera e receba feedback imediato. Pratique no seu ritmo, letra por letra, até dominar o alfabeto.</p>
+          </article>
+        </div>
+
+        <p style="font-size:.85rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-bottom:16px;">Requerem Arduino e mão robótica</p>
+        <div class="grid-2" style="max-width:780px;">
+          <article class="card" style="border-color:#ECECF4; opacity:.85;">
+            <div class="iconbox" style="background:linear-gradient(135deg,#525680,#3D4166);"><i class="bi bi-keyboard"></i></div>
+            <h3>Soletração</h3>
+            <p>Digite ou fale qualquer palavra e veja a mão robótica soletrar em LIBRAS. Uma experiência concreta de como os sinais se encadeiam na língua.</p>
+          </article>
+          <article class="card" style="border-color:#ECECF4; opacity:.85;">
+            <div class="iconbox" style="background:linear-gradient(135deg,#525680,#3D4166);"><i class="bi bi-camera-video"></i></div>
+            <h3>Espelhamento</h3>
+            <p>Mostre sua mão para a câmera e veja a mão robótica reproduzir seus movimentos em tempo real. Ideal para explorar e comparar seus gestos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         COMO FUNCIONA
+         ═══════════════════════════════════════════════════════ -->
+    <section id="como-funciona">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker"><i class="bi bi-diagram-3"></i> Como funciona</span>
+          <h2 class="section-title">Do sinal à mão robótica em segundos</h2>
+          <p class="section-desc">Veja como o RoboLibras transforma uma entrada simples em movimento físico real.</p>
+        </div>
+
+        <div class="architecture">
+          <article class="card step-card">
+            <div class="iconbox"><i class="bi bi-hand-index-thumb"></i></div>
+            <h3>Digite, fale ou gesticule</h3>
+            <p>Escolha como quer interagir: digitando uma palavra, falando em voz alta ou mostrando seu gesto para a câmera.</p>
+          </article>
+          <article class="card step-card">
+            <div class="iconbox"><i class="bi bi-search"></i></div>
+            <h3>O sistema reconhece</h3>
+            <p>O RoboLibras identifica a letra ou palavra e consulta o dicionário de sinais da LIBRAS.</p>
+          </article>
+          <article class="card step-card">
+            <div class="iconbox"><i class="bi bi-sliders"></i></div>
+            <h3>A pose é calculada</h3>
+            <p>Cada dedo recebe uma instrução, aberto, semiflexionado ou fechado, conforme o sinal correspondente.</p>
+          </article>
+          <article class="card step-card">
+            <div class="iconbox"><i class="bi bi-cpu"></i></div>
+            <h3>O Arduino recebe o comando</h3>
+            <p>As instruções chegam à placa em milissegundos via conexão USB.</p>
+          </article>
+          <article class="card step-card">
+            <div class="iconbox"><i class="bi bi-robot"></i></div>
+            <h3>A mão se move</h3>
+            <p>Os cinco servos acionam os tendões e reproduzem fisicamente o sinal do alfabeto manual.</p>
+          </article>
+          <article class="card step-card">
+            <div class="iconbox"><i class="bi bi-patch-check"></i></div>
+            <h3>Você aprende com feedback real</h3>
+            <p>Compare seu gesto com o da mão robótica e pratique quantas vezes quiser.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         DOWNLOAD
+         ═══════════════════════════════════════════════════════ -->
+    <section id="download" class="dark-section">
+      <div class="container">
+        <div class="download-band">
+          <div>
+            <span class="section-kicker"><i class="bi bi-download"></i> Download</span>
+            <h2>Instale em um clique e comece a aprender LIBRAS agora</h2>
+            <p>Disponível para Windows, Linux e macOS. Após o download, siga o tutorial abaixo para configurar o ambiente e executar o projeto.</p>
+          </div>
+          <div class="download-actions">
+            <a class="btn btn-primary" href="assets/robolibras.exe" download><i class="bi bi-windows"></i> Windows .exe</a>
+            <a class="btn btn-dark" href="assets/robolibras.sh" download><i class="bi bi-ubuntu"></i> Linux / macOS .sh</a>
+            <a class="btn btn-outline" href="https://github.com/ianderichalski/robo-libras" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         TUTORIAL
+         ═══════════════════════════════════════════════════════ -->
+    <section id="tutorial" class="dark-section">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker"><i class="bi bi-terminal"></i> Tutorial</span>
+          <h2 class="section-title">Configure tudo automaticamente e comece a usar</h2>
+          <p class="section-desc">Baixe o instalador do seu sistema, execute e aguarde. Tudo é configurado automaticamente — Python, dependências e modelo de reconhecimento.</p>
+        </div>
+
+        <div class="tutorial-tabs">
+
+          <!-- Windows -->
+          <article class="card dark-card">
+            <h3><i class="bi bi-windows"></i> Windows</h3>
+            <p>Baixe o instalador <code>.exe</code>, clique duas vezes e siga as instruções na tela. O processo instala tudo automaticamente e cria um atalho na área de trabalho.</p>
+            <div class="timeline" style="margin-top:20px;">
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-1-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Baixar e executar</h3>
+                  <p>Clique em <strong>robolibras.exe</strong> na seção de download, execute o arquivo e clique em <strong>Sim</strong> quando o Windows solicitar permissão.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-shield-check"></i></div>
+                <div class="timeline-content">
+                  <h3>Aviso do Windows</h3>
+                  <p>Se aparecer "O Windows protegeu seu PC", clique em <strong>Mais informações</strong> → <strong>Executar assim mesmo</strong>. O código-fonte completo está disponível no <a href="https://github.com/ianderichalski/robo-libras" target="_blank" style="color:var(--accent);">GitHub</a> para verificação.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-2-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Aguardar a instalação</h3>
+                  <p>O instalador baixa e configura Python, dependências e o modelo de reconhecimento automaticamente. Pode levar alguns minutos dependendo da internet.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-3-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Iniciar o RoboLibras</h3>
+                  <p>Ao finalizar, o app abre automaticamente no navegador em <code>http://localhost:8501</code>. Nas próximas vezes, use o atalho <strong>RoboLibras</strong> criado na área de trabalho.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-exclamation-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Não feche o terminal</h3>
+                  <p>Uma janela de terminal ficará aberta em segundo plano; isso é normal. Fechar essa janela encerra o RoboLibras. Minimize-a e deixe rodando enquanto usar o app.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-info-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Primeiro acesso</h3>
+                  <p>Na primeira execução, o Streamlit pode solicitar um e-mail. Basta pressionar <strong>Enter</strong> para pular — o app abre normalmente sem precisar cadastrar nada.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-4-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Conectar o Arduino (opcional)</h3>
+                  <p>Para usar a mão robótica, carregue o <strong>StandardFirmata</strong> na Arduino IDE: <code>Arquivo → Exemplos → Firmata → StandardFirmata → Upload</code>. Depois informe a porta (ex: <code>COM4</code>) na interface do app.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Linux / macOS -->
+          <article class="card dark-card">
+            <h3><i class="bi bi-ubuntu"></i> Linux / macOS</h3>
+            <p>Baixe o script <code>.sh</code>, dê permissão de execução e rode no terminal. Tudo é instalado automaticamente.</p>
+            <div class="codeblock" style="margin:16px 0;">
+              <div class="code-title">Terminal <button class="copy-btn" onclick="copyCode('linuxInstall')">copiar</button></div>
+              <pre id="linuxInstall">chmod +x robolibras.sh
+./robolibras.sh</pre>
+            </div>
+            <div class="timeline" style="margin-top:20px;">
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-1-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Baixar e executar o script</h3>
+                  <p>Clique em <strong>robolibras.sh</strong> na seção de download, abra o terminal na pasta do arquivo e execute os comandos acima.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-2-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Aguardar a instalação</h3>
+                  <p>O script instala Python 3.10, dependências e o modelo de reconhecimento automaticamente.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-3-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Iniciar o RoboLibras</h3>
+                  <p>O app abre automaticamente em <code>http://localhost:8501</code>. Nas próximas vezes, execute <code>./iniciar_robolibras.sh</code>.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-exclamation-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Não feche o terminal</h3>
+                  <p>O terminal precisa permanecer aberto enquanto o RoboLibras estiver em uso. Fechar o terminal encerra o app. Minimize-o e deixe rodando em segundo plano.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-info-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Primeiro acesso</h3>
+                  <p>Na primeira execução, o Streamlit pode solicitar um e-mail. Basta pressionar <strong>Enter</strong> para pular — o app abre normalmente sem precisar cadastrar nada.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"><i class="bi bi-4-circle"></i></div>
+                <div class="timeline-content">
+                  <h3>Conectar o Arduino (opcional)</h3>
+                  <p>Carregue o <strong>StandardFirmata</strong> na Arduino IDE e informe a porta (ex: <code>/dev/ttyUSB0</code>) na interface do app.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FAQ
+         ═══════════════════════════════════════════════════════ -->
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker"><i class="bi bi-question-circle"></i> FAQ</span>
+          <h2 class="section-title">Dúvidas comuns antes de instalar</h2>
+        </div>
+        <div class="grid-2">
+          <div>
+            <details open>
+              <summary>Consigo usar sem a mão robótica?</summary>
+              <p>Sim. Os modos Aula, Quiz e Siga o Sinal funcionam completamente sem Arduino. A mão robótica é necessária apenas para a execução física dos sinais.</p>
+            </details>
+            <details>
+              <summary>Tive erro ao instalar, o que pode ser?</summary>
+              <p>O erro mais comum é usar uma versão diferente do Python. O RoboLibras requer Python 3.10 porque a biblioteca pyFirmata 1.1.0 depende de recursos removidos em versões mais recentes. O instalador automático já cuida disso.</p>
+            </details>
+            <details>
+              <summary>O reconhecimento de voz funciona em qualquer ambiente?</summary>
+              <p>O modo voz depende de conexão com a internet para acessar a Google Speech API. Ruído ambiente intenso pode reduzir a qualidade do reconhecimento, recomenda-se uso em ambientes com pouco barulho.</p>
+            </details>
+          </div>
+          <div>
+            <details open>
+              <summary>Quais sinais o sistema suporta?</summary>
+              <p>Nesta versão, o RoboLibras cobre as letras A–Z do alfabeto manual da LIBRAS, totalizando 26 sinais.</p>
+            </details>
+            <details>
+              <summary>Posso montar minha própria mão robótica?</summary>
+              <p>Sim! O projeto é 100% open-source e o hardware é de baixo custo, Arduino Uno e cinco servos SG90. Qualquer kit de mão robótica compatível pode ser usado, mas os ângulos dos servos precisam ser recalibrados para o modelo específico.</p>
+            </details>
+            <details>
+              <summary>O projeto vai continuar evoluindo?</summary>
+              <p>Sim. Os próximos passos incluem testes formais de usabilidade em sala de aula, expansão para palavras e frases completas em LIBRAS e suporte a uma segunda mão robótica para sinais compostos.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         AUTORES
+         ═══════════════════════════════════════════════════════ -->
+    <section id="autores" class="dark-section">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-kicker"><i class="bi bi-people"></i> Autores</span>
+          <h2 class="section-title">Quem desenvolveu o RoboLibras</h2>
+          <p class="section-desc">Projeto desenvolvido no contexto de pesquisa em educação inclusiva e tecnologia assistiva.</p>
+        </div>
+
+        <div class="grid-3" style="max-width:1100px; margin:0 auto;">
+          <article class="card dark-card" style="text-align:center;">
+            <img src="assets/team/iande.png" class="author-photo" alt="Iandê Richalski">
+            <h3>Iandê de Freitas Richalski</h3>
+            <p><small style="color:#9A9CB8;">Universidade Tecnológica Federal do Paraná</small></p>
+            <div style="display:flex; gap:10px; justify-content:center; margin-top:14px; flex-wrap:wrap;">
+              <a class="btn btn-ghost" style="min-height:36px; padding:0 14px; font-size:.8rem;" href="https://www.linkedin.com/in/ianderichalski/" target="_blank" rel="noopener">
+                <i class="bi bi-linkedin"></i> LinkedIn
+              </a>
+              <a class="btn btn-ghost" style="min-height:36px; padding:0 14px; font-size:.8rem;" href="mailto:iande@alunos.utfpr.edu.br">
+                <i class="bi bi-envelope"></i> E-mail
+              </a>
+            </div>
+          </article>
+
+          <article class="card dark-card" style="text-align:center;">
+            <img src="assets/team/leticia.jpg" class="author-photo" alt="Letícia Bento">
+            <h3>Letícia Bento Pinto</h3>
+            <p><small style="color:#9A9CB8;">Universidade Tecnológica Federal do Paraná</small></p>
+            <div style="display:flex; gap:10px; justify-content:center; margin-top:14px; flex-wrap:wrap;">
+              <a class="btn btn-ghost" style="min-height:36px; padding:0 14px; font-size:.8rem;" href="https://www.linkedin.com/in/letícia-bento-pinto-33898b211/" target="_blank" rel="noopener">
+                <i class="bi bi-linkedin"></i> LinkedIn
+              </a>
+              <a class="btn btn-ghost" style="min-height:36px; padding:0 14px; font-size:.8rem;" href="mailto:leticia.301100@alunos.utfpr.edu.br">
+                <i class="bi bi-envelope"></i> E-mail
+              </a>
+            </div>
+          </article>
+
+          <article class="card dark-card" style="text-align:center;">
+            <img src="assets/team/bonidia.jpeg" class="author-photo" alt="Robson Bonidia">
+            <h3>Robson Parmezan Bonidia</h3>
+            <p><small style="color:#9A9CB8;">Universidade Tecnológica Federal do Paraná</small></p>
+            <div style="display:flex; gap:10px; justify-content:center; margin-top:14px; flex-wrap:wrap;">
+              <a class="btn btn-ghost" style="min-height:36px; padding:0 14px; font-size:.8rem;" href="https://linkedin.com/in/robson-parmezan-bonidia-phd-8b1b8890" target="_blank" rel="noopener">
+                <i class="bi bi-linkedin"></i> LinkedIn
+              </a>
+              <a class="btn btn-ghost" style="min-height:36px; padding:0 14px; font-size:.8rem;" href="mailto:bonidia@utfpr.edu.br">
+                <i class="bi bi-envelope"></i> E-mail
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top:40px; text-align:center;">
+          <p style="color:#9A9CB8; font-size:.85rem; margin-bottom:16px; text-transform:uppercase; letter-spacing:.1em; font-weight:700;">Desenvolvido no âmbito de</p>
+          <a href="https://inteligentehub.com.br/" target="_blank" rel="noopener"
+             class="card dark-card"
+             style="display:inline-flex; align-items:center; gap:16px; padding:18px 28px; text-decoration:none; max-width:480px; width:100%;">
+            <img src="assets/team/inteligente.jpg" alt="InteliGente" style="width:54px; height:54px; border-radius:14px; object-fit:cover; flex:0 0 auto;">
+            <div style="text-align:left;">
+              <h3 style="margin:0 0 4px; font-size:1.1rem;">InteliGente — UTFPR</h3>
+              <p style="margin:0; font-size:.85rem; color:#9A9CB8;">Construindo Caminhos de Igualdade com Inteligência Artificial</p>
+            </div>
+            <i class="bi bi-arrow-right" style="color:var(--accent); margin-left:auto; flex:0 0 auto;"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">© 2026 RoboLibras</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="back-top" href="#" aria-label="Voltar ao início"><i class="bi bi-arrow-up"></i></a>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('show'));
+    });
+
+    function copyCode(id) {
+      const el = document.getElementById(id);
+      const text = el.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const buttons = document.querySelectorAll('.copy-btn');
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(id)) {
+            const old = btn.innerText;
+            btn.innerText = 'copiado!';
+            setTimeout(() => btn.innerText = old, 1400);
+          }
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
