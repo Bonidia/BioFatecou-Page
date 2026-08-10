@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Chamadas Abertas | InteliGente</title>
+
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --ig-primary: #ef6603;
+      --ig-primary-dark: #d95800;
+      --ig-ink: #24324a;
+      --ig-muted: #6b7280;
+      --ig-border: #e8edf3;
+      --ig-soft: #f7f9fc;
+      --ig-green: #16835e;
+      --ig-blue: #2563eb;
+    }
+
+    body { background: #fff; }
+
+    #header,
+    #header.header-transparent,
+    #header.header-scrolled {
+      background: rgba(42, 44, 57, 0.96) !important;
+    }
+
+    #hero-calls {
+      min-height: 390px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.14), transparent 28%),
+        radial-gradient(circle at 85% 35%, rgba(255,255,255,.11), transparent 24%),
+        linear-gradient(135deg, #ef6603 0%, #f58a24 52%, #f7a24b 100%);
+    }
+
+    #hero-calls::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -120px -10%;
+      height: 230px;
+      background: #fff;
+      border-radius: 50% 50% 0 0 / 35% 35% 0 0;
+    }
+
+    .hero-call-content { position: relative; z-index: 2; padding: 115px 0 105px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.25);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .hero-call-content h1 {
+      margin: 18px 0 14px;
+      font-family: "Raleway", sans-serif;
+      font-weight: 800;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.03;
+    }
+    .hero-call-content p { max-width: 720px; font-size: 18px; line-height: 1.7; color: rgba(255,255,255,.93); }
+
+    .calls-section { padding: 30px 0 80px; }
+
+    .calls-toolbar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      padding: 16px;
+      border: 1px solid var(--ig-border);
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(36,50,74,.06);
+    }
+
+    .search-box {
+      flex: 1 1 330px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      background: var(--ig-soft);
+      border-radius: 12px;
+    }
+    .search-box i { color: var(--ig-muted); }
+    .search-box input { border: 0; outline: 0; width: 100%; background: transparent; color: var(--ig-ink); }
+
+    .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn {
+      border: 1px solid var(--ig-border);
+      background: #fff;
+      color: var(--ig-ink);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      transition: .2s ease;
+    }
+    .filter-btn:hover, .filter-btn.active { color: #fff; border-color: var(--ig-primary); background: var(--ig-primary); }
+
+    .call-card {
+      height: 100%;
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--ig-border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 14px 38px rgba(36,50,74,.07);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      overflow: hidden;
+    }
+    .call-card::before {
+      content: "";
+      position: absolute;
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      top: -52px;
+      right: -45px;
+      background: rgba(239,102,3,.08);
+    }
+    .call-card:hover { transform: translateY(-6px); box-shadow: 0 22px 50px rgba(36,50,74,.12); border-color: rgba(239,102,3,.28); }
+
+    .call-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+    .call-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      font-size: 23px;
+      color: var(--ig-primary);
+      background: rgba(239,102,3,.09);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .status-open { color: #0c6b4b; background: #e9f8f1; }
+    .status-soon { color: #925b00; background: #fff4db; }
+    .status-closed { color: #6b7280; background: #eef1f4; }
+
+    .call-card h3 { font-size: 21px; line-height: 1.35; font-weight: 800; color: var(--ig-ink); margin: 0 0 9px; }
+    .call-org { color: var(--ig-primary); font-size: 13px; font-weight: 800; margin-bottom: 13px; }
+    .call-desc { color: var(--ig-muted); line-height: 1.7; min-height: 76px; margin-bottom: 18px; }
+
+    .call-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    .meta-item { padding: 11px 12px; background: var(--ig-soft); border-radius: 12px; }
+    .meta-item span { display: block; color: #8a94a3; font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: .05em; margin-bottom: 4px; }
+    .meta-item strong { color: var(--ig-ink); font-size: 13px; }
+
+    .call-tags { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 22px; }
+    .call-tag { padding: 6px 9px; border-radius: 8px; background: #f2f4f7; color: #5d6674; font-size: 11px; font-weight: 700; }
+
+    .call-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 4px;
+    }
+
+    /* Botão principal: Edital */
+    .call-link {
+      flex: 1 1 150px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+
+      padding: 11px 14px;
+      border-radius: 11px;
+
+      background: #ef6603;
+      border: 1px solid #ef6603;
+      color: #fff;
+
+      font-weight: 800;
+      font-size: 13px;
+      text-decoration: none;
+
+      transition: .2s ease;
+    }
+
+    .call-link:hover {
+      background: #d95800;
+      border-color: #d95800;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+
+    /* Botões secundários: Resultado, Retificação etc. */
+    .call-link.secondary {
+      background: #24324a;
+      border-color: #24324a;
+      color: #fff;
+    }
+
+    .call-link.secondary:hover {
+      background: #354766;
+      border-color: #354766;
+      color: #fff;
+    }
+
+
+    /* Ícones */
+    .call-link i {
+      font-size: 14px;
+    }
+
+
+    /* Mobile */
+    @media (max-width: 575px) {
+      .call-actions {
+        flex-direction: column;
+      }
+
+      .call-link,
+      .call-link.secondary {
+        width: 100%;
+        flex: 1 1 auto;
+      }
+    }
+    .empty-state { display: none; text-align: center; padding: 55px 20px; color: var(--ig-muted); }
+    .empty-state i { display: block; font-size: 42px; color: var(--ig-primary); margin-bottom: 12px; }
+
+    .info-strip {
+      margin-top: 42px;
+      border-radius: 22px;
+      padding: 28px;
+      background: linear-gradient(135deg, #25334b, #354766);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .info-strip h4 { margin: 0 0 6px; font-weight: 800; }
+    .info-strip p { margin: 0; color: rgba(255,255,255,.8); }
+    .info-strip a { background: #fff; color: #25334b; padding: 10px 16px; border-radius: 10px; font-weight: 800; text-decoration: none; }
+
+    @media (max-width: 767px) {
+      #hero-calls { min-height: 350px; }
+      .hero-call-content { padding: 105px 0 95px; }
+      .call-meta { grid-template-columns: 1fr; }
+      .calls-toolbar { align-items: stretch; }
+      .filter-group { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="logo"><h1><a href="index.html">InteliGente</a></h1></div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link active" href="editais.html">Chamadas</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero-calls">
+    <div class="container hero-call-content" data-aos="fade-up">
+      <span class="hero-eyebrow"><i class="bi bi-megaphone"></i> Oportunidades</span>
+      <h1>Chamadas Abertas e Oportunidades</h1>
+      <p>Explore editais vigentes, bolsas, oportunidades de pesquisa, programas comunitários e iniciativas de financiamento relacionados ao InteliGente e ao nosso ecossistema de parceiros.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="calls-section">
+      <div class="container">
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Oportunidades</h2>
+          <p>Encontre a oportunidade certa para você</p>
+        </div>
+
+        <div class="calls-toolbar" data-aos="fade-up">
+          <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input id="searchInput" type="search" placeholder="Search by title, institution or keyword...">
+          </div>
+          <div class="filter-group" id="filters">
+            <button class="filter-btn active" data-filter="all">Tudo</button>
+            <button class="filter-btn" data-filter="open">Aberto</button>
+            <button class="filter-btn" data-filter="soon">Por vir</button>
+            <button class="filter-btn" data-filter="closed">Fechado</button>
+          </div>
+        </div>
+
+        <div class="row g-4" id="callsGrid"></div>
+
+        <div class="empty-state" id="emptyState">
+          <i class="bi bi-search"></i>
+          <h4>Nenhuma oportunidade encontrada</h4>
+          <p>Tente alterar o termo de pesquisa ou o filtro selecionado.</p>
+        </div>
+
+        <div class="info-strip" data-aos="fade-up">
+          <div>
+            <h4>Você gostaria de publicar uma oportunidade?</h4>
+            <p>Instituições parceiras podem entrar em contato com a InteliGente para compartilhar chamadas relevantes com a nossa comunidade.</p>
+          </div>
+          <a href="mailto:rpbonidia@gmail.com"><i class="bi bi-envelope me-2"></i>Contate-nos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <h3>InteliGente</h3>
+      <div class="copyright">&copy; Copyright <strong><span>InteliGente</span></strong>. All Rights Reserved</div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = {"default_language":"pt","languages":["en","fr","de", "pt", "it","es"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","alt_flags":{"en":"usa","pt":"brazil"}}</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+  <script>
+    // =========================================================
+    // EDIT ONLY THIS ARRAY TO ADD / REMOVE OPEN CALLS.
+    // "link" may point to an InteliGente page OR any external site.
+    // external: true  -> opens in a new tab
+    // external: false -> opens normally
+    // =========================================================
+    const calls = [
+      //{
+      //  title: "Edital nº 05/2026 — Seleção de Bolsistas",
+      //  organization: "InteliGente",
+      //  description: "Processo seletivo para bolsistas interessados em atuar nas ações de pesquisa, extensão e inovação social do InteliGente.",
+      //  deadline: "20/08/2026 a 30/08/2026",
+      //  location: "Cornélio Procópio / PR",
+      //  category: "Bolsa",
+      //  status: "open",
+      //  icon: "bi-mortarboard",
+      //  links: [
+      //    {
+      //      label: "Edital",
+      //      url: "assets/editais/edital-05-2026.pdf",
+      //      icon: "bi-file-earmark-pdf",
+      //      external: true
+      //    },
+      //    {
+      //      label: "Resultado",
+      //      url: "assets/editais/resultado-05-2026.pdf",
+      //      icon: "bi-trophy",
+      //      external: true
+      //    }
+      //  ]
+      // },
+      {
+        title: "Edital nº 01/2026 — Bolsistas Técnicos (TI)",
+        organization: "Sabiá Data Lake e InteliGente",
+        description: "Selecionar bolsista para atuar no planejamento, na implementação e na manutenção do Sabiá Data Lake, infraestrutura tecnológica voltada à integração, à gestão e à análise de dados de saúde do estado do Paraná. ",
+        deadline: "12/02/2026 a 18/02/2026",
+        location: "Brazil / Hybrid",
+        category: "Bolsa",
+        status: "closed",
+        icon: "bi-mortarboard",
+        link: "https://sabiadatalake.com.br/editais.html",
+        external: true
+      },
+      {
+        title: "Edital nº 02/2026 — Bolsista de Pós-Doutorado Júnior",
+        organization: "Sabiá Data Lake e InteliGente",
+        description: "Pesquisador de pós-doutorado com forte formação interdisciplinar em Ciência da Computação, Ciência de Dados, Bioinformática ou áreas afins, com atuação comprovada em infraestrutura de dados, sistemas científicos e/ou inteligência artificial aplicada.",
+        deadline: "12/02/2026 a 18/02/2026",
+        location: "Brazil / Hybrid",
+        category: "Bolsa",
+        status: "closed",
+        icon: "bi-mortarboard",
+        link: "https://sabiadatalake.com.br/editais.html",
+        external: true
+      },
+      {
+        title: "Edital nº 03/2026 — Bolsistas Técnicos (TI)",
+        organization: "Sabiá Data Lake e InteliGente",
+        description: "Selecionar bolsista para atuar no planejamento, na implementação e na manutenção do Sabiá Data Lake, infraestrutura tecnológica voltada à integração, à gestão e à análise de dados de saúde do estado do Paraná.",
+        deadline: "12/02/2026 a 18/02/2026",
+        location: "Brazil / Hybrid",
+        category: "Bolsa",
+        status: "closed",
+        icon: "bi-mortarboard",
+        link: "https://sabiadatalake.com.br/editais.html",
+        external: true
+      },
+      {
+        title: "Edital nº 04/2026 — Bolsistas Técnicos (TI)",
+        organization: "Sabiá Data Lake e InteliGente",
+        description: "Selecionar bolsista para atuar no planejamento, na implementação e na manutenção do Sabiá Data Lake, infraestrutura tecnológica voltada à integração, à gestão e à análise de dados de saúde do estado do Paraná.",
+        deadline: "11/05/2026 a 15/05/2026",
+        location: "Brazil / Hybrid",
+        category: "Bolsa",
+        status: "closed",
+        icon: "bi-mortarboard",
+        link: "https://sabiadatalake.com.br/editais.html",
+        external: true
+      },
+    ];
+
+    const grid = document.getElementById('callsGrid');
+    const searchInput = document.getElementById('searchInput');
+    const emptyState = document.getElementById('emptyState');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    let activeFilter = 'all';
+
+    function statusInfo(status) {
+      if (status === 'open') return { label: 'Open', className: 'status-open', icon: 'bi-circle-fill' };
+      if (status === 'soon') return { label: 'Upcoming', className: 'status-soon', icon: 'bi-clock-fill' };
+      return { label: 'Closed', className: 'status-closed', icon: 'bi-lock-fill' };
+    }
+
+    function renderCalls() {
+      const term = searchInput.value.trim().toLowerCase();
+
+      const filtered = calls.filter(call => {
+        const matchesStatus =
+          activeFilter === 'all' || call.status === activeFilter;
+
+        const haystack = [
+          call.title,
+          call.organization,
+          call.description,
+          call.category,
+          call.location,
+          ...(call.tags || [])
+        ].join(' ').toLowerCase();
+
+        return matchesStatus && haystack.includes(term);
+      });
+
+      grid.innerHTML = filtered.map(call => {
+
+        const status = statusInfo(call.status);
+
+        // =====================================================
+        // BOTÕES / LINKS
+        // Permite:
+        // 1) link único: link + external
+        // 2) múltiplos links: links: [...]
+        // =====================================================
+
+        let actionButtons = '';
+
+        if (call.links && call.links.length > 0) {
+
+          // VÁRIOS LINKS
+          actionButtons = call.links.map((item, index) => {
+
+            const itemExternal = item.external !== false;
+
+            const target = itemExternal
+              ? ' target="_blank" rel="noopener noreferrer"'
+              : '';
+
+            const icon = item.icon || 'bi-file-earmark-text';
+
+            // Primeiro botão fica principal
+            const buttonClass =
+              index === 0
+                ? 'call-link'
+                : 'call-link secondary';
+
+            return `
+              <a
+                class="${buttonClass}"
+                href="${item.url}"
+                ${target}
+              >
+                ${item.label}
+                <i class="bi ${icon}"></i>
+              </a>
+            `;
+
+          }).join('');
+
+        } else if (call.link) {
+
+          // LINK ÚNICO — mantém compatibilidade com seu código antigo
+
+          const target = call.external
+            ? ' target="_blank" rel="noopener noreferrer"'
+            : '';
+
+          const externalIcon = call.external
+            ? '<i class="bi bi-box-arrow-up-right"></i>'
+            : '<i class="bi bi-arrow-right"></i>';
+
+          actionButtons = `
+            <a
+              class="call-link"
+              href="${call.link}"
+              ${target}
+            >
+              View opportunity
+              ${externalIcon}
+            </a>
+          `;
+        }
+
+        return `
+          <div class="col-lg-6" data-aos="fade-up">
+
+            <article class="call-card">
+
+              <div class="call-top">
+
+                <div class="call-icon">
+                  <i class="bi ${call.icon}"></i>
+                </div>
+
+                <span class="status-badge ${status.className}">
+                  <i class="bi ${status.icon}"></i>
+                  ${status.label}
+                </span>
+
+              </div>
+
+              <div class="call-org">
+                ${call.organization}
+              </div>
+
+              <h3>
+                ${call.title}
+              </h3>
+
+              <p class="call-desc">
+                ${call.description}
+              </p>
+
+              <div class="call-meta">
+
+                <div class="meta-item">
+                  <span>Deadline</span>
+
+                  <strong>
+                    <i class="bi bi-calendar3 me-1"></i>
+                    ${call.deadline}
+                  </strong>
+                </div>
+
+                <div class="meta-item">
+                  <span>Location</span>
+
+                  <strong>
+                    <i class="bi bi-geo-alt me-1"></i>
+                    ${call.location}
+                  </strong>
+                </div>
+
+              </div>
+
+              <div class="call-tags">
+
+                <span class="call-tag">
+                  ${call.category}
+                </span>
+
+                ${(call.tags || [])
+                  .map(tag => `
+                    <span class="call-tag">${tag}</span>
+                  `)
+                  .join('')}
+
+              </div>
+
+              <div class="call-actions">
+                ${actionButtons}
+              </div>
+
+            </article>
+
+          </div>
+        `;
+      }).join('');
+
+      emptyState.style.display =
+        filtered.length ? 'none' : 'block';
+    }
+    renderCalls();
+
+    searchInput.addEventListener('input', renderCalls);
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function () {
+
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active');
+        });
+
+        this.classList.add('active');
+
+        activeFilter = this.dataset.filter;
+
+        renderCalls();
+      });
+    });
+  </script>
+</body>
+</html>
