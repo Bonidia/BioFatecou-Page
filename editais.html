@@ -317,7 +317,7 @@
         <div class="calls-toolbar" data-aos="fade-up">
           <div class="search-box">
             <i class="bi bi-search"></i>
-            <input id="searchInput" type="search" placeholder="Search by title, institution or keyword...">
+            <input id="searchInput" type="search" placeholder="Pesquisar por título, instituição ou palavra-chave...">
           </div>
           <div class="filter-group" id="filters">
             <button class="filter-btn active" data-filter="all">Tudo</button>
@@ -374,30 +374,30 @@
     // external: false -> opens normally
     // =========================================================
     const calls = [
-      //{
-      //  title: "Edital nº 05/2026 — Seleção de Bolsistas",
-      //  organization: "InteliGente",
-      //  description: "Processo seletivo para bolsistas interessados em atuar nas ações de pesquisa, extensão e inovação social do InteliGente.",
-      //  deadline: "20/08/2026 a 30/08/2026",
-      //  location: "Cornélio Procópio / PR",
-      //  category: "Bolsa",
-      //  status: "open",
-      //  icon: "bi-mortarboard",
-      //  links: [
-      //    {
-      //      label: "Edital",
-      //      url: "assets/editais/edital-05-2026.pdf",
-      //      icon: "bi-file-earmark-pdf",
-      //      external: true
-      //    },
-      //    {
-      //      label: "Resultado",
-      //      url: "assets/editais/resultado-05-2026.pdf",
-      //      icon: "bi-trophy",
-      //      external: true
-      //    }
-      //  ]
-      // },
+      {
+        title: "Edital nº 01/2026 — Cadastro de Reserva de Bolsistas — UTFPR e SEIA",
+        organization: "InteliGente",
+        description: "Processo seletivo para bolsistas interessados em atuar nas ações de pesquisa, extensão e inovação social do InteliGente.",
+        deadline: "Em breve",
+        location: "Cornélio Procópio / PR",
+        category: "Bolsa",
+        status: "soon",
+        icon: "bi-mortarboard",
+        links: [
+          {
+            label: "Edital",
+            url: "https://inteligentehub.com.br/editais.html",
+            icon: "bi-file-earmark-pdf",
+            external: true
+          },
+          {
+            label: "Resultado",
+            url: "https://inteligentehub.com.br/editais.html",
+            icon: "bi-trophy",
+            external: true
+          }
+        ]
+       },
       {
         title: "Edital — Iniciação Científica",
         organization: "InteliGente",
@@ -578,7 +578,7 @@
               href="${call.link}"
               ${target}
             >
-              View opportunity
+              Visualizar Oportunidade
               ${externalIcon}
             </a>
           `;
